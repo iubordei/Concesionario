@@ -7,7 +7,7 @@ using System.Collections.ObjectModel;
 
 namespace Persistencia
 {
-    class TablaVehiculo : KeyedCollection<string, VehiculoDato>
+    class TablaVehiculos : KeyedCollection<string, VehiculoDato>
     {
         protected override string GetKeyForItem(VehiculoDato item)
         {
@@ -15,3 +15,4 @@ namespace Persistencia
         }
     }
 }
+

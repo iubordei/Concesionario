@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Persistencia
 {
-    class TablaCliente : KeyedCollection<string, ClienteDato>
+    class TablaClientes : KeyedCollection<string, ClienteDato>
     {
         protected override string GetKeyForItem(ClienteDato item)
         {

@@ -8,6 +8,102 @@ namespace Persistencia
 {
     class BD
     {
-        
+        private BD() { }
+
+        #region presupuestos
+        private static TablaPresupuestos presupuestos;
+        public static TablaPresupuestos Presupuestos
+        {
+            get
+            {
+                if (presupuestos == null)
+                {
+                    presupuestos = new TablaPresupuestos();
+                }
+
+                return (presupuestos);
+            }
+        }
+
+        public static void INSERTPresupuesto(PresupuestoDato p)
+        {
+            BD.Presupuestos.Add(p);
+        }
+
+        public static PresupuestoDato SELECTPresupuesto(PresupuestoDato p)
+        {
+            return BD.Presupuestos[p.FechaRealizacion + " " + p.Cliente + " " + p.Vehiculo];
+        }
+
+        public static void DELETEPresupuesto(PresupuestoDato p)
+        {
+            BD.Presupuestos.Remove(p);
+        }
+
+        public static void UPDATEPresupuesto(PresupuestoDato p)
+        {
+            BD.DELETEPresupuesto(p);
+            BD.INSERTPresupuesto(p);
+
+        }
+
+        #endregion
+
+        #region vehiculos
+        private static TablaVehiculos vehiculos;
+
+        public static TablaVehiculos Vehiculos
+        {
+            get
+            {
+                if (presupuestos == null)
+                {
+                    vehiculos = new TablaVehiculos();
+                }
+
+                return (vehiculos);
+            }
+        }
+
+        public static void INSERTVehiculo(VehiculoDato vehiculo)
+        {
+            BD.Vehiculos.Add(vehiculo);
+        }
+
+        public static bool SELECTVehiculo(VehiculoDato vehiculo)
+        {
+            if (BD.Vehiculos[vehiculo.NumeroDeBastidor] == null)
+                return false;
+            else
+                return true;
+        }
+
+        public static void REMOVEVehiculo(VehiculoDato vehiculo)
+        {
+            BD.Vehiculos.Remove(vehiculo.NumeroDeBastidor);
+        }
+
+        public static void UPDATEVehiculo(VehiculoDato vehiculo)
+        {
+            BD.Vehiculos.
+        }
+        #endregion
+
+        #region clientes
+        private static TablaClientes clientes;
+
+        public static TablaClientes Clientes
+        {
+            get
+            {
+                if (presupuestos == null)
+                {
+                    clientes = new TablaClientes();
+                }
+
+                return (clientes);
+            }
+        }
+        #endregion
     }
 }

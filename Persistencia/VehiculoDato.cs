@@ -18,7 +18,7 @@ namespace Persistencia
         private DateTime fechaMatriculacion;
         private float iva;
 
-        
+
 
 
         public VehiculoDato(String numBastidor, String marca, String modelo, int potencia, int año, float precioRecom, DateTime fecha, float iva, String matricula)
@@ -34,11 +34,12 @@ namespace Persistencia
             this.matricula = matricula;
         }
 
-        public String NumeroDeBastidor {
-            get 
+        public String NumeroDeBastidor
+        {
+            get
             {
                 return numeroDeBastidor;
-            } 
+            }
         }
 
         public String Marca
