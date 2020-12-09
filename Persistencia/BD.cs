@@ -8,5 +8,6 @@ namespace Persistencia
 {
     class BD
     {
+        
     }
 }
