@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BD.cs" />
+    <Compile Include="CategoriaDato.cs" />
+    <Compile Include="EstadoDato.cs" />
     <Compile Include="PersistenciaCliente.cs" />
     <Compile Include="PersistenciaPresupuesto.cs" />
     <Compile Include="PersistenciaVehiculo.cs" />

@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LNPresupuesto
+namespace Persistencia
 {
-    public class Presupuesto
+    enum CategoriaDato
     {
+        A,
+        B,
+        C
     }
 }
