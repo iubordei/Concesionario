@@ -70,22 +70,20 @@ namespace Persistencia
             BD.Vehiculos.Add(vehiculo);
         }
 
-        public static bool SELECTVehiculo(VehiculoDato vehiculo)
+        public static VehiculoDato SELECTVehiculo(VehiculoDato vehiculo)
         {
-            if (BD.Vehiculos[vehiculo.NumeroDeBastidor] == null)
-                return false;
-            else
-                return true;
+            return BD.vehiculos[vehiculo.NumeroDeBastidor];
         }
 
-        public static void REMOVEVehiculo(VehiculoDato vehiculo)
+        public static void DELETEVehiculo(VehiculoDato vehiculo)
         {
-            BD.Vehiculos.Remove(vehiculo.NumeroDeBastidor);
+            BD.Vehiculos.Remove(vehiculo);
         }
 
         public static void UPDATEVehiculo(VehiculoDato vehiculo)
         {
-            BD.Vehiculos.
+            BD.DELETEVehiculo(vehiculo);
+            BD.INSERTVehiculo(vehiculo);
         }
         #endregion
 

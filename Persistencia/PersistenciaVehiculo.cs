@@ -12,18 +12,28 @@ namespace Persistencia
         //Post: …
         public static void Añadir(Vehiculo vehiculo)
         {
-            VehiculoDato vehiculoDato = new VehiculoDato(vehiculo.NumBastidor, vehiculo.Marca, vehiculo.Modelo, vehiculo.Potencia, vehiculo.Año, vehiculo.PrecioRecomendado, vehiculo.FechaMatriculacion, vehiculo.Iva, vehiculo.Matricula);
-            BD.INSERTVehiculo(vehiculoDato);
+            BD.INSERTVehiculo(vehiculoAvehiculoDato(vehiculo));
         }
         //Pre: … 
         //Post: …
         public static Vehiculo Buscar(Vehiculo vehiculo)
         {
-            VehiculoDato vehiculoDato = new VehiculoDato(vehiculo.NumBastidor, vehiculo.Marca, vehiculo.Modelo, vehiculo.Potencia, vehiculo.Año, vehiculo.PrecioRecomendado, vehiculo.FechaMatriculacion, vehiculo.Iva, vehiculo.Matricula);
-            if (BD.SELECTVehiculo(vehiculoDato))
-                return BD.SELECTVehiculo(vehiculoDato);
-            else
-                return null;
+            return (BD.SELECTVehiculo(vehiculoAvehiculoDato(vehiculo)));
+        }
+
+        public static void Eliminar(Vehiculo vehiculo)
+        {
+            BD.DELETEVehiculo(vehiculoAvehiculoDato(vehiculo));
+        }
+
+        public static void Modificar(Vehiculo vehiculo)
+        {
+            BD.UPDATEVehiculo(vehiculoAvehiculoDato(vehiculo));
+        }
+
+        private VehiculoDato vehiculoAvehiculoDato(Vehiculo vehiculo)
+        {
+            return (new VehiculoDato(vehiculo.NumBastidor, vehiculo.Marca, vehiculo.Modelo, vehiculo.Potencia, vehiculo.Año, vehiculo.PrecioRecom, vehiculo.Fecha, vehiculo.Iva, vehiculo.Matricula));
         }
     }
 }
