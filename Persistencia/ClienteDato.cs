@@ -35,29 +35,5 @@ namespace Persistencia
                 return this.dni;
             }
         }
-
-        public String Nombre
-        {
-            get
-            {
-                return this.nombre;
-            }
-        }
-
-        public String Telefono
-        {
-            get
-            {
-                return this.telefono;
-            }
-        }
-
-        public Cat Categoria
-        {
-            get
-            {
-                return this.categoria;
-            }
-        }
     }
 }

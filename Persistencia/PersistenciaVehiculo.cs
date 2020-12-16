@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Persistencia
 {
-    class PersistenciaVehiculo
+    public class PersistenciaVehiculo
     {
         //Pre: … 
         //Post: …

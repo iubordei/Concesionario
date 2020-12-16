@@ -30,7 +30,7 @@ namespace Persistencia
             this.año = año;
             precioRecomendado = precioRecom;
             fechaMatriculacion = fecha;
-            this.iva = IVA;
+            this.iva = iva;
             this.matricula = matricula;
         }
 
@@ -39,64 +39,6 @@ namespace Persistencia
             get
             {
                 return numeroDeBastidor;
-            }
-        }
-
-        public String Marca
-        {
-            get
-            {
-                return marca;
-            }
-        }
-        public String Modelo
-        {
-            get
-            {
-                return modelo;
-            }
-        }
-        public int Potencia
-        {
-            get
-            {
-                return potencia;
-            }
-        }
-        public int Año
-        {
-            get
-            {
-                return año;
-            }
-        }
-        public float PrecioRecomendado
-        {
-            get
-            {
-                return precioRecomendado;
-            }
-        }
-        public DateTime FechaMatriculacion
-        {
-            get
-            {
-                return fechaMatriculacion;
-            }
-        }
-        public float IVA
-        {
-            get
-            {
-                return iva;
-            }
-        }
-
-        public String Matricula
-        {
-            get
-            {
-                return matricula;
             }
         }
     }

@@ -10,23 +10,27 @@ namespace Persistencia
     {
         public static void Añadir(Cliente c)
         {
-            ClienteDato c = new ClienteDato();
-            BD.INSERTCliente();
+            BD.INSERTCliente(cambioAClienteDato(c));
         }
 
         public static Cliente Buscar(Cliente c)
         {
-
+            return (BD.SELECTCliente(cambioAClienteDato(c)));
         }
 
         public static void Eliminar(Cliente c)
         {
-
+            BD.DELETECliente(cambioAClienteDato(c));
         }
 
         public static void Modificar(Cliente c)
         {
+            BD.UPDATECliente(cambioAClienteDato(c));
+        }
 
+        private ClienteDato cambioAClienteDato(Cliente c)
+        {
+            return (new ClienteDato(c.DNI, c.Nombre, c.Telefono, c.Categoria));
         }
     }
 }

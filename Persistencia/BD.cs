@@ -102,6 +102,29 @@ namespace Persistencia
                 return (clientes);
             }
         }
+
+        public static void INSERTCliente(ClienteDato c)
+        {
+            BD.Clientes.Add(c);
+        }
+
+        public static ClienteDato SELECTCliente(ClienteDato c)
+        {
+            return BD.Clientes[c.DNI];
+        }
+
+        public static void DELETECliente(ClienteDato c)
+        {
+            BD.Clientes.Remove(c);
+        }
+
+        public static void UPDATECliente(ClienteDato c)
+        {
+            BD.DELETECliente(c);
+            BD.INSERTCliente(c);
+
+        }
+
         #endregion
     }
 }

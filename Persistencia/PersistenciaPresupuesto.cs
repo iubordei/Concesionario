@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Persistencia
 {
-    class PersistenciaPresupuesto
+    public class PersistenciaPresupuesto
     {
         public static void Añadir(Presupuesto p)
         {
@@ -30,7 +30,7 @@ namespace Persistencia
 
         private PresupuestoDato presupuestoAPresupuestoDato(Presupuesto p)
         {
-            return (new PresupuestoDato(p.fecha, p.Cliente.DNI, p.Vehiculo.NumBastidor, p.estado, p.valoracion));
+            return (new PresupuestoDato(p.Fecha, p.Cliente.DNI, p.Vehiculo.NumBastidor, p.Estado, p.Valoracion));
         }
     }
 }
