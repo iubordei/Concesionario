@@ -11,21 +11,14 @@ namespace Persistencia
         private String dni;
         private String nombre;
         private String telefono;
-        private Cat categoria;
+        private CategoriaDato categoria;
 
-        public ClienteDato(String dni, String nombre, String telefono, Cat cat)
+        public ClienteDato(String dni, String nombre, String telefono, CategoriaDato cat)
         {
             this.dni = dni;
             this.nombre = nombre;
             this.telefono = telefono;
             this.categoria = cat;
-        }
-
-        public enum Cat
-        {
-            A,
-            B,
-            C
         }
 
         public String DNI

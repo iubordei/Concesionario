@@ -12,9 +12,9 @@ namespace Persistencia
         private string cliente;
         private string vehiculo;
         private string estado;
-        private string valoracion;
+        private float valoracion;
 
-        public PresupuestoDato(DateTime fecha, string cliente, string vehiculo, string estado, string valoracion)
+        public PresupuestoDato(DateTime fecha, string cliente, string vehiculo, string estado, float valoracion)
         {
             this.fechaRealizacion = fecha;
             this.cliente = cliente;
@@ -44,22 +44,6 @@ namespace Persistencia
             get
             {
                 return (this.vehiculo);
-            }
-        }
-
-        public string Estado
-        {
-            get
-            {
-                return (this.estado);
-            }
-        }
-
-        public string Valoracion
-        {
-            get
-            {
-                return (this.valoracion);
             }
         }
     }
