@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Persistencia
 {
-    class PersistenciaCliente
+    public class PersistenciaCliente
     {
         public static void Añadir(Cliente c)
         {

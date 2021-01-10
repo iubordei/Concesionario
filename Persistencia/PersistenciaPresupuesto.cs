@@ -8,29 +8,37 @@ namespace Persistencia
 {
     public class PersistenciaPresupuesto
     {
-        public static void Añadir(Presupuesto p)
+        public static void Añadir(MD.Presupuesto p)
         {
             BD.INSERTPresupuesto(presupuestoAPresupuestoDato(p));
         }
 
-        public static Presupuesto Buscar(Presupuesto p)
+        public static MD.Presupuesto Buscar(MD.Presupuesto p)
         {
-            return (BD.SELECTPresupuesto(presupuestoAPresupuestoDato(p)));
+            PresupuestoDato pd = presupuestoAPresupuestoDato(p);
+            PresupuestoDato res = BD.SELECTPresupuesto(pd);
+            if (res != null)
+            {
+                return (new MD.Presupuesto(res.FechaRealizacion, res.Cliente, res.Vehiculo));
+            } else
+            {
+                return (null);
+            }
         } 
 
-        public static void Eliminar(Presupuesto p)
+        public static void Eliminar(MD.Presupuesto p)
         {
             BD.DELETEPresupuesto(presupuestoAPresupuestoDato(p));
         }
 
-        public static void Modificar(Presupuesto p)
+        public static void Modificar(MD.Presupuesto p)
         {
             BD.UPDATEPresupuesto(presupuestoAPresupuestoDato(p));
         }
 
-        private PresupuestoDato presupuestoAPresupuestoDato(Presupuesto p)
+        private static PresupuestoDato presupuestoAPresupuestoDato(MD.Presupuesto p)
         {
-            return (new PresupuestoDato(p.Fecha, p.Cliente.DNI, p.Vehiculo.NumBastidor, p.Estado, p.Valoracion));
+            return (new PresupuestoDato(p.FechaRealizacion, p.Cliente.DNI, p.Vehiculo.NumBastidor, p.Estado.ToString(), p.Valoracion));
         }
     }
 }

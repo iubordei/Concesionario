@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace MD
 {
-    class Estado
+    public enum Estado
     {
+        Aceptado,
+        Pendiente,
+        Desestimado
     }
 }

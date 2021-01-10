@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MD
 {
-    class Vehiculo
+    public class Vehiculo
     {
     }
 }
