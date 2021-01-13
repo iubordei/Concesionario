@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace MD
 {
-    class Categoria
+    public enum Categoria
     {
+        A,
+        B,
+        C
     }
 }

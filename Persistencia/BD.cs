@@ -108,14 +108,19 @@ namespace Persistencia
             BD.Clientes.Add(c);
         }
 
-        public static ClienteDato SELECTCliente(ClienteDato c)
+        public static ClienteDato SELECTCliente(String dni)
         {
-            return BD.Clientes[c.DNI];
+            return BD.Clientes[dni];
         }
 
         public static void DELETECliente(ClienteDato c)
         {
             BD.Clientes.Remove(c);
+        }
+
+        public static bool ISCliente(String dni)
+        {
+            return BD.Clientes.Contains(dni);
         }
 
         public static void UPDATECliente(ClienteDato c)
@@ -125,6 +130,15 @@ namespace Persistencia
 
         }
 
+        public static List<ClienteDato> ALLClientes()
+        {
+            List<ClienteDato> clientes = new List<ClienteDato>();
+            foreach (ClienteDato c in BD.Clientes)
+            {
+                clientes.Add(c);
+            }
+            return clientes;
+        }
         #endregion
     }
 }

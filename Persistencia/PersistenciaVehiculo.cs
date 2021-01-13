@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MD;
 
 namespace Persistencia
 {
@@ -18,7 +19,23 @@ namespace Persistencia
         //Post: …
         public static Vehiculo Buscar(Vehiculo vehiculo)
         {
-            return (BD.SELECTVehiculo(vehiculoAvehiculoDato(vehiculo)));
+            VehiculoDato vd = vehiculoAvehiculoDato(vehiculo);
+            VehiculoDato res = BD.SELECTVehiculo(vd);
+            if (res != null)
+            {
+                if (res.Matricula == null)
+                {
+                    return (new MD.Nuevo(res.NumeroDeBastidor, res.Marca, res.Modelo, res.Potencia, res.Año, res.PrecioRecomendado, res.Extras, res.Iva));
+                }
+                    else
+                {
+                    return (new MD.SegundaMano(res.NumeroDeBastidor, res.Marca, res.Modelo, res.Potencia, res.Año, res.PrecioRecomendado, res.Matricula, res.FechaMatriculacion, res.Iva));
+                }
+            }
+            else
+            {
+                return (null);
+            }
         }
 
         public static void Eliminar(Vehiculo vehiculo)
@@ -31,9 +48,9 @@ namespace Persistencia
             BD.UPDATEVehiculo(vehiculoAvehiculoDato(vehiculo));
         }
 
-        private VehiculoDato vehiculoAvehiculoDato(Vehiculo vehiculo)
+        private static VehiculoDato vehiculoAvehiculoDato(Vehiculo vehiculo)
         {
-            return (new VehiculoDato(vehiculo.NumBastidor, vehiculo.Marca, vehiculo.Modelo, vehiculo.Potencia, vehiculo.Año, vehiculo.PrecioRecom, vehiculo.Fecha, vehiculo.Iva, vehiculo.Matricula));
+            return (new VehiculoDato(vehiculo.NumeroDeBastidor, vehiculo.Marca, vehiculo.Modelo, vehiculo.Potencia, vehiculo.Año, vehiculo.PrecioRecomendado, null, null, null));
         }
     }
 }

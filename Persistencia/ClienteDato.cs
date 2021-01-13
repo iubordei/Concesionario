@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Persistencia
 {
-    class ClienteDato
+    public class ClienteDato
     {
         private String dni;
         private String nombre;
@@ -21,11 +21,50 @@ namespace Persistencia
             this.categoria = cat;
         }
 
+        public String Nombre
+        {
+            get
+            {
+                return this.nombre;
+            }
+
+            set
+            {
+                this.nombre = value;
+            }
+        }
+
         public String DNI
         {
             get
             {
                 return this.dni;
+            }
+        }
+
+        public String Telefono
+        {
+            get
+            {
+                return this.telefono;
+            }
+
+            set
+            {
+                this.telefono = value;
+            }
+        }
+
+        public CategoriaDato Categoria
+        {
+            get
+            {
+                return this.categoria;
+            }
+
+            set
+            {
+                this.categoria = value;
             }
         }
     }

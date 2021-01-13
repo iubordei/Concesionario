@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Persistencia
 {
-    enum CategoriaDato
+    public enum CategoriaDato
     {
         A,
         B,

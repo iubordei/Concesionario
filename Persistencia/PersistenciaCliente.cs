@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MD;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,9 +14,9 @@ namespace Persistencia
             BD.INSERTCliente(cambioAClienteDato(c));
         }
 
-        public static Cliente Buscar(Cliente c)
+        public static Cliente Buscar(String dni)
         {
-            return (BD.SELECTCliente(cambioAClienteDato(c)));
+            return cambioACliente(BD.SELECTCliente(dni));
         }
 
         public static void Eliminar(Cliente c)
@@ -28,9 +29,35 @@ namespace Persistencia
             BD.UPDATECliente(cambioAClienteDato(c));
         }
 
-        private ClienteDato cambioAClienteDato(Cliente c)
+        public static bool Existe(String dni)
         {
-            return (new ClienteDato(c.DNI, c.Nombre, c.Telefono, c.Categoria));
+            return BD.ISCliente(dni);
         }
+
+        private static List<Cliente> ListaClientes()
+        {
+            List<Cliente> clientes = new List<Cliente>();
+            List<ClienteDato> clientesDato = BD.ALLClientes();
+
+            foreach (ClienteDato cd in clientesDato)
+            {
+                clientes.Add(cambioACliente(cd));
+            }
+
+            return clientes;
+
+        }
+
+        private static ClienteDato cambioAClienteDato(Cliente c)
+        {
+            return (new ClienteDato(c.DNI, c.Nombre, c.Telefono, (CategoriaDato)c.Categoria));
+        }
+
+        private static Cliente cambioACliente(ClienteDato c)
+        {
+            return (new Cliente(c.DNI, c.Nombre, c.Telefono, (Categoria)c.Categoria));
+        }
+
+
     }
 }

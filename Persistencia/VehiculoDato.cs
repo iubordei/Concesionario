@@ -15,13 +15,13 @@ namespace Persistencia
         private int año;
         private float precioRecomendado;
         private String matricula;
-        private DateTime fechaMatriculacion;
-        private float iva;
+        private DateTime? fechaMatriculacion;
+        private float? iva;
 
 
 
 
-        public VehiculoDato(String numBastidor, String marca, String modelo, int potencia, int año, float precioRecom, DateTime fecha, float iva, String matricula)
+        public VehiculoDato(String numBastidor, String marca, String modelo, int potencia, int año, float precioRecom, DateTime? fecha, float? iva, String matricula)
         {
             numeroDeBastidor = numBastidor;
             this.marca = marca;
@@ -39,6 +39,80 @@ namespace Persistencia
             get
             {
                 return numeroDeBastidor;
+            }
+        }
+
+        public string Marca
+        {
+            get
+            {
+                return marca;
+            }
+        }
+
+        public string Modelo
+        {
+            get
+            {
+                return (modelo);
+            }
+        }
+
+        public int Potencia
+        {
+            get
+            {
+                return (potencia);
+            }
+        }
+
+        public int Año
+        {
+            get
+            {
+                return (año);
+            }
+        }
+
+        public float PrecioRecomendado
+        {
+            get
+            {
+                return (precioRecomendado);
+            }
+
+            set
+            {
+                this.precioRecomendado = value;
+            }
+        }
+
+        public float? Iva
+        {
+            get
+            {
+                return (iva);
+            }
+
+            set
+            {
+                iva = value;
+            }
+        }
+
+        public string Matricula
+        {
+            get
+            {
+                return (matricula);
+            }
+        }
+
+        public DateTime? FechaMatriculacion
+        {
+            get
+            {
+                return (fechaMatriculacion);
             }
         }
     }
