@@ -12,14 +12,14 @@ namespace LNCliente
     public class LNCliente
     {
 
-        public bool AltaCliente(Cliente cliente)
+        public bool AltaCliente(MD.Cliente cliente)
         // PRE: 
         // POS: devuelve TRUE si cliente se ha añadido a la base de datos, 
         //FALSE si ya estaba en la base de datos o era nulo.
         {
-            if (cliente != null && !Existe(cliente.DNI))
+            if (cliente != null && !PersistenciaCliente.Existe(cliente.DNI))
             {
-                Añadir(cliente);
+                PersistenciaCliente.Añadir(cliente);
                 return true;
             }
             else
@@ -33,9 +33,9 @@ namespace LNCliente
         // POS: devuelve TRUE si cliente se ha eliminado de la base de datos, 
         //FALSE si no estaba en la base de datos o era nulo.
         {
-            if (cliente != null && Existe(cliente.DNI))
+            if (cliente != null && PersistenciaCliente.Existe(cliente.DNI))
             {
-                Eliminar(cliente);
+                PersistenciaCliente.Eliminar(cliente);
                 return true;
             }
             else
@@ -49,9 +49,9 @@ namespace LNCliente
         // POS: devuelve una cadena que contiene la información relativa al dni del cliente introducido. 
         //Devuelve cadena vacía si no hay ningún cliente agregado con ese dni.
         {
-            if (dni != null && Existe(dni))
+            if (dni != null && PersistenciaCliente.Existe(dni))
             {
-                Cliente c = Buscar(dni);
+                Cliente c = PersistenciaCliente.Buscar(dni);
                 return c.ToString();
             }
             else
@@ -79,7 +79,7 @@ namespace LNCliente
         // PRE:
         // POS: devuelve una lista que contiene todos los elementos cliente del concesionario.
         {
-            return ListaClientes();
+            return PersistenciaCliente.ListaClientes();
         }
 
         public List<Cliente> verClientesPorCategoria(Categoria categoria)
@@ -87,7 +87,7 @@ namespace LNCliente
         // POS: devuelve una lista que contiene todos los elementos cliente del concesionario cuya Categoria sea categoria. 
         //Devuelve una lista vacía si categoria es nula o no existe.
         {
-            List<Cliente> clientes = ListaClientes();
+            List<Cliente> clientes = PersistenciaCliente.ListaClientes();
             List<Cliente> clientesCategoria = new List<Cliente>();
 
             foreach (Cliente c in clientes)
@@ -106,10 +106,10 @@ namespace LNCliente
         // POS: devuelve TRUE si se ha modificado la categoria de cliente, 
         //FALSE si la categoria que se intenta poner es la misma que la que tiene o si cliente o categoria son nulos o no existen.
         {
-            if (cliente != null && Existe(cliente.DNI))
+            if (cliente != null && PersistenciaCliente.Existe(cliente.DNI))
             {
                 Cliente c = new Cliente(cliente.Nombre, cliente.DNI, cliente.Telefono, categoria);
-                Modificar(Cliente c);
+                PersistenciaCliente.Modificar(cliente);
                 return true;
             }
             else

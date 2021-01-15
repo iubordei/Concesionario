@@ -17,9 +17,7 @@ namespace Persistencia
         private String matricula;
         private DateTime? fechaMatriculacion;
         private float? iva;
-
-
-
+        private List<ExtraDato> extras;
 
         public VehiculoDato(String numBastidor, String marca, String modelo, int potencia, int año, float precioRecom, DateTime? fecha, float? iva, String matricula)
         {
@@ -113,6 +111,14 @@ namespace Persistencia
             get
             {
                 return (fechaMatriculacion);
+            }
+        }
+
+        public List<ExtraDato> Extras
+        {
+            get
+            {
+                return (this.extras);
             }
         }
     }

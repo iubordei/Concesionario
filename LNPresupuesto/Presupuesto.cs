@@ -42,26 +42,50 @@ namespace LNPresupuesto
 
         public static List<MD.Presupuesto> GetPresupuestosPorCliente(MD.Cliente cliente)
         {
-            List<MD.Presupuesto> presupuestos = new List<MD.Presupuesto>();
-            Persistencia.PersistenciaCliente.Buscar(cliente);
+            List<MD.Presupuesto> presupuestos = Persistencia.PersistenciaPresupuesto.GetTodos();
+            List<MD.Presupuesto> solucion = new List<MD.Presupuesto>();
 
-            return (presupuestos);
+            foreach (MD.Presupuesto presupuesto in presupuestos)
+            {
+                if (presupuesto.Cliente.Equals(cliente))
+                {
+                    solucion.Add(presupuesto);
+                }
+            }
+
+            return (solucion);
         }
 
         public static List<MD.Presupuesto> GetPresupuestosPorVehiculo(MD.Vehiculo vehiculo)
         {
-            List<MD.Presupuesto> presupuestos = new List<MD.Presupuesto>();
-            Persistencia.PersistenciaVehiculo.Buscar(vehiculo);
+            List<MD.Presupuesto> presupuestos = Persistencia.PersistenciaPresupuesto.GetTodos();
+            List<MD.Presupuesto> solucion = new List<MD.Presupuesto>();
 
-            return (presupuestos);
+            foreach (MD.Presupuesto presupuesto in presupuestos)
+            {
+                if (presupuesto.Vehiculo.Equals(vehiculo))
+                {
+                    solucion.Add(presupuesto);
+                }
+            }
+
+            return (solucion);
         }
 
         public static List<MD.Presupuesto> GetPresupuestosPorEstado(MD.Estado estado)
         {
-            List<MD.Presupuesto> presupuestos = new List<MD.Presupuesto>();
-            Persistencia.PersistenciaPresupuesto.Buscar();
+            List<MD.Presupuesto> presupuestos = Persistencia.PersistenciaPresupuesto.GetTodos();
+            List<MD.Presupuesto> solucion = new List<MD.Presupuesto>();
 
-            return (presupuestos);
+            foreach (MD.Presupuesto presupuesto in presupuestos)
+            {
+                if (presupuesto.Estado.Equals(estado))
+                {
+                    solucion.Add(presupuesto);
+                }
+            }
+
+            return (solucion);
         }
     }
 }

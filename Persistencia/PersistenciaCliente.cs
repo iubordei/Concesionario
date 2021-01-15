@@ -34,7 +34,7 @@ namespace Persistencia
             return BD.ISCliente(dni);
         }
 
-        private static List<Cliente> ListaClientes()
+        public static List<Cliente> ListaClientes()
         {
             List<Cliente> clientes = new List<Cliente>();
             List<ClienteDato> clientesDato = BD.ALLClientes();

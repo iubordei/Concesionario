@@ -44,5 +44,19 @@
     <Compile Include="Cliente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LNPresupuesto\LNPresupuesto.csproj">
+      <Project>{8ee08876-0237-467d-8f84-c21ea474cdac}</Project>
+      <Name>LNPresupuesto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MD\MD.csproj">
+      <Project>{61276b46-226c-4f45-b2e6-86b353dc997f}</Project>
+      <Name>MD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Persistencia\Persistencia.csproj">
+      <Project>{fb114409-f436-4597-b40c-407233fa69d5}</Project>
+      <Name>Persistencia</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

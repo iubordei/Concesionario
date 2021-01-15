@@ -47,24 +47,24 @@ namespace LNVehiculo
         // POS:
         public MD.Vehiculo GetVehiculo(String num)
         {
-
+            return PersistenciaVehiculo.BuscarNum(num);
         }
 
         //PRE:
         //POST: devuelve una lista de todos los vehiculos del concesionario, si no hay ninguno la devuelve vacia
-        public List<Vehiculo> getAllVehiculos()
+        public List<MD.Vehiculo> getAllVehiculos()
         {
-
+            return PersistenciaVehiculo.GetAll();
         }
 
         public List<MD.Vehiculo> GetSegundaMano()
         {
-
+            return PersistenciaVehiculo.GetSegundaMano();
         }
 
         public List<MD.Vehiculo> GetNuevos()
         {
-
+            return PersistenciaVehiculo.GetNuevos();
         }
 
         //PRE:
@@ -76,12 +76,12 @@ namespace LNVehiculo
 
         //PRE:
         //POST: si el extra no estaba en el vehiculo, y no es null se añade y devuelve true, en caso contrario devuelve false
-        public bool añadirExtra(MD.Nuevo vehiculo, Extra newExtra)
+        public bool añadirExtra(MD.Nuevo vehiculo, MD.Extra newExtra)
         {
-            List<Extra> extras = vehiculo.Extras;
+            List<MD.Extra> extras = vehiculo.Extras;
             if (newExtra == null)
                 return false;
-            foreach (Extra extra in extras)
+            foreach (MD.Extra extra in extras)
             {
                 if (extra.Equals(newExtra))
                     return false;

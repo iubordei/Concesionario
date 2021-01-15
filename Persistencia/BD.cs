@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,6 +48,11 @@ namespace Persistencia
 
         }
 
+        public static KeyedCollection<string, PresupuestoDato> GetPresupuestos()
+        {
+            return (BD.presupuestos);
+        }
+
         #endregion
 
         #region vehiculos
@@ -56,7 +62,7 @@ namespace Persistencia
         {
             get
             {
-                if (presupuestos == null)
+                if (vehiculos == null)
                 {
                     vehiculos = new TablaVehiculos();
                 }
@@ -85,6 +91,41 @@ namespace Persistencia
             BD.DELETEVehiculo(vehiculo);
             BD.INSERTVehiculo(vehiculo);
         }
+
+        public static VehiculoDato SELECTVehiculoNum(String num)
+        {
+            return BD.vehiculos[num];
+        }
+
+        public static KeyedCollection<string, VehiculoDato> GetAll()
+        {
+            return BD.vehiculos;
+        }
+
+        public static Dictionary<string, VehiculoDato> GetSegundaMano()
+        {
+            KeyedCollection<string, VehiculoDato> vehiculos = BD.vehiculos;
+            Dictionary<string, VehiculoDato> segundaMano = new Dictionary<string, VehiculoDato>();
+            foreach (VehiculoDato vehiculoDato in vehiculos)
+            {
+                if ((vehiculoDato.FechaMatriculacion != null) && (vehiculoDato.Matricula != null))
+                    segundaMano.Add(vehiculoDato.NumeroDeBastidor, vehiculoDato);
+            }
+            return segundaMano;
+        }
+
+        public static Dictionary<string, VehiculoDato> GetNuevos()
+        {
+            KeyedCollection<string, VehiculoDato> vehiculos = BD.vehiculos;
+            Dictionary<string, VehiculoDato> nuevos = new Dictionary<string, VehiculoDato>();
+            foreach (VehiculoDato vehiculoDato in vehiculos)
+            {
+                if ((vehiculoDato.FechaMatriculacion == null) && (vehiculoDato.Matricula == null))
+                    nuevos.Add(vehiculoDato.NumeroDeBastidor, vehiculoDato);
+            }
+            return nuevos;
+        }
+
         #endregion
 
         #region clientes
@@ -94,7 +135,7 @@ namespace Persistencia
         {
             get
             {
-                if (presupuestos == null)
+                if (clientes == null)
                 {
                     clientes = new TablaClientes();
                 }
@@ -139,6 +180,46 @@ namespace Persistencia
             }
             return clientes;
         }
+        #endregion
+
+        #region extras
+        private static TablaExtras extras;
+
+        public static TablaExtras Extras
+        {
+            get
+            {
+                if (extras == null)
+                {
+                    extras = new TablaExtras();
+                }
+
+                return (extras);
+            }
+        }
+
+        public static void INSERTExtra(ExtraDato e)
+        {
+            BD.Extras.Add(e);
+        }
+
+        public static ExtraDato SELECTExtra(ExtraDato e)
+        {
+            return BD.Extras[e.Nombre];
+        }
+
+        public static void DELETEExtra(ExtraDato e)
+        {
+            BD.Extras.Remove(e);
+        }
+
+        public static void UPDATEExtra(ExtraDato e)
+        {
+            BD.DELETEExtra(e);
+            BD.INSERTExtra(e);
+
+        }
+
         #endregion
     }
 }
