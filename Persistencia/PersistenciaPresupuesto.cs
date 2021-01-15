@@ -20,7 +20,7 @@ namespace Persistencia
             PresupuestoDato res = BD.SELECTPresupuesto(pd);
             if (res != null)
             {
-                return (new MD.Presupuesto(res.FechaRealizacion, Persistencia.PersistenciaCliente.Buscar(res.Cliente), Persistencia.PersistenciaVehiculo.Buscar(res.Vehiculo)));
+                return (new MD.Presupuesto(res.FechaRealizacion, Persistencia.PersistenciaCliente.Buscar(res.Cliente), Persistencia.PersistenciaVehiculo.BuscarNum(res.Vehiculo)));
             } else
             {
                 return (null);
@@ -56,7 +56,7 @@ namespace Persistencia
 
         private static MD.Presupuesto presupuestoDatoAPresupuesto(PresupuestoDato pDato)
         {
-            return (new MD.Presupuesto(pDato.FechaRealizacion, Persistencia.PersistenciaCliente.Buscar(pDato.Cliente), Persistencia.PersistenciaVehiculo.Buscar(pDato.Vehiculo)));
+            return (new MD.Presupuesto(pDato.FechaRealizacion, Persistencia.PersistenciaCliente.Buscar(pDato.Cliente), Persistencia.PersistenciaVehiculo.BuscarNum(pDato.Vehiculo)));
         }
     }
 }
