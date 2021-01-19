@@ -1,0 +1,11 @@
+C:\Users\Iura\Documents\GitHub\Concesionario\LNPresupuesto\bin\Debug\LNPresupuesto.dll
+C:\Users\Iura\Documents\GitHub\Concesionario\LNPresupuesto\bin\Debug\LNPresupuesto.pdb
+C:\Users\Iura\Documents\GitHub\Concesionario\LNPresupuesto\bin\Debug\MD.dll
+C:\Users\Iura\Documents\GitHub\Concesionario\LNPresupuesto\bin\Debug\Persistencia.dll
+C:\Users\Iura\Documents\GitHub\Concesionario\LNPresupuesto\bin\Debug\MD.pdb
+C:\Users\Iura\Documents\GitHub\Concesionario\LNPresupuesto\bin\Debug\Persistencia.pdb
+C:\Users\Iura\Documents\GitHub\Concesionario\LNPresupuesto\obj\Debug\LNPresupuesto.csprojAssemblyReference.cache
+C:\Users\Iura\Documents\GitHub\Concesionario\LNPresupuesto\obj\Debug\LNPresupuesto.csproj.CoreCompileInputs.cache
+C:\Users\Iura\Documents\GitHub\Concesionario\LNPresupuesto\obj\Debug\LNPresupuesto.csproj.CopyComplete
+C:\Users\Iura\Documents\GitHub\Concesionario\LNPresupuesto\obj\Debug\LNPresupuesto.dll
+C:\Users\Iura\Documents\GitHub\Concesionario\LNPresupuesto\obj\Debug\LNPresupuesto.pdb

@@ -1,0 +1,2 @@
+C:\Users\Iura\Documents\GitHub\Concesionario\LNCliente\obj\Debug\LNCliente.csprojAssemblyReference.cache
+C:\Users\Iura\Documents\GitHub\Concesionario\LNCliente\obj\Debug\LNCliente.csproj.CoreCompileInputs.cache

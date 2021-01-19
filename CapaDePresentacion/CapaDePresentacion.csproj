@@ -46,14 +46,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Gestion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Gestion.Designer.cs">
+      <DependentUpon>Gestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogIn.Designer.cs">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresupuestoAlta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresupuestoAlta.Designer.cs">
+      <DependentUpon>PresupuestoAlta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresupuestoBusqueda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresupuestoBusqueda.Designer.cs">
+      <DependentUpon>PresupuestoBusqueda.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Gestion.resx">
+      <DependentUpon>Gestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresupuestoAlta.resx">
+      <DependentUpon>PresupuestoAlta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresupuestoBusqueda.resx">
+      <DependentUpon>PresupuestoBusqueda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -75,6 +105,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LNCliente\LNCliente.csproj">
+      <Project>{3b97b212-e9ec-420d-8cff-535ad0914731}</Project>
+      <Name>LNCliente</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LNPresupuesto\LNPresupuesto.csproj">
+      <Project>{8ee08876-0237-467d-8f84-c21ea474cdac}</Project>
+      <Name>LNPresupuesto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LNVehiculo\LNVehiculo.csproj">
+      <Project>{ee9446f4-7b68-46ce-9682-abe50aa4a1f2}</Project>
+      <Name>LNVehiculo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MD\MD.csproj">
+      <Project>{61276b46-226c-4f45-b2e6-86b353dc997f}</Project>
+      <Name>MD</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

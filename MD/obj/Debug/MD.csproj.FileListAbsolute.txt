@@ -1,0 +1,6 @@
+C:\Users\Iura\Documents\GitHub\Concesionario\MD\bin\Debug\MD.dll
+C:\Users\Iura\Documents\GitHub\Concesionario\MD\bin\Debug\MD.pdb
+C:\Users\Iura\Documents\GitHub\Concesionario\MD\obj\Debug\MD.csprojAssemblyReference.cache
+C:\Users\Iura\Documents\GitHub\Concesionario\MD\obj\Debug\MD.csproj.CoreCompileInputs.cache
+C:\Users\Iura\Documents\GitHub\Concesionario\MD\obj\Debug\MD.dll
+C:\Users\Iura\Documents\GitHub\Concesionario\MD\obj\Debug\MD.pdb

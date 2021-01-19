@@ -1,0 +1,13 @@
+C:\Users\Iura\Documents\GitHub\Concesionario\CapaDePresentacion\bin\Debug\CapaDePresentacion.exe.config
+C:\Users\Iura\Documents\GitHub\Concesionario\CapaDePresentacion\bin\Debug\CapaDePresentacion.exe
+C:\Users\Iura\Documents\GitHub\Concesionario\CapaDePresentacion\bin\Debug\CapaDePresentacion.pdb
+C:\Users\Iura\Documents\GitHub\Concesionario\CapaDePresentacion\obj\Debug\CapaDePresentacion.csprojAssemblyReference.cache
+C:\Users\Iura\Documents\GitHub\Concesionario\CapaDePresentacion\obj\Debug\CapaDePresentacion.LogIn.resources
+C:\Users\Iura\Documents\GitHub\Concesionario\CapaDePresentacion\obj\Debug\CapaDePresentacion.Properties.Resources.resources
+C:\Users\Iura\Documents\GitHub\Concesionario\CapaDePresentacion\obj\Debug\CapaDePresentacion.csproj.GenerateResource.cache
+C:\Users\Iura\Documents\GitHub\Concesionario\CapaDePresentacion\obj\Debug\CapaDePresentacion.csproj.CoreCompileInputs.cache
+C:\Users\Iura\Documents\GitHub\Concesionario\CapaDePresentacion\obj\Debug\CapaDePresentacion.exe
+C:\Users\Iura\Documents\GitHub\Concesionario\CapaDePresentacion\obj\Debug\CapaDePresentacion.pdb
+C:\Users\Iura\Documents\GitHub\Concesionario\CapaDePresentacion\obj\Debug\CapaDePresentacion.Gestion.resources
+C:\Users\Iura\Documents\GitHub\Concesionario\CapaDePresentacion\obj\Debug\CapaDePresentacion.PresupuestoAlta.resources
+C:\Users\Iura\Documents\GitHub\Concesionario\CapaDePresentacion\obj\Debug\CapaDePresentacion.PresupuestoBusqueda.resources

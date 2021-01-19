@@ -11,7 +11,7 @@ namespace LNVehiculo
     {
         //PRE:
         //POST: si el vehiculo no estaba en la base de datos y no es null se añade y devuelve true
-        public bool altaVehiculo(MD.Vehiculo vehiculo)
+        public static bool AltaVehiculo(MD.Vehiculo vehiculo)
         {
             MD.Vehiculo vehiculoFinal;
 
@@ -28,7 +28,7 @@ namespace LNVehiculo
 
         //PRE:
         //POST: si el vehiculo no estaba en la base de datos y no es null se elimina y devuelve true
-        public bool bajaVehiculo(MD.Vehiculo vehiculo)
+        public static bool BajaVehiculo(MD.Vehiculo vehiculo)
         {
             MD.Vehiculo vehiculoFinal;
 
@@ -45,38 +45,38 @@ namespace LNVehiculo
 
         // PRE:
         // POS:
-        public MD.Vehiculo GetVehiculo(String num)
+        public static MD.Vehiculo GetVehiculo(String num)
         {
             return PersistenciaVehiculo.BuscarNum(num);
         }
 
         //PRE:
         //POST: devuelve una lista de todos los vehiculos del concesionario, si no hay ninguno la devuelve vacia
-        public List<MD.Vehiculo> getAllVehiculos()
+        public static List<MD.Vehiculo> GetAllVehiculos()
         {
             return PersistenciaVehiculo.GetAll();
         }
 
-        public List<MD.Vehiculo> GetSegundaMano()
+        public static List<MD.Vehiculo> GetSegundaMano()
         {
             return PersistenciaVehiculo.GetSegundaMano();
         }
 
-        public List<MD.Vehiculo> GetNuevos()
+        public static List<MD.Vehiculo> GetNuevos()
         {
             return PersistenciaVehiculo.GetNuevos();
         }
 
         //PRE:
         //POST: devuelve una String con los datos del vehiculo
-        public String showVehiculo(MD.Vehiculo vehiculo)
+        public static String ShowVehiculo(MD.Vehiculo vehiculo)
         {
             return vehiculo.ToString();
         }
 
         //PRE:
         //POST: si el extra no estaba en el vehiculo, y no es null se añade y devuelve true, en caso contrario devuelve false
-        public bool añadirExtra(MD.Nuevo vehiculo, MD.Extra newExtra)
+        public static bool AñadirExtra(MD.Nuevo vehiculo, MD.Extra newExtra)
         {
             List<MD.Extra> extras = vehiculo.Extras;
             if (newExtra == null)

@@ -2,3 +2,12 @@ C:\Users\Iura\Source\Repos\iubordei\Concesionario\Persistencia\obj\Debug\Persist
 C:\Users\Iura\Source\Repos\iubordei\Concesionario\Persistencia\obj\Debug\Persistencia.csproj.CoreCompileInputs.cache
 C:\Users\alescalo\Documents\GitHub\Concesionario\Persistencia\obj\Debug\Persistencia.csprojAssemblyReference.cache
 C:\Users\alescalo\Documents\GitHub\Concesionario\Persistencia\obj\Debug\Persistencia.csproj.CoreCompileInputs.cache
+C:\Users\Iura\Documents\GitHub\Concesionario\Persistencia\bin\Debug\Persistencia.dll
+C:\Users\Iura\Documents\GitHub\Concesionario\Persistencia\bin\Debug\Persistencia.pdb
+C:\Users\Iura\Documents\GitHub\Concesionario\Persistencia\bin\Debug\MD.dll
+C:\Users\Iura\Documents\GitHub\Concesionario\Persistencia\bin\Debug\MD.pdb
+C:\Users\Iura\Documents\GitHub\Concesionario\Persistencia\obj\Debug\Persistencia.csprojAssemblyReference.cache
+C:\Users\Iura\Documents\GitHub\Concesionario\Persistencia\obj\Debug\Persistencia.csproj.CoreCompileInputs.cache
+C:\Users\Iura\Documents\GitHub\Concesionario\Persistencia\obj\Debug\Persistencia.csproj.CopyComplete
+C:\Users\Iura\Documents\GitHub\Concesionario\Persistencia\obj\Debug\Persistencia.dll
+C:\Users\Iura\Documents\GitHub\Concesionario\Persistencia\obj\Debug\Persistencia.pdb
