@@ -1,2 +1,15 @@
 C:\Users\Iura\Documents\GitHub\Concesionario\LNCliente\obj\Debug\LNCliente.csprojAssemblyReference.cache
 C:\Users\Iura\Documents\GitHub\Concesionario\LNCliente\obj\Debug\LNCliente.csproj.CoreCompileInputs.cache
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNCliente\bin\Debug\LNCliente.dll
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNCliente\bin\Debug\LNCliente.pdb
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNCliente\bin\Debug\LNPresupuesto.dll
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNCliente\bin\Debug\MD.dll
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNCliente\bin\Debug\Persistencia.dll
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNCliente\bin\Debug\LNPresupuesto.pdb
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNCliente\bin\Debug\MD.pdb
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNCliente\bin\Debug\Persistencia.pdb
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNCliente\obj\Debug\LNCliente.csprojAssemblyReference.cache
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNCliente\obj\Debug\LNCliente.csproj.CoreCompileInputs.cache
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNCliente\obj\Debug\LNCliente.csproj.CopyComplete
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNCliente\obj\Debug\LNCliente.dll
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNCliente\obj\Debug\LNCliente.pdb

@@ -9,3 +9,14 @@ C:\Users\Iura\Documents\GitHub\Concesionario\LNVehiculo\obj\Debug\LNVehiculo.csp
 C:\Users\Iura\Documents\GitHub\Concesionario\LNVehiculo\obj\Debug\LNVehiculo.csproj.CopyComplete
 C:\Users\Iura\Documents\GitHub\Concesionario\LNVehiculo\obj\Debug\LNVehiculo.dll
 C:\Users\Iura\Documents\GitHub\Concesionario\LNVehiculo\obj\Debug\LNVehiculo.pdb
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNVehiculo\bin\Debug\LNVehiculo.dll
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNVehiculo\bin\Debug\LNVehiculo.pdb
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNVehiculo\bin\Debug\MD.dll
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNVehiculo\bin\Debug\Persistencia.dll
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNVehiculo\bin\Debug\MD.pdb
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNVehiculo\bin\Debug\Persistencia.pdb
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNVehiculo\obj\Debug\LNVehiculo.csprojAssemblyReference.cache
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNVehiculo\obj\Debug\LNVehiculo.csproj.CoreCompileInputs.cache
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNVehiculo\obj\Debug\LNVehiculo.csproj.CopyComplete
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNVehiculo\obj\Debug\LNVehiculo.dll
+C:\Users\alescalo\Documents\GitHub\Concesionario\LNVehiculo\obj\Debug\LNVehiculo.pdb

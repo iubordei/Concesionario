@@ -36,5 +36,17 @@ namespace CapaDePresentacion
             PresupuestoBusqueda busqueda = new PresupuestoBusqueda();
             busqueda.Show();
         }
+
+        private void altaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form VehiculoAgregarClave = new VehiculoAgregarClave(altaToolStripMenuItem1.Text);
+            VehiculoAgregarClave.ShowDialog();
+        }
+
+        private void bajaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form VehiculoAgregarClave = new VehiculoAgregarClave(bajaToolStripMenuItem1.Text);
+            VehiculoAgregarClave.ShowDialog();
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace CapaDePresentacion
             rdBtnEstado.Checked = false;
             rdBtnVehiculo.Checked = false;
             listBoxParametros.Items.Clear();
-            List<MD.Cliente> clientes = LNCliente.Cliente.verClientes();
+            List<MD.Cliente> clientes = LNCliente.Cliente.VerClientes();
             foreach (MD.Cliente cliente in clientes)
             {
                 listBoxParametros.Items.Add(cliente);
@@ -42,7 +42,7 @@ namespace CapaDePresentacion
             rdBtnEstado.Checked = false;
             rdBtnCliente.Checked = false;
             listBoxParametros.Items.Clear();
-            List<MD.Vehiculo> vehiculos = LNVehiculo.Vehiculo.getAllVehiculos();
+            List<MD.Vehiculo> vehiculos = LNVehiculo.Vehiculo.GetAllVehiculos();
             foreach (MD.Vehiculo vehiculo in vehiculos)
             {
                 listBoxParametros.Items.Add(vehiculo);

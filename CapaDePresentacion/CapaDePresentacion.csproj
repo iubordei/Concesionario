@@ -58,6 +58,12 @@
     <Compile Include="LogIn.Designer.cs">
       <DependentUpon>LogIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Nuevo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Nuevo.Designer.cs">
+      <DependentUpon>Nuevo.cs</DependentUpon>
+    </Compile>
     <Compile Include="PresupuestoAlta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,11 +78,32 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SegundaMano.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SegundaMano.Designer.cs">
+      <DependentUpon>SegundaMano.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VehiculoAgregarClave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VehiculoAgregarClave.Designer.cs">
+      <DependentUpon>VehiculoAgregarClave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VehiculoAltaBaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VehiculoAltaBaja.Designer.cs">
+      <DependentUpon>VehiculoAltaBaja.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Gestion.resx">
       <DependentUpon>Gestion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nuevo.resx">
+      <DependentUpon>Nuevo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresupuestoAlta.resx">
       <DependentUpon>PresupuestoAlta.cs</DependentUpon>
@@ -93,6 +120,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SegundaMano.resx">
+      <DependentUpon>SegundaMano.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VehiculoAgregarClave.resx">
+      <DependentUpon>VehiculoAgregarClave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VehiculoAltaBaja.resx">
+      <DependentUpon>VehiculoAltaBaja.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

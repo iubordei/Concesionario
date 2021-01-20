@@ -23,13 +23,13 @@ namespace CapaDePresentacion
 
         private void PresupuestoAlta_Load(object sender, EventArgs e)
         {
-            List<MD.Cliente> clientes = LNCliente.Cliente.verClientes();
+            List<MD.Cliente> clientes = LNCliente.Cliente.VerClientes();
             foreach (MD.Cliente cliente in clientes)
             {
                 listBoxClientes.Items.Add(cliente);
             }
 
-            List<MD.Vehiculo> vehiculos = LNVehiculo.Vehiculo.getAllVehiculos();
+            List<MD.Vehiculo> vehiculos = LNVehiculo.Vehiculo.GetAllVehiculos();
             foreach (MD.Vehiculo vehiculo in vehiculos)
             {
                 listBoxClientes.Items.Add(vehiculo);

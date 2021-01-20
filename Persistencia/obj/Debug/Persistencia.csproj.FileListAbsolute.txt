@@ -11,3 +11,10 @@ C:\Users\Iura\Documents\GitHub\Concesionario\Persistencia\obj\Debug\Persistencia
 C:\Users\Iura\Documents\GitHub\Concesionario\Persistencia\obj\Debug\Persistencia.csproj.CopyComplete
 C:\Users\Iura\Documents\GitHub\Concesionario\Persistencia\obj\Debug\Persistencia.dll
 C:\Users\Iura\Documents\GitHub\Concesionario\Persistencia\obj\Debug\Persistencia.pdb
+C:\Users\alescalo\Documents\GitHub\Concesionario\Persistencia\bin\Debug\Persistencia.dll
+C:\Users\alescalo\Documents\GitHub\Concesionario\Persistencia\bin\Debug\Persistencia.pdb
+C:\Users\alescalo\Documents\GitHub\Concesionario\Persistencia\bin\Debug\MD.dll
+C:\Users\alescalo\Documents\GitHub\Concesionario\Persistencia\bin\Debug\MD.pdb
+C:\Users\alescalo\Documents\GitHub\Concesionario\Persistencia\obj\Debug\Persistencia.csproj.CopyComplete
+C:\Users\alescalo\Documents\GitHub\Concesionario\Persistencia\obj\Debug\Persistencia.dll
+C:\Users\alescalo\Documents\GitHub\Concesionario\Persistencia\obj\Debug\Persistencia.pdb
