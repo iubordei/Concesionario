@@ -30,11 +30,11 @@ namespace CapaDePresentacion
         private void InitializeComponent()
         {
             this.grpTipoBusqueda = new System.Windows.Forms.GroupBox();
-            this.rdBtnCliente = new System.Windows.Forms.RadioButton();
-            this.rdBtnVehiculo = new System.Windows.Forms.RadioButton();
             this.rdBtnEstado = new System.Windows.Forms.RadioButton();
+            this.rdBtnVehiculo = new System.Windows.Forms.RadioButton();
+            this.rdBtnCliente = new System.Windows.Forms.RadioButton();
             this.listBoxParametros = new System.Windows.Forms.ListBox();
-            this.listBoxResultado = new System.Windows.Forms.ListBox();
+            this.listBoxResultados = new System.Windows.Forms.ListBox();
             this.lblParametros = new System.Windows.Forms.Label();
             this.lblResultados = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -54,17 +54,17 @@ namespace CapaDePresentacion
             this.grpTipoBusqueda.TabStop = false;
             this.grpTipoBusqueda.Text = "Tipo de búsqueda";
             // 
-            // rdBtnCliente
+            // rdBtnEstado
             // 
-            this.rdBtnCliente.AutoSize = true;
-            this.rdBtnCliente.Location = new System.Drawing.Point(7, 20);
-            this.rdBtnCliente.Name = "rdBtnCliente";
-            this.rdBtnCliente.Size = new System.Drawing.Size(76, 17);
-            this.rdBtnCliente.TabIndex = 0;
-            this.rdBtnCliente.TabStop = true;
-            this.rdBtnCliente.Text = "Por Cliente";
-            this.rdBtnCliente.UseVisualStyleBackColor = true;
-            this.rdBtnCliente.CheckedChanged += new System.EventHandler(this.rdBtnCliente_CheckedChanged);
+            this.rdBtnEstado.AutoSize = true;
+            this.rdBtnEstado.Location = new System.Drawing.Point(6, 67);
+            this.rdBtnEstado.Name = "rdBtnEstado";
+            this.rdBtnEstado.Size = new System.Drawing.Size(77, 17);
+            this.rdBtnEstado.TabIndex = 2;
+            this.rdBtnEstado.TabStop = true;
+            this.rdBtnEstado.Text = "Por Estado";
+            this.rdBtnEstado.UseVisualStyleBackColor = true;
+            this.rdBtnEstado.CheckedChanged += new System.EventHandler(this.rdBtnEstado_CheckedChanged);
             // 
             // rdBtnVehiculo
             // 
@@ -78,17 +78,17 @@ namespace CapaDePresentacion
             this.rdBtnVehiculo.UseVisualStyleBackColor = true;
             this.rdBtnVehiculo.CheckedChanged += new System.EventHandler(this.rdBtnVehiculo_CheckedChanged);
             // 
-            // rdBtnEstado
+            // rdBtnCliente
             // 
-            this.rdBtnEstado.AutoSize = true;
-            this.rdBtnEstado.Location = new System.Drawing.Point(6, 67);
-            this.rdBtnEstado.Name = "rdBtnEstado";
-            this.rdBtnEstado.Size = new System.Drawing.Size(77, 17);
-            this.rdBtnEstado.TabIndex = 2;
-            this.rdBtnEstado.TabStop = true;
-            this.rdBtnEstado.Text = "Por Estado";
-            this.rdBtnEstado.UseVisualStyleBackColor = true;
-            this.rdBtnEstado.CheckedChanged += new System.EventHandler(this.rdBtnEstado_CheckedChanged);
+            this.rdBtnCliente.AutoSize = true;
+            this.rdBtnCliente.Location = new System.Drawing.Point(7, 20);
+            this.rdBtnCliente.Name = "rdBtnCliente";
+            this.rdBtnCliente.Size = new System.Drawing.Size(76, 17);
+            this.rdBtnCliente.TabIndex = 0;
+            this.rdBtnCliente.TabStop = true;
+            this.rdBtnCliente.Text = "Por Cliente";
+            this.rdBtnCliente.UseVisualStyleBackColor = true;
+            this.rdBtnCliente.CheckedChanged += new System.EventHandler(this.rdBtnCliente_CheckedChanged);
             // 
             // listBoxParametros
             // 
@@ -98,13 +98,13 @@ namespace CapaDePresentacion
             this.listBoxParametros.Size = new System.Drawing.Size(367, 121);
             this.listBoxParametros.TabIndex = 1;
             // 
-            // listBoxResultado
+            // listBoxResultados
             // 
-            this.listBoxResultado.FormattingEnabled = true;
-            this.listBoxResultado.Location = new System.Drawing.Point(12, 290);
-            this.listBoxResultado.Name = "listBoxResultado";
-            this.listBoxResultado.Size = new System.Drawing.Size(367, 121);
-            this.listBoxResultado.TabIndex = 2;
+            this.listBoxResultados.FormattingEnabled = true;
+            this.listBoxResultados.Location = new System.Drawing.Point(12, 290);
+            this.listBoxResultados.Name = "listBoxResultados";
+            this.listBoxResultados.Size = new System.Drawing.Size(367, 121);
+            this.listBoxResultados.TabIndex = 2;
             // 
             // lblParametros
             // 
@@ -153,11 +153,12 @@ namespace CapaDePresentacion
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblResultados);
             this.Controls.Add(this.lblParametros);
-            this.Controls.Add(this.listBoxResultado);
+            this.Controls.Add(this.listBoxResultados);
             this.Controls.Add(this.listBoxParametros);
             this.Controls.Add(this.grpTipoBusqueda);
             this.Name = "PresupuestoBusqueda";
             this.Text = "PresupuestoBusqueda";
+            this.Load += new System.EventHandler(this.PresupuestoBusqueda_Load);
             this.grpTipoBusqueda.ResumeLayout(false);
             this.grpTipoBusqueda.PerformLayout();
             this.ResumeLayout(false);
@@ -172,7 +173,7 @@ namespace CapaDePresentacion
         private System.Windows.Forms.RadioButton rdBtnVehiculo;
         private System.Windows.Forms.RadioButton rdBtnCliente;
         private System.Windows.Forms.ListBox listBoxParametros;
-        private System.Windows.Forms.ListBox listBoxResultado;
+        private System.Windows.Forms.ListBox listBoxResultados;
         private System.Windows.Forms.Label lblParametros;
         private System.Windows.Forms.Label lblResultados;
         private System.Windows.Forms.Button btnBuscar;

@@ -31,7 +31,7 @@ namespace CapaDePresentacion
 
         private void rbNuevo_CheckedChanged(object sender, EventArgs e)
         {
-            if(rbNuevo.Checked)
+            if (rbNuevo.Checked)
             {
                 userControl = new Nuevo();
                 userControl.Location = new Point(390, 151);
@@ -57,7 +57,7 @@ namespace CapaDePresentacion
         private void btAceptar_Click(object sender, EventArgs e)
         {
             MD.Vehiculo vehiculo;
-            if(tbNumeroBastidor.Text.Equals("") || tbMarca.Text.Equals("") || tbModelo.Text.Equals("") || tbPotencia.Text.Equals("") || tbPrecioRecomendado.Text.Equals("") || 
+            if (tbNumeroBastidor.Text.Equals("") || tbMarca.Text.Equals("") || tbModelo.Text.Equals("") || tbPotencia.Text.Equals("") || tbPrecioRecomendado.Text.Equals("") ||
                 ((!(rbNuevo.Checked)) && (!(rbSegundaMano.Checked))))
             {
                 DialogResult dialogResult = MessageBox.Show("Debes rellenar todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -74,10 +74,11 @@ namespace CapaDePresentacion
 
             }
 
-            if(accion.Equals("Alta"))
+            if (accion.Equals("Alta"))
             {
                 LNVehiculo.Vehiculo.AltaVehiculo(vehiculo);
-            } else if(accion.Equals("Baja"))
+            }
+            else if (accion.Equals("Baja"))
             {
                 LNVehiculo.Vehiculo.BajaVehiculo(vehiculo);
             }

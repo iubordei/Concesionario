@@ -12,41 +12,72 @@ namespace CapaDePresentacion
 {
     public partial class Gestion : Form
     {
-        private string usuario;
+        private string nombreUsuario;
 
-        public Gestion()
+        // PRE:
+        // POS: crea un nuevo formulario de tipo Gestion.
+        public Gestion() : this("")
+        {
+            
+        }
+
+        // PRE: nombre != null.
+        // POS: crea un formulario de tipo Gestion, con nombreUsuario = nombre.
+        public Gestion(string nombre)
         {
             InitializeComponent();
+            this.nombreUsuario = nombre;
+            this.Text = nombre + ": Gestión de concesionario";
         }
 
-        public Gestion(string usuario) : base()
-        {
-            this.usuario = usuario;
-            this.Text = usuario + ": Gestión de concesionario";
-        }
-
-        private void altaToolStripMenuItem2_Click(object sender, EventArgs e)
+        // PRE:
+        // POS: genera un formulario de tipo AltaPresupuesto, para añadir nuevos presupuestos al sistema.
+        private void tsAltaPresupuesto_Click(object sender, EventArgs e)
         {
             PresupuestoAlta nuevo = new PresupuestoAlta();
-            nuevo.Show();
+            nuevo.ShowDialog();
         }
 
-        private void búsquedaToolStripMenuItem2_Click(object sender, EventArgs e)
+        // PRE:
+        // POS: genera un formulario de tipo BusquedaPresupuesto, para buscar entre los presupuestos
+        // POS: almacenados en el sistema según un parámetro (cliente, vehículo, estado).
+        private void tsBusquedaPresupuesto_Click(object sender, EventArgs e)
         {
             PresupuestoBusqueda busqueda = new PresupuestoBusqueda();
-            busqueda.Show();
+            busqueda.ShowDialog();
         }
 
-        private void altaToolStripMenuItem1_Click(object sender, EventArgs e)
+        // PRE:
+        // POS: cierra la aplicacion.
+        private void tsDesconectar_Click(object sender, EventArgs e)
         {
-            Form VehiculoAgregarClave = new VehiculoAgregarClave(altaToolStripMenuItem1.Text);
+            Application.Exit();
+        }
+
+        // PRE:
+        // POS: genera un formulario de tipo VehiculoAgregarClave, para introducir el número de bastidor de un vehículo
+        // POS: y así añadir un nuevo vehículo en el caso de que este no esté ya almacenado.
+        private void tsAltaVehiculo_Click(object sender, EventArgs e)
+        {
+            Form VehiculoAgregarClave = new VehiculoAgregarClave(tsAltaVehiculo.Text);
             VehiculoAgregarClave.ShowDialog();
         }
 
-        private void bajaToolStripMenuItem1_Click(object sender, EventArgs e)
+        // PRE:
+        // POS: genera un formulario de tipo VehiculoAgregarClave, para introducir el número de bastidor de un vehículo
+        // POS: y así continuar con el proceso de eliminado de un vehículo del sistema.
+        private void tsBajaVehiculo_Click(object sender, EventArgs e)
         {
-            Form VehiculoAgregarClave = new VehiculoAgregarClave(bajaToolStripMenuItem1.Text);
+            Form VehiculoAgregarClave = new VehiculoAgregarClave(tsAltaVehiculo.Text);
             VehiculoAgregarClave.ShowDialog();
+        }
+
+        // PRE:
+        // POS: genera un formulario de tipo PresupuestoRecorrido, para mostrar todos los presupuestos almacenados en el sistema.
+        private void tsMostrarTodosPresupuesto_Click(object sender, EventArgs e)
+        {
+            Form mostrarTodos = new PresupuestoRecorrido(LNPresupuesto.Presupuesto.GetTodosPresupuestos());
+            mostrarTodos.ShowDialog();
         }
     }
 }

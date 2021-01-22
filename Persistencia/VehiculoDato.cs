@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Persistencia
 {
-    class VehiculoDato
+    public class VehiculoDato
     {
         private String numeroDeBastidor;
         private String marca;

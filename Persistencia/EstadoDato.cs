@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Persistencia
 {
-    enum EstadoDato
+    public enum EstadoDato
     {
-        aceptado,
-        pendiente,
-        desestimado
+        Aceptado,
+        Pendiente,
+        Desestimado
     }
 }

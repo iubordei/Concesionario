@@ -13,85 +13,126 @@ namespace CapaDePresentacion
 {
     public partial class PresupuestoBusqueda : Form
     {
+        private Dictionary<string, MD.Cliente> clavesCliente;
+        private Dictionary<string, MD.Vehiculo> clavesVehiculo;
+        private Dictionary<string, MD.Estado> clavesEstado;
+        private BindingSource bsParametros;
+        private BindingSource bsResultados;
+
+        // PRE:
+        // POS: crea un formulario del tipo PresupuestoBusqueda.
         public PresupuestoBusqueda()
         {
             InitializeComponent();
         }
 
+        // PRE:
+        // POS: inicializa los objetos BindingSource que se emplearán para mostrar los datos en las listas del formulario.
+        // POS: inicializa diccionarios que incluyen el objeto especificado como valor y una cadena que lo representa como clave.
+        private void PresupuestoBusqueda_Load(object sender, EventArgs e)
+        {
+            bsParametros = new BindingSource();
+            bsResultados = new BindingSource();
+
+            // Claves Cliente
+            clavesCliente = new Dictionary<string, Cliente>();
+            foreach (MD.Cliente cliente in LNCliente.Cliente.VerClientes())
+            {
+                clavesCliente.Add(cliente.Nombre, cliente);
+            }
+
+            // Claves Vehiculo
+            clavesVehiculo = new Dictionary<string, MD.Vehiculo>();
+            foreach (MD.Vehiculo vehiculo in LNVehiculo.Vehiculo.GetAllVehiculos())
+            {
+                clavesVehiculo.Add(vehiculo.Marca + " " + vehiculo.Modelo + ", " + vehiculo.NumeroDeBastidor, vehiculo);
+            }
+
+            // Claves Estado
+            clavesEstado = new Dictionary<string, Estado>();
+            foreach (MD.Estado estado in Enum.GetValues(typeof(MD.Estado)))
+            {
+                clavesEstado.Add(estado.ToString(), estado);
+            }
+        }
+
+        // PRE:
+        // POS: cierra el formulario de tipo PresupuestoBusqueda.
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // PRE:
+        // POS: actualiza la lista de parámetros, mostrando los clientes al seleccionar la búsqueda por cliente.
         private void rdBtnCliente_CheckedChanged(object sender, EventArgs e)
         {
             rdBtnEstado.Checked = false;
             rdBtnVehiculo.Checked = false;
-            listBoxParametros.Items.Clear();
-            List<MD.Cliente> clientes = LNCliente.Cliente.VerClientes();
-            foreach (MD.Cliente cliente in clientes)
-            {
-                listBoxParametros.Items.Add(cliente);
-            }
+            
+            bsParametros.DataSource = clavesCliente;
+            listBoxParametros.DataSource = bsParametros;
+            listBoxParametros.Refresh();
 
             listBoxParametros.SelectedIndex = 0;
         }
 
+        // PRE:
+        // POS: actualiza la lista de parámetros, mostrando los vehículos al seleccionar la búsqueda por vehículo.
         private void rdBtnVehiculo_CheckedChanged(object sender, EventArgs e)
         {
             rdBtnEstado.Checked = false;
             rdBtnCliente.Checked = false;
-            listBoxParametros.Items.Clear();
-            List<MD.Vehiculo> vehiculos = LNVehiculo.Vehiculo.GetAllVehiculos();
-            foreach (MD.Vehiculo vehiculo in vehiculos)
-            {
-                listBoxParametros.Items.Add(vehiculo);
-            }
+
+            bsParametros.DataSource = clavesVehiculo;
+            listBoxParametros.DataSource = bsParametros;
+            listBoxParametros.Refresh();
 
             listBoxParametros.SelectedIndex = 0;
         }
 
+        // PRE:
+        // POS: actualiza la lista de parámetros, mostrando los estados al seleccionar la búsqueda por estado.
         private void rdBtnEstado_CheckedChanged(object sender, EventArgs e)
         {
             rdBtnCliente.Checked = false;
             rdBtnVehiculo.Checked = false;
-            listBoxParametros.Items.Clear();
-            foreach (MD.Estado estado in Enum.GetValues(typeof(MD.Estado)))
-            {
-                listBoxParametros.Items.Add(estado);
-            }
+
+            bsParametros.DataSource = clavesEstado;
+            listBoxParametros.DataSource = bsParametros;
+            listBoxParametros.Refresh();
 
             listBoxParametros.SelectedIndex = 0;
         }
 
+        // PRE: las tablas de clientes y vehículos contienen datos.
+        // POS: muestra el resultado de los presupuestos pedidos en función del parametro seleccionado.
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            listBoxResultado.Items.Clear();
+            listBoxResultados.Items.Clear();
             if (rdBtnCliente.Checked)
             {
-                List<MD.Presupuesto> presupuestos = LNPresupuesto.Presupuesto.GetPresupuestosPorCliente((MD.Cliente)listBoxParametros.SelectedItem);
-                añadirListaAListBox(presupuestos, listBoxResultado);
+                MD.Cliente parametro;
+                clavesCliente.TryGetValue((string)listBoxParametros.SelectedItem, out parametro);
+                bsResultados.DataSource = LNPresupuesto.Presupuesto.GetPresupuestosPorCliente(parametro);
             }
 
             if (rdBtnVehiculo.Checked)
             {
-                List<MD.Presupuesto> presupuestos = LNPresupuesto.Presupuesto.GetPresupuestosPorVehiculo((MD.Vehiculo)listBoxParametros.SelectedItem);
-                añadirListaAListBox(presupuestos, listBoxResultado);
+                MD.Vehiculo parametro;
+                clavesVehiculo.TryGetValue((string)listBoxParametros.SelectedItem, out parametro);
+                bsResultados.DataSource = LNPresupuesto.Presupuesto.GetPresupuestosPorVehiculo(parametro);
             }
 
             if (rdBtnEstado.Checked)
             {
-                List<MD.Presupuesto> presupuestos = LNPresupuesto.Presupuesto.GetPresupuestosPorEstado((MD.Estado)listBoxParametros.SelectedItem);
-                añadirListaAListBox(presupuestos, listBoxResultado);
+                MD.Estado parametro;
+                clavesEstado.TryGetValue((string)listBoxParametros.SelectedItem, out parametro);
+                bsResultados.DataSource = LNPresupuesto.Presupuesto.GetPresupuestosPorEstado(parametro);
             }
-        }
 
-        private void añadirListaAListBox(List<MD.Presupuesto> lista, ListBox listBox)
-        {
-            foreach (MD.Presupuesto presupuesto in lista)
-            {
-                listBox.Items.Add(presupuesto);
-            }
+            listBoxResultados.DataSource = bsResultados;
+            listBoxResultados.Refresh();
         }
     }
 }

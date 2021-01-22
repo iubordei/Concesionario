@@ -14,17 +14,17 @@ namespace Persistencia
         //Post: …
         public static void Añadir(Vehiculo vehiculo)
         {
-            BD.INSERTVehiculo(vehiculoAvehiculoDato(vehiculo));
+            BD.INSERTVehiculo(VehiculoAVehiculoDato(vehiculo));
         }
         //Pre: … 
         //Post: …
         public static Vehiculo Buscar(Vehiculo vehiculo)
         {
-            VehiculoDato vd = vehiculoAvehiculoDato(vehiculo);
+            VehiculoDato vd = VehiculoAVehiculoDato(vehiculo);
             VehiculoDato res = BD.SELECTVehiculo(vd);
             if (res != null)
             {
-                return (vehiculoDatoAVehiculo(res));
+                return (VehiculoDatoAVehiculo(res));
             }
             else
             {
@@ -34,20 +34,20 @@ namespace Persistencia
 
         public static void Eliminar(Vehiculo vehiculo)
         {
-            BD.DELETEVehiculo(vehiculoAvehiculoDato(vehiculo));
+            BD.DELETEVehiculo(VehiculoAVehiculoDato(vehiculo));
         }
 
         public static void Modificar(Vehiculo vehiculo)
         {
-            BD.UPDATEVehiculo(vehiculoAvehiculoDato(vehiculo));
+            BD.UPDATEVehiculo(VehiculoAVehiculoDato(vehiculo));
         }
 
-        private static VehiculoDato vehiculoAvehiculoDato(Vehiculo vehiculo)
+        public static VehiculoDato VehiculoAVehiculoDato(Vehiculo vehiculo)
         {
             return (new VehiculoDato(vehiculo.NumeroDeBastidor, vehiculo.Marca, vehiculo.Modelo, vehiculo.Potencia, vehiculo.Año, vehiculo.PrecioRecomendado, null, null, null));
         }
 
-        private static Vehiculo vehiculoDatoAVehiculo(VehiculoDato vDato)
+        public static Vehiculo VehiculoDatoAVehiculo(VehiculoDato vDato)
         {
             if (vDato.Matricula == null)
             {
@@ -61,7 +61,7 @@ namespace Persistencia
 
         public static Vehiculo BuscarNum(String num)
         {
-            return vehiculoDatoAVehiculo(BD.SELECTVehiculoNum(num));
+            return VehiculoDatoAVehiculo(BD.SELECTVehiculoNum(num));
         }
 
         public static List<Vehiculo> GetAll()
@@ -70,7 +70,7 @@ namespace Persistencia
             KeyedCollection<string, VehiculoDato> tabla = BD.GetAll();
             foreach (VehiculoDato vehiculoDato in tabla)
             {
-                vehiculos.Add(vehiculoDatoAVehiculo(vehiculoDato));
+                vehiculos.Add(VehiculoDatoAVehiculo(vehiculoDato));
             }
             return vehiculos;
         }
@@ -81,7 +81,7 @@ namespace Persistencia
             Dictionary<string, VehiculoDato> tabla = BD.GetSegundaMano();
             foreach (KeyValuePair<string, VehiculoDato> kvp in tabla)
             {
-                segundaMano.Add(vehiculoDatoAVehiculo(kvp.Value));
+                segundaMano.Add(VehiculoDatoAVehiculo(kvp.Value));
             }
             return segundaMano;
         }
@@ -92,7 +92,7 @@ namespace Persistencia
             Dictionary<string, VehiculoDato> tabla = BD.GetSegundaMano();
             foreach (KeyValuePair<string, VehiculoDato> kvp in tabla)
             {
-                nuevos.Add(vehiculoDatoAVehiculo(kvp.Value));
+                nuevos.Add(VehiculoDatoAVehiculo(kvp.Value));
             }
             return nuevos;
         }

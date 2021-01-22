@@ -76,6 +76,12 @@
     <Compile Include="PresupuestoBusqueda.Designer.cs">
       <DependentUpon>PresupuestoBusqueda.cs</DependentUpon>
     </Compile>
+    <Compile Include="PresupuestoRecorrido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresupuestoRecorrido.Designer.cs">
+      <DependentUpon>PresupuestoRecorrido.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SegundaMano.cs">
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PresupuestoBusqueda.resx">
       <DependentUpon>PresupuestoBusqueda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresupuestoRecorrido.resx">
+      <DependentUpon>PresupuestoRecorrido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

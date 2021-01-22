@@ -39,3 +39,8 @@ C:\Users\alescalo\Documents\GitHub\Concesionario\CapaDePresentacion\bin\Debug\LN
 C:\Users\alescalo\Documents\GitHub\Concesionario\CapaDePresentacion\bin\Debug\MD.pdb
 C:\Users\alescalo\Documents\GitHub\Concesionario\CapaDePresentacion\bin\Debug\Persistencia.pdb
 C:\Users\alescalo\Documents\GitHub\Concesionario\CapaDePresentacion\obj\Debug\CapaDePresentacion.csproj.CopyComplete
+C:\Users\Iura\Documents\GitHub\Concesionario\CapaDePresentacion\obj\Debug\CapaDePresentacion.Nuevo.resources
+C:\Users\Iura\Documents\GitHub\Concesionario\CapaDePresentacion\obj\Debug\CapaDePresentacion.SegundaMano.resources
+C:\Users\Iura\Documents\GitHub\Concesionario\CapaDePresentacion\obj\Debug\CapaDePresentacion.VehiculoAgregarClave.resources
+C:\Users\Iura\Documents\GitHub\Concesionario\CapaDePresentacion\obj\Debug\CapaDePresentacion.VehiculoAltaBaja.resources
+C:\Users\Iura\Documents\GitHub\Concesionario\CapaDePresentacion\obj\Debug\CapaDePresentacion.PresupuestoRecorrido.resources

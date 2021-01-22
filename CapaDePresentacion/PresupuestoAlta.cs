@@ -16,37 +16,95 @@ namespace CapaDePresentacion
 {
     public partial class PresupuestoAlta : Form
     {
+        private Dictionary<MD.Vehiculo, double> valoraciones = new Dictionary<MD.Vehiculo, double>();
+        private BindingSource sourceClientes;
+        private BindingSource sourceVehiculos;
+
+        // PRE:
+        // POS: crea un formuilario de tipo PresupuestoAlta.
         public PresupuestoAlta()
         {
             InitializeComponent();
+            sourceClientes = new BindingSource();
+            sourceVehiculos = new BindingSource();
         }
 
+        // PRE:
+        // POS: durante el proceso de carga del formulario genera las fuentes de datos para
+        // POS: las listas de clientes y vehiculos.
         private void PresupuestoAlta_Load(object sender, EventArgs e)
         {
-            List<MD.Cliente> clientes = LNCliente.Cliente.VerClientes();
-            foreach (MD.Cliente cliente in clientes)
-            {
-                listBoxClientes.Items.Add(cliente);
-            }
+            sourceClientes.DataSource = LNCliente.Cliente.VerClientes();
+            listBoxClientes.DataSource = sourceClientes;
+            listBoxClientes.Refresh();
 
-            List<MD.Vehiculo> vehiculos = LNVehiculo.Vehiculo.GetAllVehiculos();
-            foreach (MD.Vehiculo vehiculo in vehiculos)
-            {
-                listBoxClientes.Items.Add(vehiculo);
-            }
+            sourceVehiculos.DataSource = LNVehiculo.Vehiculo.GetAllVehiculos();
+            listBoxVehiculos.DataSource = sourceVehiculos;
+            listBoxVehiculos.Refresh();
 
             listBoxClientes.SelectedIndex = 0;
             listBoxVehiculos.SelectedIndex = 0;
         }
 
+        // PRE:
+        // POS: añade al sistema un nuevo presupuesto con los valores seleccionados en los distintos controles
+        // POS: del formulario (cliente, vehiculos y precios para las valoraciones) cuya fecha es el momento de
+        // POS: creación del formulario.
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            LNPresupuesto.Presupuesto.CrearPresupuesto(DateTime.Today, (MD.Cliente) listBoxClientes.SelectedItem, (MD.Vehiculo) listBoxVehiculos.SelectedItem);
+            if (listBoxClientes.SelectedIndex != -1)
+            {
+                if (valoraciones.Count > 0)
+                {
+                    LNPresupuesto.Presupuesto.CrearPresupuesto(DateTime.Today, (MD.Cliente)listBoxClientes.SelectedItem, valoraciones);
+                }
+                else
+                {
+                    MessageBox.Show("No se han añadido valoraciones");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se ha seleccionado ningún cliente");
+            }
         }
 
+        // PRE:
+        // POS: cierra el formulario de tipo PresupustoAlta.
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        // PRE:
+        // POS: añade una pareja vehículo-precio al diccionario de valoraciones que será utilizado para
+        // POS: generar el nuevo presupuesto.
+        private void btnAgregarValoracion_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtValoracion.Text))
+            {
+                MessageBox.Show("No se ha introducido un precio a la valoración");
+            }
+            else
+            {
+                double valor;
+                if (Double.TryParse(txtValoracion.Text, out valor))
+                {
+                    if (listBoxVehiculos.SelectedIndex != -1)
+                    {
+                        valoraciones.Add((MD.Vehiculo)listBoxVehiculos.SelectedItem, valor);
+                        txtValoracion.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se ha seleccionado ningún vehículo");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El valor introducido no es correcto");
+                }
+            }
         }
     }
 }

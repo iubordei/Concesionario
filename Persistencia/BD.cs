@@ -13,6 +13,8 @@ namespace Persistencia
 
         #region presupuestos
         private static TablaPresupuestos presupuestos;
+        // PRE:
+        // POS: get: acceso mediante el patrón Singleton a la "tabla" presupuestos.
         public static TablaPresupuestos Presupuestos
         {
             get
@@ -26,21 +28,29 @@ namespace Persistencia
             }
         }
 
+        // PRE: p != null.
+        // POS: inserta p en la "tabla" presupuestos.
         public static void INSERTPresupuesto(PresupuestoDato p)
         {
             BD.Presupuestos.Add(p);
         }
 
+        // PRE: p != null.
+        // POS: devuelve un objeto de tipo PresupuestoDato obtenido de la "tabla" presupuestos a partir del parámetro p.
         public static PresupuestoDato SELECTPresupuesto(PresupuestoDato p)
         {
             return BD.Presupuestos[p.FechaRealizacion + " " + p.Cliente + " " + p.Vehiculo];
         }
 
+        // PRE: p != null.
+        // POS: elimina de la "tabla" presupuestos p, si p se encuentra en ella.
         public static void DELETEPresupuesto(PresupuestoDato p)
         {
             BD.Presupuestos.Remove(p);
         }
 
+        // PRE: p != null;
+        // POS: actualiza el objeto p en la "tabla" presupuestos.
         public static void UPDATEPresupuesto(PresupuestoDato p)
         {
             BD.DELETEPresupuesto(p);
@@ -48,6 +58,8 @@ namespace Persistencia
 
         }
 
+        // PRE:
+        // POS: devuelve una colección compuesta por todos los objetos de tipo PresupuestoDato contenidos en la "tabla" presupuestos.
         public static KeyedCollection<string, PresupuestoDato> GetPresupuestos()
         {
             return (BD.presupuestos);

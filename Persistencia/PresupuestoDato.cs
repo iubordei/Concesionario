@@ -11,10 +11,12 @@ namespace Persistencia
         private DateTime fechaRealizacion;
         private string cliente;
         private string vehiculo;
-        private string estado;
-        private Dictionary<MD.Vehiculo, double> valoraciones;
+        private EstadoDato estado;
+        private Dictionary<VehiculoDato, double> valoraciones;
 
-        public PresupuestoDato(DateTime fecha, string cliente, string vehiculo, string estado, Dictionary<MD.Vehiculo, double> valoraciones)
+        // PRE:
+        // POS: crea un nuevo objeto de tipo PresupuestoDato con los parámetros pertinentes.
+        public PresupuestoDato(DateTime fecha, string cliente, string vehiculo, EstadoDato estado, Dictionary<VehiculoDato, double> valoraciones)
         {
             this.fechaRealizacion = fecha;
             this.cliente = cliente;
@@ -23,6 +25,8 @@ namespace Persistencia
             this.valoraciones = valoraciones;
         }
 
+        // PRE:
+        // POS: get: devuelve la fecha de ralización del presupuesto.
         public DateTime FechaRealizacion
         {
             get
@@ -31,6 +35,8 @@ namespace Persistencia
             }
         }
 
+        // PRE:
+        // POS: get: devuelve el cliente del presupuesto.
         public string Cliente
         {
             get
@@ -39,11 +45,23 @@ namespace Persistencia
             }
         }
 
+        // PRE:
+        // POS: get: devuelve el vehiculo del presupuesto.
         public string Vehiculo
         {
             get
             {
                 return (this.vehiculo);
+            }
+        }
+
+        // PRE:
+        // POS: get: devuelve el diccionario que contiene las parejas VehiculoDato-precio (valoraciones) del presupuesto.
+        public Dictionary<VehiculoDato, double> Valoraciones
+        {
+            get
+            {
+                return (this.valoraciones);
             }
         }
     }
