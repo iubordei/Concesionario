@@ -13,6 +13,7 @@ namespace Persistencia
 
         #region presupuestos
         private static TablaPresupuestos presupuestos;
+
         // PRE:
         // POS: get: acceso mediante el patrón Singleton a la "tabla" presupuestos.
         public static TablaPresupuestos Presupuestos
@@ -70,6 +71,8 @@ namespace Persistencia
         #region vehiculos
         private static TablaVehiculos vehiculos;
 
+        // PRE:
+        // POS: get: acceso mediante el patrón Singleton a la "tabla" vehiculos.
         public static TablaVehiculos Vehiculos
         {
             get
@@ -83,37 +86,51 @@ namespace Persistencia
             }
         }
 
+        // PRE: vehiculo != null.
+        // POS: inserta vehiculo en la "tabla" vehiculos.
         public static void INSERTVehiculo(VehiculoDato vehiculo)
         {
             BD.Vehiculos.Add(vehiculo);
         }
 
+        // PRE: vehiculo != null.
+        // POS: devuelve un objeto de tipo VehiculoDato obtenido de la "tabla" vehiculos a partir del parámetro vehiculo.
         public static VehiculoDato SELECTVehiculo(VehiculoDato vehiculo)
         {
             return BD.vehiculos[vehiculo.NumeroDeBastidor];
         }
 
+        // PRE: vehiculo != null.
+        // POS: elimina de la "tabla" vehiculos vehiculo, si vehiculo se encuentra en ella.
         public static void DELETEVehiculo(VehiculoDato vehiculo)
         {
             BD.Vehiculos.Remove(vehiculo);
         }
 
+        // PRE: p != null;
+        // POS: actualiza el objeto vehiculo en la "tabla" vehiculos.
         public static void UPDATEVehiculo(VehiculoDato vehiculo)
         {
             BD.DELETEVehiculo(vehiculo);
             BD.INSERTVehiculo(vehiculo);
         }
 
+        // PRE: num != null.
+        // POS: devuelve un objeto de tipo VehiculoDato obtenido de la "tabla" vehiculos, cuyo número de bastidor sea num.
         public static VehiculoDato SELECTVehiculoNum(String num)
         {
             return BD.vehiculos[num];
         }
 
+        // PRE:
+        // POS: devuelve una colección que contiene todos los objetos VehiculoDato almacenados en la "tabla" vehiculos.
         public static KeyedCollection<string, VehiculoDato> GetAll()
         {
             return BD.vehiculos;
         }
 
+        // PRE:
+        // POS: devuelve una colección que contiene todos los objetos VehiculoDato almacenados en la "tabla" vehiculos que sean de segunda mano.
         public static Dictionary<string, VehiculoDato> GetSegundaMano()
         {
             KeyedCollection<string, VehiculoDato> vehiculos = BD.vehiculos;
@@ -126,6 +143,8 @@ namespace Persistencia
             return segundaMano;
         }
 
+        // PRE:
+        // POS: devuelve una colección que contiene todos los objetos VehiculoDato almacenados en la "tabla" vehiculos que sean nuevos.
         public static Dictionary<string, VehiculoDato> GetNuevos()
         {
             KeyedCollection<string, VehiculoDato> vehiculos = BD.vehiculos;
@@ -143,6 +162,8 @@ namespace Persistencia
         #region clientes
         private static TablaClientes clientes;
 
+        // PRE:
+        // POS: get: acceso mediante el patrón Singleton a la "tabla" clientes.
         public static TablaClientes Clientes
         {
             get
@@ -156,26 +177,36 @@ namespace Persistencia
             }
         }
 
+        // PRE: c != null.
+        // POS: inserta c en la "tabla" clientes.
         public static void INSERTCliente(ClienteDato c)
         {
             BD.Clientes.Add(c);
         }
 
+        // PRE: dni != null.
+        // POS: devuelve un objeto de tipo ClienteDato obtenido de la "tabla" clientes cuyo DNI sea dni.
         public static ClienteDato SELECTCliente(String dni)
         {
             return BD.Clientes[dni];
         }
 
+        // PRE: c != null.
+        // POS: elimina de la "tabla" clientes c, si c se encuentra en ella.
         public static void DELETECliente(ClienteDato c)
         {
             BD.Clientes.Remove(c);
         }
 
+        // PRE: dni != null.
+        // POS: devuelve TRUE si el cliente cuyo DNI es dni se encuentra en la "tabla" clientes, FALSE en caso contrario.
         public static bool ISCliente(String dni)
         {
             return BD.Clientes.Contains(dni);
         }
 
+        // PRE: c != null;
+        // POS: actualiza el objeto c en la "tabla" clientes.
         public static void UPDATECliente(ClienteDato c)
         {
             BD.DELETECliente(c);
@@ -183,6 +214,9 @@ namespace Persistencia
 
         }
 
+        // PRE:
+        // POS: devuelve una lista formada por objetos ClienteDato, que contiene a todos los clientes almacenados
+        // POS: en la "tabla" clientes.
         public static List<ClienteDato> ALLClientes()
         {
             List<ClienteDato> clientes = new List<ClienteDato>();
@@ -197,6 +231,8 @@ namespace Persistencia
         #region extras
         private static TablaExtras extras;
 
+        // PRE:
+        // POS: get: acceso mediante el patrón Singleton a la "tabla" extras.
         public static TablaExtras Extras
         {
             get
@@ -210,21 +246,29 @@ namespace Persistencia
             }
         }
 
+        // PRE: e != null.
+        // POS: inserta e en la "tabla" extras.
         public static void INSERTExtra(ExtraDato e)
         {
             BD.Extras.Add(e);
         }
 
+        // PRE: e != null.
+        // POS: devuelve un objeto de tipo ExtraDato obtenido de la "tabla" extras a partir del parámetro e.
         public static ExtraDato SELECTExtra(ExtraDato e)
         {
             return BD.Extras[e.Nombre];
         }
 
+        // PRE: e != null.
+        // POS: elimina de la "tabla" extras e, si e se encuentra en ella.
         public static void DELETEExtra(ExtraDato e)
         {
             BD.Extras.Remove(e);
         }
 
+        // PRE: e != null;
+        // POS: actualiza el objeto e en la "tabla" extras.
         public static void UPDATEExtra(ExtraDato e)
         {
             BD.DELETEExtra(e);

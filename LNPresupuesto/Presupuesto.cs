@@ -25,7 +25,7 @@ namespace LNPresupuesto
 
         // PRE: presupuseto != null.
         // POS: devuevlve verdadero si el presupuesto ha sido aceptado, falso en caso contrario.
-        public static bool esAceptado(MD.Presupuesto presupuesto)
+        public static bool EsAceptado(MD.Presupuesto presupuesto)
         {
             return (presupuesto.Estado.Equals(MD.Estado.Aceptado));
         }
@@ -86,9 +86,12 @@ namespace LNPresupuesto
 
             foreach (MD.Presupuesto presupuesto in presupuestos)
             {
-                if (presupuesto.Vehiculo.Equals(vehiculo))
+                if (presupuesto.Vehiculo != null)
                 {
-                    solucion.Add(presupuesto);
+                    if (presupuesto.Vehiculo.Equals(vehiculo))
+                    {
+                        solucion.Add(presupuesto);
+                    }
                 }
             }
 

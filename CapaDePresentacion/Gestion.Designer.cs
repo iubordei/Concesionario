@@ -40,9 +40,10 @@
             this.presupuestosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsAltaPresupuesto = new System.Windows.Forms.ToolStripMenuItem();
             this.tsBusquedaPresupuesto = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsMostrarTodosPresupuesto = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsDesconectar = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsMostrarTodosPresupuesto = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripGestion.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -130,21 +131,29 @@
             // tsAltaPresupuesto
             // 
             this.tsAltaPresupuesto.Name = "tsAltaPresupuesto";
-            this.tsAltaPresupuesto.Size = new System.Drawing.Size(180, 22);
+            this.tsAltaPresupuesto.Size = new System.Drawing.Size(149, 22);
             this.tsAltaPresupuesto.Text = "Alta";
             this.tsAltaPresupuesto.Click += new System.EventHandler(this.tsAltaPresupuesto_Click);
             // 
             // tsBusquedaPresupuesto
             // 
             this.tsBusquedaPresupuesto.Name = "tsBusquedaPresupuesto";
-            this.tsBusquedaPresupuesto.Size = new System.Drawing.Size(180, 22);
+            this.tsBusquedaPresupuesto.Size = new System.Drawing.Size(149, 22);
             this.tsBusquedaPresupuesto.Text = "Búsqueda";
             this.tsBusquedaPresupuesto.Click += new System.EventHandler(this.tsBusquedaPresupuesto_Click);
+            // 
+            // tsMostrarTodosPresupuesto
+            // 
+            this.tsMostrarTodosPresupuesto.Name = "tsMostrarTodosPresupuesto";
+            this.tsMostrarTodosPresupuesto.Size = new System.Drawing.Size(149, 22);
+            this.tsMostrarTodosPresupuesto.Text = "Mostrar Todos";
+            this.tsMostrarTodosPresupuesto.Click += new System.EventHandler(this.tsMostrarTodosPresupuesto_Click);
             // 
             // configuraciónToolStripMenuItem
             // 
             this.configuraciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsDesconectar});
+            this.tsDesconectar,
+            this.salirToolStripMenuItem});
             this.configuraciónToolStripMenuItem.Name = "configuraciónToolStripMenuItem";
             this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
             this.configuraciónToolStripMenuItem.Text = "Configuración";
@@ -152,16 +161,16 @@
             // tsDesconectar
             // 
             this.tsDesconectar.Name = "tsDesconectar";
-            this.tsDesconectar.Size = new System.Drawing.Size(180, 22);
-            this.tsDesconectar.Text = "Desconectar";
+            this.tsDesconectar.Size = new System.Drawing.Size(181, 22);
+            this.tsDesconectar.Text = "Desconectar usuario";
             this.tsDesconectar.Click += new System.EventHandler(this.tsDesconectar_Click);
             // 
-            // tsMostrarTodosPresupuesto
+            // salirToolStripMenuItem
             // 
-            this.tsMostrarTodosPresupuesto.Name = "tsMostrarTodosPresupuesto";
-            this.tsMostrarTodosPresupuesto.Size = new System.Drawing.Size(180, 22);
-            this.tsMostrarTodosPresupuesto.Text = "Mostrar Todos";
-            this.tsMostrarTodosPresupuesto.Click += new System.EventHandler(this.tsMostrarTodosPresupuesto_Click);
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // Gestion
             // 
@@ -196,5 +205,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsBajaCliente;
         private System.Windows.Forms.ToolStripMenuItem tsBusquedaCliente;
         private System.Windows.Forms.ToolStripMenuItem tsMostrarTodosPresupuesto;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
     }
 }

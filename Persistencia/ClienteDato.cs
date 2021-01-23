@@ -13,6 +13,8 @@ namespace Persistencia
         private String telefono;
         private CategoriaDato categoria;
 
+        // PRE: dni != null, nombre != null, telefono != null, cat != null.
+        // POS: crea un ClienteDato con DNI = dni, nombre = "nombre", telefono = "telefono" y categoria = cat.
         public ClienteDato(String dni, String nombre, String telefono, CategoriaDato cat)
         {
             this.dni = dni;
@@ -21,19 +23,18 @@ namespace Persistencia
             this.categoria = cat;
         }
 
+        // PRE: el objeto ClienteDato ha sido inicializado previamente.
+        // POS: get: devuelve una cadena que representa el nombre del cliente.
         public String Nombre
         {
             get
             {
                 return this.nombre;
             }
-
-            set
-            {
-                this.nombre = value;
-            }
         }
 
+        // PRE: el objeto ClienteDato ha sido inicializado previamente.
+        // POS: get: devuelve una cadena que representa el DNI del cliente.
         public String DNI
         {
             get
@@ -42,6 +43,9 @@ namespace Persistencia
             }
         }
 
+        // PRE: el objeto ClienteDato ha sido inicializado previamente.
+        // POS: get: devuelve una cadena que representa el telefono del cliente.
+        // POS: set: modifica el número de teléfono del cliente a value.
         public String Telefono
         {
             get
@@ -55,6 +59,9 @@ namespace Persistencia
             }
         }
 
+        // PRE: el objeto ClienteDato ha sido inicializado previamente.
+        // POS: get: devuelve un objeto CategoriaDato que contiene la categoria del cliente (A, B ó C).
+        // POS: set: cambia la categoría del cliente a value.
         public CategoriaDato Categoria
         {
             get

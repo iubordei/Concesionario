@@ -9,6 +9,8 @@ namespace Persistencia
 {
     class TablaVehiculos : KeyedCollection<string, VehiculoDato>
     {
+        // PRE: item != null.
+        // POS: devuelve una cadena que representa al objeto VehiculoDato item.
         protected override string GetKeyForItem(VehiculoDato item)
         {
             return item.NumeroDeBastidor;

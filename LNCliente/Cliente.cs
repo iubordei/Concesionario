@@ -68,6 +68,7 @@ namespace LNCliente
         {
             return LNPresupuesto.Presupuesto.GetPresupuestosPorCliente(cliente);
         }
+
         public static List<MD.Presupuesto> VerCompras(MD.Cliente cliente)
         // PRE:
         // POS: devuelve una lista que contiene los presupuestos que han sido aceptados y el vehículo asociado al presupuesto ha sido comprado. 
