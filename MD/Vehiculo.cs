@@ -121,7 +121,7 @@ namespace MD
         public override string ToString()
         {
             String ret = "";
-            ret += "Numero de bsatidor: " + NumeroDeBastidor + ", marca: " + Marca + ", modelo: " + Modelo + ", potencia: " + Potencia +
+            ret += "Número de bastidor: " + NumeroDeBastidor + ", marca: " + Marca + ", modelo: " + Modelo + ", potencia: " + Potencia +
                 ", año: " + Año + ", precio recomendado: " + PrecioRecomendado;
             return ret;
         }

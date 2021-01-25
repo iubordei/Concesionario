@@ -48,10 +48,11 @@ namespace CapaDePresentacion
 
         // PRE:
         // POS: cuando se pulsa la tecla "Enter" simula un click en el botón aceptar para llevar a cabo el proceso de LogIn.
-        private void txtPassword_KeyUp(object sender, KeyEventArgs e)
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Enter)
             {
+                e.SuppressKeyPress = true;
                 btnLogin.PerformClick();
             }
         }

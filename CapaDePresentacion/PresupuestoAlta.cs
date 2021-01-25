@@ -75,6 +75,21 @@ namespace CapaDePresentacion
                 {
                     MD.Cliente cliente = clientes[listBoxClientes.SelectedItem.ToString()];
                     LNPresupuesto.Presupuesto.CrearPresupuesto(DateTime.Today, cliente, valoraciones);
+
+                    DialogResult res = new DialogResult();
+                    res = MessageBox.Show("Presupuesto creado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    res = MessageBox.Show("¿Quieres hacer otro presupuesto?", "Continuación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    switch (res)
+                    {
+                        case DialogResult.Yes:
+                            this.Hide();
+                            PresupuestoAlta alta = new PresupuestoAlta();
+                            alta.ShowDialog();
+                            break;
+                    }
+                    this.Close();
+
                 }
                 else
                 {
@@ -105,14 +120,21 @@ namespace CapaDePresentacion
             }
             else
             {
-                double valor;
-                if (Double.TryParse(txtValoracion.Text, out valor))
+                double precio;
+                if (double.TryParse(txtValoracion.Text, out precio) || txtValoracion.Text.Equals(""))
                 {
                     if (listBoxVehiculos.SelectedIndex != -1)
                     {
                         MD.Vehiculo vehiculo = vehiculos[listBoxVehiculos.SelectedItem.ToString()];
-                        valoraciones.Add(vehiculo, valor);
-                        txtValoracion.Clear();
+                        if (valoraciones.ContainsKey(vehiculo))
+                        {
+                            MessageBox.Show("El vehículo seleccionado ya ha sido introducido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            valoraciones.Add(vehiculo, precio);
+                            txtValoracion.Clear();
+                        }
                     }
                     else
                     {
@@ -121,7 +143,7 @@ namespace CapaDePresentacion
                 }
                 else
                 {
-                    MessageBox.Show("El valor introducido no es correcto");
+                    MessageBox.Show("El valor introducida no es correcta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

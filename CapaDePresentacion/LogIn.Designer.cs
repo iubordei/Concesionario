@@ -60,7 +60,7 @@ namespace CapaDePresentacion
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(200, 20);
             this.txtPassword.TabIndex = 2;
-            this.txtPassword.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyUp);
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // lblUser
             // 

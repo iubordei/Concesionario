@@ -34,9 +34,7 @@ namespace CapaDePresentacion
             this.rdBtnVehiculo = new System.Windows.Forms.RadioButton();
             this.rdBtnCliente = new System.Windows.Forms.RadioButton();
             this.listBoxParametros = new System.Windows.Forms.ListBox();
-            this.listBoxResultados = new System.Windows.Forms.ListBox();
             this.lblParametros = new System.Windows.Forms.Label();
-            this.lblResultados = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.grpTipoBusqueda.SuspendLayout();
@@ -49,7 +47,7 @@ namespace CapaDePresentacion
             this.grpTipoBusqueda.Controls.Add(this.rdBtnCliente);
             this.grpTipoBusqueda.Location = new System.Drawing.Point(12, 12);
             this.grpTipoBusqueda.Name = "grpTipoBusqueda";
-            this.grpTipoBusqueda.Size = new System.Drawing.Size(367, 100);
+            this.grpTipoBusqueda.Size = new System.Drawing.Size(360, 100);
             this.grpTipoBusqueda.TabIndex = 0;
             this.grpTipoBusqueda.TabStop = false;
             this.grpTipoBusqueda.Text = "Tipo de búsqueda";
@@ -95,16 +93,8 @@ namespace CapaDePresentacion
             this.listBoxParametros.FormattingEnabled = true;
             this.listBoxParametros.Location = new System.Drawing.Point(12, 142);
             this.listBoxParametros.Name = "listBoxParametros";
-            this.listBoxParametros.Size = new System.Drawing.Size(367, 121);
+            this.listBoxParametros.Size = new System.Drawing.Size(360, 121);
             this.listBoxParametros.TabIndex = 1;
-            // 
-            // listBoxResultados
-            // 
-            this.listBoxResultados.FormattingEnabled = true;
-            this.listBoxResultados.Location = new System.Drawing.Point(12, 290);
-            this.listBoxResultados.Name = "listBoxResultados";
-            this.listBoxResultados.Size = new System.Drawing.Size(367, 121);
-            this.listBoxResultados.TabIndex = 2;
             // 
             // lblParametros
             // 
@@ -115,20 +105,11 @@ namespace CapaDePresentacion
             this.lblParametros.TabIndex = 3;
             this.lblParametros.Text = "Parámetro de búsqueda";
             // 
-            // lblResultados
-            // 
-            this.lblResultados.AutoSize = true;
-            this.lblResultados.Location = new System.Drawing.Point(9, 274);
-            this.lblResultados.Name = "lblResultados";
-            this.lblResultados.Size = new System.Drawing.Size(122, 13);
-            this.lblResultados.TabIndex = 4;
-            this.lblResultados.Text = "Resultados encontrados";
-            // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(304, 417);
+            this.btnBuscar.Location = new System.Drawing.Point(202, 269);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(170, 23);
             this.btnBuscar.TabIndex = 5;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -136,9 +117,9 @@ namespace CapaDePresentacion
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(12, 417);
+            this.btnCancelar.Location = new System.Drawing.Point(12, 269);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(170, 23);
             this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -148,12 +129,10 @@ namespace CapaDePresentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(391, 450);
+            this.ClientSize = new System.Drawing.Size(386, 301);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.lblResultados);
             this.Controls.Add(this.lblParametros);
-            this.Controls.Add(this.listBoxResultados);
             this.Controls.Add(this.listBoxParametros);
             this.Controls.Add(this.grpTipoBusqueda);
             this.Name = "PresupuestoBusqueda";
@@ -173,9 +152,7 @@ namespace CapaDePresentacion
         private System.Windows.Forms.RadioButton rdBtnVehiculo;
         private System.Windows.Forms.RadioButton rdBtnCliente;
         private System.Windows.Forms.ListBox listBoxParametros;
-        private System.Windows.Forms.ListBox listBoxResultados;
         private System.Windows.Forms.Label lblParametros;
-        private System.Windows.Forms.Label lblResultados;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnCancelar;
     }

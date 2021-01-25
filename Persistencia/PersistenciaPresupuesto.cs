@@ -74,7 +74,7 @@ namespace Persistencia
             {
                 valoraciones.Add(PersistenciaVehiculo.VehiculoAVehiculoDato(kvp.Key), kvp.Value);
             }
-            return (new PresupuestoDato(p.FechaRealizacion, p.Cliente.DNI, p.Vehiculo.NumeroDeBastidor, (EstadoDato) p.Estado, valoraciones));
+            return (new PresupuestoDato(p.FechaRealizacion, p.Cliente.DNI, (EstadoDato) p.Estado, valoraciones));
         }
 
         // PRE: p != null.

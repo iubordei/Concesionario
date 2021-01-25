@@ -14,15 +14,15 @@ namespace Persistencia
         private EstadoDato estado;
         private Dictionary<VehiculoDato, double> valoraciones;
 
-        // PRE:
+        // PRE: fecha != null, cliente != null, valoraciones != null
         // POS: crea un nuevo objeto de tipo PresupuestoDato con los parámetros pertinentes.
-        public PresupuestoDato(DateTime fecha, string cliente, string vehiculo, EstadoDato estado, Dictionary<VehiculoDato, double> valoraciones)
+        public PresupuestoDato(DateTime fecha, string cliente, EstadoDato estado, Dictionary<VehiculoDato, double> valoraciones)
         {
             this.fechaRealizacion = fecha;
             this.cliente = cliente;
-            this.vehiculo = vehiculo;
             this.estado = estado;
             this.valoraciones = valoraciones;
+            this.vehiculo = null;
         }
 
         // PRE:

@@ -35,22 +35,24 @@ namespace CapaDePresentacion
             this.btnCancelar = new System.Windows.Forms.Button();
             this.txtValoracion = new System.Windows.Forms.TextBox();
             this.btnAgregarValoracion = new System.Windows.Forms.Button();
+            this.lblCliente = new System.Windows.Forms.Label();
+            this.lblVehiculo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listBoxClientes
             // 
             this.listBoxClientes.FormattingEnabled = true;
-            this.listBoxClientes.Location = new System.Drawing.Point(13, 13);
+            this.listBoxClientes.Location = new System.Drawing.Point(13, 39);
             this.listBoxClientes.Name = "listBoxClientes";
-            this.listBoxClientes.Size = new System.Drawing.Size(214, 290);
+            this.listBoxClientes.Size = new System.Drawing.Size(214, 264);
             this.listBoxClientes.TabIndex = 0;
             // 
             // listBoxVehiculos
             // 
             this.listBoxVehiculos.FormattingEnabled = true;
-            this.listBoxVehiculos.Location = new System.Drawing.Point(233, 12);
+            this.listBoxVehiculos.Location = new System.Drawing.Point(233, 38);
             this.listBoxVehiculos.Name = "listBoxVehiculos";
-            this.listBoxVehiculos.Size = new System.Drawing.Size(214, 264);
+            this.listBoxVehiculos.Size = new System.Drawing.Size(214, 238);
             this.listBoxVehiculos.TabIndex = 1;
             // 
             // btnAceptar
@@ -90,11 +92,31 @@ namespace CapaDePresentacion
             this.btnAgregarValoracion.UseVisualStyleBackColor = true;
             this.btnAgregarValoracion.Click += new System.EventHandler(this.btnAgregarValoracion_Click);
             // 
+            // lblCliente
+            // 
+            this.lblCliente.AutoSize = true;
+            this.lblCliente.Location = new System.Drawing.Point(12, 23);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(47, 13);
+            this.lblCliente.TabIndex = 6;
+            this.lblCliente.Text = "Clientes:";
+            // 
+            // lblVehiculo
+            // 
+            this.lblVehiculo.AutoSize = true;
+            this.lblVehiculo.Location = new System.Drawing.Point(230, 23);
+            this.lblVehiculo.Name = "lblVehiculo";
+            this.lblVehiculo.Size = new System.Drawing.Size(58, 13);
+            this.lblVehiculo.TabIndex = 7;
+            this.lblVehiculo.Text = "Vehículos:";
+            // 
             // PresupuestoAlta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(463, 344);
+            this.Controls.Add(this.lblVehiculo);
+            this.Controls.Add(this.lblCliente);
             this.Controls.Add(this.btnAgregarValoracion);
             this.Controls.Add(this.txtValoracion);
             this.Controls.Add(this.btnCancelar);
@@ -117,5 +139,7 @@ namespace CapaDePresentacion
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.TextBox txtValoracion;
         private System.Windows.Forms.Button btnAgregarValoracion;
+        private System.Windows.Forms.Label lblCliente;
+        private System.Windows.Forms.Label lblVehiculo;
     }
 }

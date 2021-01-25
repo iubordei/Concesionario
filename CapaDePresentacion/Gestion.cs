@@ -33,11 +33,18 @@ namespace CapaDePresentacion
         }
 
         // PRE:
-        // POS: genera un formulario de tipo AltaPresupuesto, para añadir nuevos presupuestos al sistema.
+        // POS: genera un formulario de tipo AltaPresupuesto, para añadir nuevos presupuestos al sistema (siempre y cuando haya clientes y vehículos en el sistema).
         private void tsAltaPresupuesto_Click(object sender, EventArgs e)
         {
-            PresupuestoAlta nuevo = new PresupuestoAlta();
-            nuevo.ShowDialog();
+            if (LNCliente.Cliente.VerClientes().Count > 0 && LNVehiculo.Vehiculo.GetAllVehiculos().Count > 0)
+            {
+                PresupuestoAlta nuevo = new PresupuestoAlta();
+                nuevo.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No hay datos suficientes para crear presupuestos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         // PRE:

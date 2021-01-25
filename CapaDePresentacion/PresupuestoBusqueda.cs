@@ -49,7 +49,7 @@ namespace CapaDePresentacion
             }
 
             // Claves Estado
-            clavesEstado = new Dictionary<string, Estado>();
+            clavesEstado = new Dictionary<string, MD.Estado>();
             foreach (MD.Estado estado in Enum.GetValues(typeof(MD.Estado)))
             {
                 clavesEstado.Add(estado.ToString(), estado);
@@ -67,10 +67,7 @@ namespace CapaDePresentacion
         // POS: actualiza la lista de parámetros, mostrando los clientes al seleccionar la búsqueda por cliente.
         private void rdBtnCliente_CheckedChanged(object sender, EventArgs e)
         {
-            rdBtnEstado.Checked = false;
-            rdBtnVehiculo.Checked = false;
-            
-            bsParametros.DataSource = clavesCliente;
+            bsParametros.DataSource = clavesCliente.Keys;
             listBoxParametros.DataSource = bsParametros;
             listBoxParametros.Refresh();
 
@@ -81,10 +78,7 @@ namespace CapaDePresentacion
         // POS: actualiza la lista de parámetros, mostrando los vehículos al seleccionar la búsqueda por vehículo.
         private void rdBtnVehiculo_CheckedChanged(object sender, EventArgs e)
         {
-            rdBtnEstado.Checked = false;
-            rdBtnCliente.Checked = false;
-
-            bsParametros.DataSource = clavesVehiculo;
+            bsParametros.DataSource = clavesVehiculo.Keys;
             listBoxParametros.DataSource = bsParametros;
             listBoxParametros.Refresh();
 
@@ -95,10 +89,7 @@ namespace CapaDePresentacion
         // POS: actualiza la lista de parámetros, mostrando los estados al seleccionar la búsqueda por estado.
         private void rdBtnEstado_CheckedChanged(object sender, EventArgs e)
         {
-            rdBtnCliente.Checked = false;
-            rdBtnVehiculo.Checked = false;
-
-            bsParametros.DataSource = clavesEstado;
+            bsParametros.DataSource = clavesEstado.Keys;
             listBoxParametros.DataSource = bsParametros;
             listBoxParametros.Refresh();
 
@@ -109,30 +100,34 @@ namespace CapaDePresentacion
         // POS: muestra el resultado de los presupuestos pedidos en función del parametro seleccionado.
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            listBoxResultados.Items.Clear();
+            PresupuestoRecorrido recorrido;
             if (rdBtnCliente.Checked)
             {
-                MD.Cliente parametro;
-                clavesCliente.TryGetValue((string)listBoxParametros.SelectedItem, out parametro);
-                bsResultados.DataSource = LNPresupuesto.Presupuesto.GetPresupuestosPorCliente(parametro);
+                MD.Cliente parametro = clavesCliente[(string)listBoxParametros.SelectedItem];
+                recorrido = new PresupuestoRecorrido(LNPresupuesto.Presupuesto.GetPresupuestosPorCliente(parametro));
+                recorrido.ShowDialog();
             }
 
             if (rdBtnVehiculo.Checked)
             {
-                MD.Vehiculo parametro;
-                clavesVehiculo.TryGetValue((string)listBoxParametros.SelectedItem, out parametro);
-                bsResultados.DataSource = LNPresupuesto.Presupuesto.GetPresupuestosPorVehiculo(parametro);
+                MD.Vehiculo parametro = clavesVehiculo[(string)listBoxParametros.SelectedItem];
+                recorrido = new PresupuestoRecorrido(LNPresupuesto.Presupuesto.GetPresupuestosPorVehiculo(parametro));
+                recorrido.ShowDialog();
             }
 
             if (rdBtnEstado.Checked)
             {
-                MD.Estado parametro;
-                clavesEstado.TryGetValue((string)listBoxParametros.SelectedItem, out parametro);
-                bsResultados.DataSource = LNPresupuesto.Presupuesto.GetPresupuestosPorEstado(parametro);
+                MD.Estado parametro = clavesEstado[(string)listBoxParametros.SelectedItem];
+                recorrido = new PresupuestoRecorrido(LNPresupuesto.Presupuesto.GetPresupuestosPorEstado(parametro));
+                recorrido.ShowDialog();
             }
+        }
 
-            listBoxResultados.DataSource = bsResultados;
-            listBoxResultados.Refresh();
+        // PRE:
+        // POS: muestra por pantalla un error.
+        private void mostarError()
+        {
+            MessageBox.Show("Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

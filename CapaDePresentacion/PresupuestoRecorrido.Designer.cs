@@ -44,20 +44,23 @@ namespace CapaDePresentacion
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.txtFecha = new System.Windows.Forms.TextBox();
-            this.txtCliente = new System.Windows.Forms.TextBox();
-            this.txtVehiculo = new System.Windows.Forms.TextBox();
-            this.listBoxValoraciones = new System.Windows.Forms.ListBox();
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblCliente = new System.Windows.Forms.Label();
             this.lblVehiculo = new System.Windows.Forms.Label();
             this.lblValoraciones = new System.Windows.Forms.Label();
+            this.lboxValoraciones = new System.Windows.Forms.ListBox();
+            this.sourcePresupuestos = new System.Windows.Forms.BindingSource(this.components);
+            this.txtCliente = new System.Windows.Forms.TextBox();
+            this.txtVehiculo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator)).BeginInit();
             this.bindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sourcePresupuestos)).BeginInit();
             this.SuspendLayout();
             // 
             // bindingNavigator
             // 
             this.bindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.bindingNavigator.BindingSource = this.sourcePresupuestos;
             this.bindingNavigator.CountItem = this.bindingNavigatorCountItem;
             this.bindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
             this.bindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -79,7 +82,7 @@ namespace CapaDePresentacion
             this.bindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator.Name = "bindingNavigator";
             this.bindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator.Size = new System.Drawing.Size(401, 25);
+            this.bindingNavigator.Size = new System.Drawing.Size(375, 25);
             this.bindingNavigator.TabIndex = 0;
             this.bindingNavigator.Text = "bindingNavigator1";
             // 
@@ -102,6 +105,7 @@ namespace CapaDePresentacion
             // bindingNavigatorDeleteItem
             // 
             this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Enabled = false;
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
@@ -116,6 +120,7 @@ namespace CapaDePresentacion
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveFirstItem.Text = "Mover primero";
+            this.bindingNavigatorMoveFirstItem.Click += new System.EventHandler(this.bindingNavigatorMoveFirstItem_Click);
             // 
             // bindingNavigatorMovePreviousItem
             // 
@@ -125,6 +130,7 @@ namespace CapaDePresentacion
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMovePreviousItem.Text = "Mover anterior";
+            this.bindingNavigatorMovePreviousItem.Click += new System.EventHandler(this.bindingNavigatorMovePreviousItem_Click);
             // 
             // bindingNavigatorSeparator
             // 
@@ -154,6 +160,7 @@ namespace CapaDePresentacion
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveNextItem.Text = "Mover siguiente";
+            this.bindingNavigatorMoveNextItem.Click += new System.EventHandler(this.bindingNavigatorMoveNextItem_Click);
             // 
             // bindingNavigatorMoveLastItem
             // 
@@ -163,6 +170,7 @@ namespace CapaDePresentacion
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Mover último";
+            this.bindingNavigatorMoveLastItem.Click += new System.EventHandler(this.bindingNavigatorMoveLastItem_Click);
             // 
             // bindingNavigatorSeparator2
             // 
@@ -171,32 +179,12 @@ namespace CapaDePresentacion
             // 
             // txtFecha
             // 
+            this.txtFecha.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sourcePresupuestos, "FechaRealizacion", true));
             this.txtFecha.Location = new System.Drawing.Point(115, 29);
             this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(250, 20);
+            this.txtFecha.ReadOnly = true;
+            this.txtFecha.Size = new System.Drawing.Size(248, 20);
             this.txtFecha.TabIndex = 1;
-            // 
-            // txtCliente
-            // 
-            this.txtCliente.Location = new System.Drawing.Point(115, 56);
-            this.txtCliente.Name = "txtCliente";
-            this.txtCliente.Size = new System.Drawing.Size(250, 20);
-            this.txtCliente.TabIndex = 2;
-            // 
-            // txtVehiculo
-            // 
-            this.txtVehiculo.Location = new System.Drawing.Point(115, 83);
-            this.txtVehiculo.Name = "txtVehiculo";
-            this.txtVehiculo.Size = new System.Drawing.Size(250, 20);
-            this.txtVehiculo.TabIndex = 3;
-            // 
-            // listBoxValoraciones
-            // 
-            this.listBoxValoraciones.FormattingEnabled = true;
-            this.listBoxValoraciones.Location = new System.Drawing.Point(115, 110);
-            this.listBoxValoraciones.Name = "listBoxValoraciones";
-            this.listBoxValoraciones.Size = new System.Drawing.Size(250, 95);
-            this.listBoxValoraciones.TabIndex = 4;
             // 
             // lblFecha
             // 
@@ -234,26 +222,55 @@ namespace CapaDePresentacion
             this.lblValoraciones.TabIndex = 8;
             this.lblValoraciones.Text = "Valoraciones:";
             // 
+            // lboxValoraciones
+            // 
+            this.lboxValoraciones.FormattingEnabled = true;
+            this.lboxValoraciones.Location = new System.Drawing.Point(115, 109);
+            this.lboxValoraciones.Name = "lboxValoraciones";
+            this.lboxValoraciones.Size = new System.Drawing.Size(248, 108);
+            this.lboxValoraciones.TabIndex = 9;
+            // 
+            // sourcePresupuestos
+            // 
+            this.sourcePresupuestos.DataSource = typeof(MD.Presupuesto);
+            // 
+            // txtCliente
+            // 
+            this.txtCliente.Location = new System.Drawing.Point(115, 53);
+            this.txtCliente.Name = "txtCliente";
+            this.txtCliente.ReadOnly = true;
+            this.txtCliente.Size = new System.Drawing.Size(248, 20);
+            this.txtCliente.TabIndex = 10;
+            // 
+            // txtVehiculo
+            // 
+            this.txtVehiculo.Location = new System.Drawing.Point(115, 80);
+            this.txtVehiculo.Name = "txtVehiculo";
+            this.txtVehiculo.ReadOnly = true;
+            this.txtVehiculo.Size = new System.Drawing.Size(248, 20);
+            this.txtVehiculo.TabIndex = 11;
+            // 
             // PresupuestoRecorrido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(401, 226);
+            this.ClientSize = new System.Drawing.Size(375, 226);
+            this.Controls.Add(this.txtVehiculo);
+            this.Controls.Add(this.txtCliente);
+            this.Controls.Add(this.lboxValoraciones);
             this.Controls.Add(this.lblValoraciones);
             this.Controls.Add(this.lblVehiculo);
             this.Controls.Add(this.lblCliente);
             this.Controls.Add(this.lblFecha);
-            this.Controls.Add(this.listBoxValoraciones);
-            this.Controls.Add(this.txtVehiculo);
-            this.Controls.Add(this.txtCliente);
             this.Controls.Add(this.txtFecha);
             this.Controls.Add(this.bindingNavigator);
             this.Name = "PresupuestoRecorrido";
-            this.Text = "PresupuestoRecorrido";
+            this.Text = "Recorrido";
             this.Load += new System.EventHandler(this.PresupuestoRecorrido_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator)).EndInit();
             this.bindingNavigator.ResumeLayout(false);
             this.bindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sourcePresupuestos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,12 +291,13 @@ namespace CapaDePresentacion
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.TextBox txtFecha;
-        private System.Windows.Forms.TextBox txtCliente;
-        private System.Windows.Forms.TextBox txtVehiculo;
-        private System.Windows.Forms.ListBox listBoxValoraciones;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblCliente;
         private System.Windows.Forms.Label lblVehiculo;
         private System.Windows.Forms.Label lblValoraciones;
+        private System.Windows.Forms.BindingSource sourcePresupuestos;
+        private System.Windows.Forms.ListBox lboxValoraciones;
+        private System.Windows.Forms.TextBox txtCliente;
+        private System.Windows.Forms.TextBox txtVehiculo;
     }
 }

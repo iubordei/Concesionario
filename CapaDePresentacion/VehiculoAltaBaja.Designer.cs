@@ -52,6 +52,7 @@
             // 
             this.tbNumeroBastidor.Location = new System.Drawing.Point(176, 50);
             this.tbNumeroBastidor.Name = "tbNumeroBastidor";
+            this.tbNumeroBastidor.ReadOnly = true;
             this.tbNumeroBastidor.Size = new System.Drawing.Size(100, 20);
             this.tbNumeroBastidor.TabIndex = 0;
             // 
