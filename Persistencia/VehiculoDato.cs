@@ -17,11 +17,11 @@ namespace Persistencia
         private String matricula;
         private DateTime? fechaMatriculacion;
         private float? iva;
-        private List<ExtraDato> extras;
+        private List<ExtraDato> extrasDato;
 
         // PRE: numBastidor != null, marca != null, modelo != null, potencia > 0, año > 0; precioRecom > 0, iva > 0.
         // POS: crea un objeto de tipo VehiculoDato a partir de los parámetros pasados en la llamada al constructor.
-        public VehiculoDato(String numBastidor, String marca, String modelo, int potencia, int año, float precioRecom, DateTime? fecha, float? iva, String matricula)
+        public VehiculoDato(String numBastidor, String marca, String modelo, int potencia, int año, float precioRecom, DateTime? fecha, float? iva, String matricula, List<ExtraDato> extras)
         {
             numeroDeBastidor = numBastidor;
             this.marca = marca;
@@ -32,6 +32,7 @@ namespace Persistencia
             fechaMatriculacion = fecha;
             this.iva = iva;
             this.matricula = matricula;
+            this.extrasDato = extras;
         }
 
         // PRE: el objeto de tipo VehiculoDato ha sido inicializado previamente.
@@ -141,7 +142,7 @@ namespace Persistencia
         {
             get
             {
-                return (this.extras);
+                return (this.extrasDato);
             }
         }
     }

@@ -97,7 +97,12 @@ namespace Persistencia
         // POS: devuelve un objeto de tipo VehiculoDato obtenido de la "tabla" vehiculos a partir del parámetro vehiculo.
         public static VehiculoDato SELECTVehiculo(VehiculoDato vehiculo)
         {
-            return BD.vehiculos[vehiculo.NumeroDeBastidor];
+            if (BD.Vehiculos.Count == 0)
+                return null;
+            if (!contieneNum(vehiculo.NumeroDeBastidor))
+                return null;
+            else
+                return BD.vehiculos[vehiculo.NumeroDeBastidor];
         }
 
         // PRE: vehiculo != null.
@@ -116,10 +121,27 @@ namespace Persistencia
         }
 
         // PRE: num != null.
+        // POS: devuelve TRUE si la "tabla" vehiculos contiene un vehículo cuyo número de bastidor es num.
+        public static bool contieneNum(String num)
+        {
+            foreach (VehiculoDato vehiculo in vehiculos)
+            {
+                if (vehiculo.NumeroDeBastidor.Equals(num))
+                    return true;
+            }
+            return false;
+        }
+
+        // PRE: num != null.
         // POS: devuelve un objeto de tipo VehiculoDato obtenido de la "tabla" vehiculos, cuyo número de bastidor sea num.
         public static VehiculoDato SELECTVehiculoNum(String num)
         {
-            return BD.vehiculos[num];
+            if (BD.Vehiculos.Count == 0)
+                return null;
+            if (!contieneNum(num))
+                return null;
+            else
+                return BD.vehiculos[num];
         }
 
         // PRE:
@@ -188,29 +210,53 @@ namespace Persistencia
         // POS: devuelve un objeto de tipo ClienteDato obtenido de la "tabla" clientes cuyo DNI sea dni.
         public static ClienteDato SELECTCliente(String dni)
         {
-            return BD.Clientes[dni];
+            if (BD.Clientes.Count == 0)
+                return null;
+            if (!contieneDNI(dni))
+                return null;
+            else
+                return BD.Clientes[dni];
+        }
+
+        public static ClienteDato SELECTCliente(ClienteDato cliente)
+        {
+            if (BD.Clientes.Count == 0)
+                return null;
+            if (!contieneDNI(cliente.DNI))
+                return null;
+            else
+                return BD.Clientes[cliente.DNI];
         }
 
         // PRE: c != null.
         // POS: elimina de la "tabla" clientes c, si c se encuentra en ella.
         public static void DELETECliente(ClienteDato c)
         {
-            BD.Clientes.Remove(c);
+            if (BD.Clientes.Count != 0)
+                BD.Clientes.Remove(c.DNI);
         }
 
         // PRE: dni != null.
         // POS: devuelve TRUE si el cliente cuyo DNI es dni se encuentra en la "tabla" clientes, FALSE en caso contrario.
-        public static bool ISCliente(String dni)
+        public static bool contieneDNI(String dni)
         {
-            return BD.Clientes.Contains(dni);
+            foreach (ClienteDato cliente in BD.Clientes)
+            {
+                if (cliente.DNI.Equals(dni))
+                    return true;
+            }
+            return false;
         }
 
         // PRE: c != null;
         // POS: actualiza el objeto c en la "tabla" clientes.
         public static void UPDATECliente(ClienteDato c)
         {
-            BD.DELETECliente(c);
-            BD.INSERTCliente(c);
+            if (BD.Clientes.Count != 0)
+            {
+                BD.DELETECliente(c);
+                BD.INSERTCliente(c);
+            }
 
         }
 

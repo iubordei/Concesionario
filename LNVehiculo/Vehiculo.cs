@@ -19,7 +19,7 @@ namespace LNVehiculo
                 return false;
 
             vehiculoFinal = PersistenciaVehiculo.Buscar(vehiculo);
-            if (vehiculoFinal == null)
+            if (vehiculoFinal != null)
                 return false;
 
             PersistenciaVehiculo.Añadir(vehiculo);
@@ -57,11 +57,15 @@ namespace LNVehiculo
             return PersistenciaVehiculo.GetAll();
         }
 
+        // PRE:
+        // POST: devuelve una lista con todos los vehículos de segunda mano almacenados en la BD.
         public static List<MD.Vehiculo> GetSegundaMano()
         {
             return PersistenciaVehiculo.GetSegundaMano();
         }
 
+        // PRE:
+        // POST: devuelve una lista con todos los vehículos nuevos almacenados en la BD.
         public static List<MD.Vehiculo> GetNuevos()
         {
             return PersistenciaVehiculo.GetNuevos();

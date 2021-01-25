@@ -59,7 +59,7 @@ namespace Persistencia
 
         // PRE: extra != null.
         // POS: devuelve un objeto ExtraDato equivalente al objeto de tipo Extra extra.
-        private static ExtraDato extraAExtraDato(MD.Extra extra)
+        public static ExtraDato extraAExtraDato(MD.Extra extra)
         {
             return (new ExtraDato(extra.Nombre, extra.Precio));
         }
@@ -67,7 +67,7 @@ namespace Persistencia
         // PRE: lista != null.
         // POS: devuelve una lista de objetos ExtraDato, formados a partir de una lista de objetos Extra,
         // POS: es decir, convierte uno a uno todos los objetos de lista a sus respectivos equivalentes de tipo ExtraDato.
-        private static List<ExtraDato> listaExtraAListaExtraDato(List<MD.Extra> lista)
+        public static List<ExtraDato> listaExtraAListaExtraDato(List<MD.Extra> lista)
         {
             List<ExtraDato> extras = new List<ExtraDato>();
             foreach (MD.Extra extra in lista)

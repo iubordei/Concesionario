@@ -15,7 +15,7 @@ namespace MD
 
         // PRE: nom != null, dni != null, tel != null, cat != null.
         // POS: crea un objeto de tipo Cliente cuyo nombre es nom, DNI = dni, telefono = tel, y categoria = cat.
-        public Cliente(String nom, String dni, String tel, Categoria cat)
+        public Cliente(String dni, String nom, String tel, Categoria cat)
         {
             this.nombre = nom;
             this.dni = dni;

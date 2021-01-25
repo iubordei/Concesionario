@@ -51,6 +51,7 @@
             "Techo solar"});
             this.lbExtras.Location = new System.Drawing.Point(65, 26);
             this.lbExtras.Name = "lbExtras";
+            this.lbExtras.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lbExtras.Size = new System.Drawing.Size(120, 69);
             this.lbExtras.TabIndex = 1;
             // 

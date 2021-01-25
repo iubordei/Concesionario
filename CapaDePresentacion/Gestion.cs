@@ -83,14 +83,8 @@ namespace CapaDePresentacion
             switch (mensaje)
             {
                 case DialogResult.Yes:
-                    foreach (Form form in Application.OpenForms)
-                    {
-                        if (form != login)
-                        {
-                            form.Close();
-                        }
-                    }
                     login.Show();
+                    this.Close();
                     break;
             }
 
@@ -107,6 +101,88 @@ namespace CapaDePresentacion
                     Application.Exit();
                     break;
             }
+        }
+
+        // PRE:
+        // POS: permite buscar entre los vehículos de la BD según el número de bastidor.
+        private void tsBusquedaVehiculo_Click(object sender, EventArgs e)
+        {
+            Form VehiculoAgregarClave = new VehiculoAgregarClave(tsBusquedaVehiculo.Text);
+            VehiculoAgregarClave.ShowDialog();
+        }
+
+        // PRE:
+        // POS: lista los vehículos almacenados en el concesionario.
+        private void tsListadoVehiculo_Click(object sender, EventArgs e)
+        {
+            List<MD.Vehiculo> ListadoVehiculos = LNVehiculo.Vehiculo.GetAllVehiculos();
+            if (ListadoVehiculos.Count == 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("No hay vehiculos en la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Form Listado = new ListadoVehiculos();
+            Listado.ShowDialog();
+        }
+
+        // PRE:
+        // POS: permite recorrer los objetos Vehiculo que están almacenados en la BD.
+        private void txRecorridoVehiculo_Click(object sender, EventArgs e)
+        {
+            List<MD.Vehiculo> ListadoVehiculos = LNVehiculo.Vehiculo.GetAllVehiculos();
+            if (ListadoVehiculos.Count == 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("No hay vehiculos en la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Form Recorrido = new VehiculoUnoAUno();
+            Recorrido.ShowDialog();
+        }
+
+        // PRE:
+        // POS: inicia el proceso de búsqueda de un cliente por su DNI.
+        private void tsBusquedaCliente_Click(object sender, EventArgs e)
+        {
+            ClienteClave clave = new ClienteClave("Busqueda");
+            clave.ShowDialog();
+        }
+
+        // PRE:
+        // POS: inicia el proceso de alta de un cliente.
+        private void tsAltaCliente_Click(object sender, EventArgs e)
+        {
+            ClienteClave clave = new ClienteClave(tsAltaCliente.Text);
+            clave.ShowDialog();
+        }
+
+        // PRE:
+        // POS: inicia el proceso de baja de un cliente.
+        private void tsBajaCliente_Click(object sender, EventArgs e)
+        {
+            ClienteClave clave = new ClienteClave(tsBajaCliente.Text);
+            clave.ShowDialog();
+        }
+
+        // PRE:
+        // POS: búsqueda de clientes mediante la elección de su DNI.
+        private void búsquedaPorDNIToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClienteBusquedaDNI busqueda = new ClienteBusquedaDNI();
+            busqueda.ShowDialog();
+        }
+
+        // PRE:
+        // POS: recorre uno a uno todos los clientes almacenados en la BD.
+        private void recorridoUnoAUnoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ClienteRecorrido recorrido = new ClienteRecorrido();
+            recorrido.ShowDialog();
+        }
+
+        private void listadoOrdenadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClienteListado listado = new ClienteListado();
+            listado.ShowDialog();
         }
     }
 }

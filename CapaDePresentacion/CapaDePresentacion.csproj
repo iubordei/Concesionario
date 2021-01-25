@@ -46,11 +46,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClienteAltaBaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClienteAltaBaja.Designer.cs">
+      <DependentUpon>ClienteAltaBaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClienteBusquedaDNI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClienteBusquedaDNI.Designer.cs">
+      <DependentUpon>ClienteBusquedaDNI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClienteClave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClienteClave.Designer.cs">
+      <DependentUpon>ClienteClave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClienteInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ClienteInfo.Designer.cs">
+      <DependentUpon>ClienteInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClienteListado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClienteListado.Designer.cs">
+      <DependentUpon>ClienteListado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClienteRecorrido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClienteRecorrido.Designer.cs">
+      <DependentUpon>ClienteRecorrido.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gestion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Gestion.Designer.cs">
       <DependentUpon>Gestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListadoVehiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListadoVehiculos.Designer.cs">
+      <DependentUpon>ListadoVehiculos.cs</DependentUpon>
     </Compile>
     <Compile Include="LogIn.cs">
       <SubType>Form</SubType>
@@ -102,6 +144,30 @@
     <Compile Include="VehiculoAltaBaja.Designer.cs">
       <DependentUpon>VehiculoAltaBaja.cs</DependentUpon>
     </Compile>
+    <Compile Include="VehiculoUnoAUno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VehiculoUnoAUno.Designer.cs">
+      <DependentUpon>VehiculoUnoAUno.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ClienteAltaBaja.resx">
+      <DependentUpon>ClienteAltaBaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClienteBusquedaDNI.resx">
+      <DependentUpon>ClienteBusquedaDNI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClienteClave.resx">
+      <DependentUpon>ClienteClave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClienteInfo.resx">
+      <DependentUpon>ClienteInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClienteListado.resx">
+      <DependentUpon>ClienteListado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClienteRecorrido.resx">
+      <DependentUpon>ClienteRecorrido.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gestion.resx">
       <DependentUpon>Gestion.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,6 +204,13 @@
     <EmbeddedResource Include="VehiculoAltaBaja.resx">
       <DependentUpon>VehiculoAltaBaja.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\MD.Cliente.datasource" />
+    <None Include="Properties\DataSources\MD.Comercial.datasource" />
+    <None Include="Properties\DataSources\MD.Extra.datasource" />
+    <None Include="Properties\DataSources\MD.Nuevo.datasource" />
+    <None Include="Properties\DataSources\MD.Presupuesto.datasource" />
+    <None Include="Properties\DataSources\MD.SegundaMano.datasource" />
+    <None Include="Properties\DataSources\MD.Vehiculo.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

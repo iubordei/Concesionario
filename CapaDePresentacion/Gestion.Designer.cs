@@ -33,10 +33,15 @@
             this.tsAltaCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.tsBajaCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.tsBusquedaCliente = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsBusquedaDNI = new System.Windows.Forms.ToolStripMenuItem();
+            this.listadoOrdenadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.recorridoUnoAUnoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.vehículosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsAltaVehiculo = new System.Windows.Forms.ToolStripMenuItem();
             this.tsBajaVehiculo = new System.Windows.Forms.ToolStripMenuItem();
             this.tsBusquedaVehiculo = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsListadoVehiculo = new System.Windows.Forms.ToolStripMenuItem();
+            this.txRecorridoVehiculo = new System.Windows.Forms.ToolStripMenuItem();
             this.presupuestosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsAltaPresupuesto = new System.Windows.Forms.ToolStripMenuItem();
             this.tsBusquedaPresupuesto = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,7 +70,10 @@
             this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsAltaCliente,
             this.tsBajaCliente,
-            this.tsBusquedaCliente});
+            this.tsBusquedaCliente,
+            this.tsBusquedaDNI,
+            this.listadoOrdenadoToolStripMenuItem,
+            this.recorridoUnoAUnoToolStripMenuItem1});
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             this.clientesToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.clientesToolStripMenuItem.Text = "Clientes";
@@ -73,27 +81,53 @@
             // tsAltaCliente
             // 
             this.tsAltaCliente.Name = "tsAltaCliente";
-            this.tsAltaCliente.Size = new System.Drawing.Size(126, 22);
+            this.tsAltaCliente.Size = new System.Drawing.Size(182, 22);
             this.tsAltaCliente.Text = "Alta";
+            this.tsAltaCliente.Click += new System.EventHandler(this.tsAltaCliente_Click);
             // 
             // tsBajaCliente
             // 
             this.tsBajaCliente.Name = "tsBajaCliente";
-            this.tsBajaCliente.Size = new System.Drawing.Size(126, 22);
+            this.tsBajaCliente.Size = new System.Drawing.Size(182, 22);
             this.tsBajaCliente.Text = "Baja";
+            this.tsBajaCliente.Click += new System.EventHandler(this.tsBajaCliente_Click);
             // 
             // tsBusquedaCliente
             // 
             this.tsBusquedaCliente.Name = "tsBusquedaCliente";
-            this.tsBusquedaCliente.Size = new System.Drawing.Size(126, 22);
-            this.tsBusquedaCliente.Text = "Búsqueda";
+            this.tsBusquedaCliente.Size = new System.Drawing.Size(182, 22);
+            this.tsBusquedaCliente.Text = "Búsqueda manual";
+            this.tsBusquedaCliente.Click += new System.EventHandler(this.tsBusquedaCliente_Click);
+            // 
+            // tsBusquedaDNI
+            // 
+            this.tsBusquedaDNI.Name = "tsBusquedaDNI";
+            this.tsBusquedaDNI.Size = new System.Drawing.Size(182, 22);
+            this.tsBusquedaDNI.Text = "Búsqueda por DNI";
+            this.tsBusquedaDNI.Click += new System.EventHandler(this.búsquedaPorDNIToolStripMenuItem_Click);
+            // 
+            // listadoOrdenadoToolStripMenuItem
+            // 
+            this.listadoOrdenadoToolStripMenuItem.Name = "listadoOrdenadoToolStripMenuItem";
+            this.listadoOrdenadoToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.listadoOrdenadoToolStripMenuItem.Text = "Listado ordenado";
+            this.listadoOrdenadoToolStripMenuItem.Click += new System.EventHandler(this.listadoOrdenadoToolStripMenuItem_Click);
+            // 
+            // recorridoUnoAUnoToolStripMenuItem1
+            // 
+            this.recorridoUnoAUnoToolStripMenuItem1.Name = "recorridoUnoAUnoToolStripMenuItem1";
+            this.recorridoUnoAUnoToolStripMenuItem1.Size = new System.Drawing.Size(182, 22);
+            this.recorridoUnoAUnoToolStripMenuItem1.Text = "Recorrido uno a uno";
+            this.recorridoUnoAUnoToolStripMenuItem1.Click += new System.EventHandler(this.recorridoUnoAUnoToolStripMenuItem1_Click);
             // 
             // vehículosToolStripMenuItem
             // 
             this.vehículosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsAltaVehiculo,
             this.tsBajaVehiculo,
-            this.tsBusquedaVehiculo});
+            this.tsBusquedaVehiculo,
+            this.tsListadoVehiculo,
+            this.txRecorridoVehiculo});
             this.vehículosToolStripMenuItem.Name = "vehículosToolStripMenuItem";
             this.vehículosToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.vehículosToolStripMenuItem.Text = "Vehículos";
@@ -101,22 +135,37 @@
             // tsAltaVehiculo
             // 
             this.tsAltaVehiculo.Name = "tsAltaVehiculo";
-            this.tsAltaVehiculo.Size = new System.Drawing.Size(126, 22);
+            this.tsAltaVehiculo.Size = new System.Drawing.Size(182, 22);
             this.tsAltaVehiculo.Text = "Alta";
             this.tsAltaVehiculo.Click += new System.EventHandler(this.tsAltaVehiculo_Click);
             // 
             // tsBajaVehiculo
             // 
             this.tsBajaVehiculo.Name = "tsBajaVehiculo";
-            this.tsBajaVehiculo.Size = new System.Drawing.Size(126, 22);
+            this.tsBajaVehiculo.Size = new System.Drawing.Size(182, 22);
             this.tsBajaVehiculo.Text = "Baja";
             this.tsBajaVehiculo.Click += new System.EventHandler(this.tsBajaVehiculo_Click);
             // 
             // tsBusquedaVehiculo
             // 
             this.tsBusquedaVehiculo.Name = "tsBusquedaVehiculo";
-            this.tsBusquedaVehiculo.Size = new System.Drawing.Size(126, 22);
+            this.tsBusquedaVehiculo.Size = new System.Drawing.Size(182, 22);
             this.tsBusquedaVehiculo.Text = "Búsqueda";
+            this.tsBusquedaVehiculo.Click += new System.EventHandler(this.tsBusquedaVehiculo_Click);
+            // 
+            // tsListadoVehiculo
+            // 
+            this.tsListadoVehiculo.Name = "tsListadoVehiculo";
+            this.tsListadoVehiculo.Size = new System.Drawing.Size(182, 22);
+            this.tsListadoVehiculo.Text = "Listado";
+            this.tsListadoVehiculo.Click += new System.EventHandler(this.tsListadoVehiculo_Click);
+            // 
+            // txRecorridoVehiculo
+            // 
+            this.txRecorridoVehiculo.Name = "txRecorridoVehiculo";
+            this.txRecorridoVehiculo.Size = new System.Drawing.Size(182, 22);
+            this.txRecorridoVehiculo.Text = "Recorrido uno a uno";
+            this.txRecorridoVehiculo.Click += new System.EventHandler(this.txRecorridoVehiculo_Click);
             // 
             // presupuestosToolStripMenuItem
             // 
@@ -206,5 +255,10 @@
         private System.Windows.Forms.ToolStripMenuItem tsBusquedaCliente;
         private System.Windows.Forms.ToolStripMenuItem tsMostrarTodosPresupuesto;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsBusquedaDNI;
+        private System.Windows.Forms.ToolStripMenuItem listadoOrdenadoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem recorridoUnoAUnoToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tsListadoVehiculo;
+        private System.Windows.Forms.ToolStripMenuItem txRecorridoVehiculo;
     }
 }

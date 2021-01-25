@@ -20,6 +20,9 @@ namespace CapaDePresentacion
         private BindingSource sourceClientes;
         private BindingSource sourceVehiculos;
 
+        private Dictionary<string, MD.Cliente> clientes;
+        private Dictionary<string, MD.Vehiculo> vehiculos;
+
         // PRE:
         // POS: crea un formuilario de tipo PresupuestoAlta.
         public PresupuestoAlta()
@@ -34,11 +37,25 @@ namespace CapaDePresentacion
         // POS: las listas de clientes y vehiculos.
         private void PresupuestoAlta_Load(object sender, EventArgs e)
         {
-            sourceClientes.DataSource = LNCliente.Cliente.VerClientes();
+            // Clientes
+            clientes = new Dictionary<string, MD.Cliente>();
+            foreach (MD.Cliente cliente in LNCliente.Cliente.VerClientes())
+            {
+                clientes.Add(cliente.DNI + ", " + cliente.Nombre, cliente);
+            }
+
+            sourceClientes.DataSource = clientes.Keys;
             listBoxClientes.DataSource = sourceClientes;
             listBoxClientes.Refresh();
 
-            sourceVehiculos.DataSource = LNVehiculo.Vehiculo.GetAllVehiculos();
+            // Vehiculos
+            vehiculos = new Dictionary<string, MD.Vehiculo>();
+            foreach (MD.Vehiculo vehiculo in LNVehiculo.Vehiculo.GetAllVehiculos())
+            {
+                vehiculos.Add(vehiculo.NumeroDeBastidor + ", " + vehiculo.Marca + " " + vehiculo.Modelo, vehiculo);
+            }
+
+            sourceVehiculos.DataSource = vehiculos.Keys;
             listBoxVehiculos.DataSource = sourceVehiculos;
             listBoxVehiculos.Refresh();
 
@@ -56,7 +73,8 @@ namespace CapaDePresentacion
             {
                 if (valoraciones.Count > 0)
                 {
-                    LNPresupuesto.Presupuesto.CrearPresupuesto(DateTime.Today, (MD.Cliente)listBoxClientes.SelectedItem, valoraciones);
+                    MD.Cliente cliente = clientes[listBoxClientes.SelectedItem.ToString()];
+                    LNPresupuesto.Presupuesto.CrearPresupuesto(DateTime.Today, cliente, valoraciones);
                 }
                 else
                 {
@@ -92,7 +110,8 @@ namespace CapaDePresentacion
                 {
                     if (listBoxVehiculos.SelectedIndex != -1)
                     {
-                        valoraciones.Add((MD.Vehiculo)listBoxVehiculos.SelectedItem, valor);
+                        MD.Vehiculo vehiculo = vehiculos[listBoxVehiculos.SelectedItem.ToString()];
+                        valoraciones.Add(vehiculo, valor);
                         txtValoracion.Clear();
                     }
                     else

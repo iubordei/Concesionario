@@ -27,7 +27,7 @@ namespace CapaDePresentacion
             {
                  dialogResult = MessageBox.Show("¿Quieres introducir otro número?", "Ya existe un vehiculo con ese número", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
-            } else if(vehiculo == null && accion.Equals("Baja"))
+            } else if(vehiculo == null && ((accion.Equals("Baja")) ||(accion.Equals("Búsqueda"))))
             {
                  dialogResult = MessageBox.Show("¿Quieres introducir otro número?", "No existe un vehiculo con ese número", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             }
@@ -37,9 +37,34 @@ namespace CapaDePresentacion
                 Close();
             }
 
-            Form vehiculoAltaBaja = new VehiculoAltaBaja(tbNumeroBastidor.Text, accion);
-            vehiculoAltaBaja.ShowDialog();
+            if (vehiculo != null && accion.Equals("Baja"))
+            {
+                DialogResult dialogResultAviso = MessageBox.Show("¿Estás seguro que deseas dar de baja a ese vehiculo?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (dialogResultAviso == DialogResult.Yes)
+                {
+                    DialogResult dialogResultNotificacion;
+                    if(LNVehiculo.Vehiculo.BajaVehiculo(vehiculo))
+                        dialogResultNotificacion = MessageBox.Show("Vehiculo eliminado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                    this.Hide();
+                
+            }
+            else if (vehiculo == null && accion.Equals("Alta")) 
+            {
+                Form vehiculoAltaBaja = new VehiculoAltaBaja(tbNumeroBastidor.Text, accion);
+                vehiculoAltaBaja.ShowDialog();
+            } else if(vehiculo != null && accion.Equals("Búsqueda"))
+            {
+                Form vehiculoAltaBaja = new VehiculoAltaBaja(tbNumeroBastidor.Text, accion);
+                vehiculoAltaBaja.ShowDialog();
+            }
             
+        }
+
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

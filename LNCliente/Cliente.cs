@@ -18,15 +18,32 @@ namespace LNCliente
         // POS: devuelve TRUE si cliente se ha añadido a la base de datos, 
         //FALSE si ya estaba en la base de datos o era nulo.
         {
-            if (cliente != null && !PersistenciaCliente.Existe(cliente.DNI))
-            {
-                PersistenciaCliente.Añadir(cliente);
-                return true;
-            }
-            else
-            {
+
+            MD.Cliente clienteFinal;
+
+            if (cliente == null)
                 return false;
-            }
+
+            clienteFinal = PersistenciaCliente.Buscar(cliente.DNI);
+            if (clienteFinal != null)
+                return false;
+
+            PersistenciaCliente.Añadir(cliente);
+            return true;
+        }
+
+        // PRE: 
+        // POS: devuelve TRUE si cliente existe, FALSE en caso contrario.
+        public static bool ExisteCliente(String DNI)
+        {
+            return PersistenciaCliente.Existe(DNI);
+        }
+
+        // PRE: 
+        // POS: crea un nuevo cliente.
+        public static MD.Cliente crearCliente(String DNI, String nombre, String telef, Categoria cat)
+        {
+            return (new MD.Cliente(DNI, nombre, telef, cat));
         }
 
         public static bool BajaCliente(MD.Cliente cliente)
@@ -34,15 +51,32 @@ namespace LNCliente
         // POS: devuelve TRUE si cliente se ha eliminado de la base de datos, 
         //FALSE si no estaba en la base de datos o era nulo.
         {
-            if (cliente != null && PersistenciaCliente.Existe(cliente.DNI))
+            MD.Cliente clienteFinal;
+
+            if (cliente == null)
+                return false;
+
+            clienteFinal = PersistenciaCliente.Buscar(cliente.DNI);
+            if (clienteFinal == null)
+                return false;
+
+            PersistenciaCliente.Eliminar(cliente);
+            return true;
+        }
+
+        // PRE:
+        // POS: devuelve un Cliente a partir de su DNI.
+        public static MD.Cliente GetCliente(String dni)
+        {
+            if (dni != null)
             {
-                PersistenciaCliente.Eliminar(cliente);
-                return true;
+                return PersistenciaCliente.Buscar(dni);
             }
             else
             {
-                return false;
+                return null;
             }
+
         }
 
         public static string GetInfoCliente(string dni)
@@ -127,6 +161,13 @@ namespace LNCliente
             {
                 return false;
             }
+        }
+
+        // PRE: clientes != null.
+        // POS: ordena la lista clientes según el delegado pasado como parámetro en comparison.
+        public static void Ordenar(List<MD.Cliente> clientes, Comparison<MD.Cliente> comparison)
+        {
+            clientes.Sort(comparison);
         }
     }
 }

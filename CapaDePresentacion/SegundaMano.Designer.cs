@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbMatricula = new System.Windows.Forms.TextBox();
             this.lMatricula = new System.Windows.Forms.Label();
             this.lFechaMatriculacion = new System.Windows.Forms.Label();
             this.tbFechaMatriculacion = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // textBox1
+            // tbMatricula
             // 
-            this.textBox1.Location = new System.Drawing.Point(125, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.tbMatricula.Location = new System.Drawing.Point(125, 6);
+            this.tbMatricula.Name = "tbMatricula";
+            this.tbMatricula.Size = new System.Drawing.Size(100, 20);
+            this.tbMatricula.TabIndex = 0;
             // 
             // lMatricula
             // 
@@ -65,6 +65,7 @@
             this.tbFechaMatriculacion.Name = "tbFechaMatriculacion";
             this.tbFechaMatriculacion.Size = new System.Drawing.Size(100, 20);
             this.tbFechaMatriculacion.TabIndex = 2;
+            this.tbFechaMatriculacion.Text = "24/01/21";
             // 
             // SegundaMano
             // 
@@ -73,7 +74,7 @@
             this.Controls.Add(this.lFechaMatriculacion);
             this.Controls.Add(this.tbFechaMatriculacion);
             this.Controls.Add(this.lMatricula);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbMatricula);
             this.Name = "SegundaMano";
             this.Size = new System.Drawing.Size(229, 73);
             this.ResumeLayout(false);
@@ -83,7 +84,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbMatricula;
         private System.Windows.Forms.Label lMatricula;
         private System.Windows.Forms.Label lFechaMatriculacion;
         private System.Windows.Forms.TextBox tbFechaMatriculacion;

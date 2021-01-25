@@ -41,8 +41,10 @@
             this.btAceptar = new System.Windows.Forms.Button();
             this.btCancelar = new System.Windows.Forms.Button();
             this.groupVehiculo = new System.Windows.Forms.GroupBox();
-            this.rbNuevo = new System.Windows.Forms.RadioButton();
             this.rbSegundaMano = new System.Windows.Forms.RadioButton();
+            this.rbNuevo = new System.Windows.Forms.RadioButton();
+            this.lbAño = new System.Windows.Forms.Label();
+            this.tbAño = new System.Windows.Forms.TextBox();
             this.groupVehiculo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -157,18 +159,6 @@
             this.groupVehiculo.TabStop = false;
             this.groupVehiculo.Text = "Vehiculo";
             // 
-            // rbNuevo
-            // 
-            this.rbNuevo.AutoSize = true;
-            this.rbNuevo.Location = new System.Drawing.Point(18, 49);
-            this.rbNuevo.Name = "rbNuevo";
-            this.rbNuevo.Size = new System.Drawing.Size(57, 17);
-            this.rbNuevo.TabIndex = 0;
-            this.rbNuevo.TabStop = true;
-            this.rbNuevo.Text = "Nuevo";
-            this.rbNuevo.UseVisualStyleBackColor = true;
-            this.rbNuevo.CheckedChanged += new System.EventHandler(this.rbNuevo_CheckedChanged);
-            // 
             // rbSegundaMano
             // 
             this.rbSegundaMano.AutoSize = true;
@@ -181,11 +171,41 @@
             this.rbSegundaMano.UseVisualStyleBackColor = true;
             this.rbSegundaMano.CheckedChanged += new System.EventHandler(this.rbSegundaMano_CheckedChanged);
             // 
+            // rbNuevo
+            // 
+            this.rbNuevo.AutoSize = true;
+            this.rbNuevo.Location = new System.Drawing.Point(18, 49);
+            this.rbNuevo.Name = "rbNuevo";
+            this.rbNuevo.Size = new System.Drawing.Size(57, 17);
+            this.rbNuevo.TabIndex = 0;
+            this.rbNuevo.TabStop = true;
+            this.rbNuevo.Text = "Nuevo";
+            this.rbNuevo.UseVisualStyleBackColor = true;
+            this.rbNuevo.CheckedChanged += new System.EventHandler(this.rbNuevo_CheckedChanged);
+            // 
+            // lbAño
+            // 
+            this.lbAño.AutoSize = true;
+            this.lbAño.Location = new System.Drawing.Point(55, 255);
+            this.lbAño.Name = "lbAño";
+            this.lbAño.Size = new System.Drawing.Size(29, 13);
+            this.lbAño.TabIndex = 13;
+            this.lbAño.Text = "Año:";
+            // 
+            // tbAño
+            // 
+            this.tbAño.Location = new System.Drawing.Point(176, 252);
+            this.tbAño.Name = "tbAño";
+            this.tbAño.Size = new System.Drawing.Size(100, 20);
+            this.tbAño.TabIndex = 14;
+            // 
             // VehiculoAltaBaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(639, 355);
+            this.Controls.Add(this.tbAño);
+            this.Controls.Add(this.lbAño);
             this.Controls.Add(this.groupVehiculo);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.btAceptar);
@@ -225,5 +245,7 @@
         private System.Windows.Forms.GroupBox groupVehiculo;
         private System.Windows.Forms.RadioButton rbSegundaMano;
         private System.Windows.Forms.RadioButton rbNuevo;
+        private System.Windows.Forms.Label lbAño;
+        private System.Windows.Forms.TextBox tbAño;
     }
 }
