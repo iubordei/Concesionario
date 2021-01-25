@@ -120,7 +120,7 @@ namespace LNPresupuesto
         // POS: devuelve una lista compuesta por todos los objetos de tipo Presupuesto persistidos en el sistema.
         public static List<MD.Presupuesto> GetTodosPresupuestos()
         {
-            return (Persistencia.PersistenciaPresupuesto.GetTodos());
+            return (Persistencia.PersistenciaPresupuesto.GetTodos() != null ? Persistencia.PersistenciaPresupuesto.GetTodos() : new List<MD.Presupuesto>());
         }
     }
 }

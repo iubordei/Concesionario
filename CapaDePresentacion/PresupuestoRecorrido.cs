@@ -71,17 +71,19 @@ namespace CapaDePresentacion
         private void actualizar()
         {
             MD.Presupuesto presupuesto = (MD.Presupuesto)bindingNavigator.BindingSource.Current;
-
-            lboxValoraciones.Items.Clear();
-            foreach (KeyValuePair<MD.Vehiculo, double> kvp in presupuesto.Valoracion)
+            if (presupuesto != null)
             {
-                lboxValoraciones.Items.Add(kvp.Key.Marca + " " + kvp.Key.Modelo + " " + kvp.Key.Año + ", " + kvp.Value);
-            }
+                lboxValoraciones.Items.Clear();
+                foreach (KeyValuePair<MD.Vehiculo, double> kvp in presupuesto.Valoracion)
+                {
+                    lboxValoraciones.Items.Add(kvp.Key.Marca + " " + kvp.Key.Modelo + " " + kvp.Key.Año + ", " + kvp.Value + "€");
+                }
 
-            txtCliente.Text = presupuesto.Cliente.Nombre + ", " + presupuesto.Cliente.DNI;
-            if (presupuesto.Vehiculo != null)
-            {
-                txtVehiculo.Text = presupuesto.Vehiculo.Marca + " " + presupuesto.Vehiculo.Modelo + " " + presupuesto.Vehiculo.Año;
+                txtCliente.Text = presupuesto.Cliente.Nombre + ", " + presupuesto.Cliente.DNI;
+                if (presupuesto.Vehiculo != null)
+                {
+                    txtVehiculo.Text = presupuesto.Vehiculo.Marca + " " + presupuesto.Vehiculo.Modelo + " " + presupuesto.Vehiculo.Año;
+                }
             }
         }
     }

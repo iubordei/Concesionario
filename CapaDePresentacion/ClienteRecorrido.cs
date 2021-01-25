@@ -12,10 +12,13 @@ namespace CapaDePresentacion
 {
     public partial class ClienteRecorrido : Form
     {
+        List<MD.Cliente> clientes;
+
         // PRE:
         // POS: crea un nuevo formulario de tipo ClienteRecorrido.
-        public ClienteRecorrido()
+        public ClienteRecorrido(List<MD.Cliente> clientes)
         {
+            this.clientes = clientes;
             InitializeComponent();
         }
 
@@ -23,7 +26,7 @@ namespace CapaDePresentacion
         // POS: asigna al DataSource del BindingSource del BindingNavigator una lista con todos los clientes de la BD.
         private void ClienteRecorrido_Load(object sender, EventArgs e)
         {
-            sourceClientes.DataSource = LNCliente.Cliente.VerClientes();
+            sourceClientes.DataSource = clientes;
         }
     }
 }

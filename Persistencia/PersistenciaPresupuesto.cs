@@ -13,23 +13,31 @@ namespace Persistencia
         // POS: inserta en la BD un objeto de tipo MD.Presupuesto.
         public static void Añadir(MD.Presupuesto p)
         {
-            BD.INSERTPresupuesto(presupuestoAPresupuestoDato(p));
+            if (BD.Presupuestos != null)
+                BD.INSERTPresupuesto(presupuestoAPresupuestoDato(p));
         }
 
         // PRE: p != null.
         // POS: devuelve un objeto de tipo MD.Presupuesto si p es encontrado en la BD, null en caso contrario.
         public static MD.Presupuesto Buscar(MD.Presupuesto p)
         {
-            PresupuestoDato pd = presupuestoAPresupuestoDato(p);
-            PresupuestoDato res = BD.SELECTPresupuesto(pd);
-            if (res != null)
+            if (BD.Presupuestos != null)
             {
-                Dictionary<MD.Vehiculo, double> valoraciones = new Dictionary<MD.Vehiculo, double>();
-                foreach (KeyValuePair<VehiculoDato, double> kvp in res.Valoraciones)
+                PresupuestoDato pd = presupuestoAPresupuestoDato(p);
+                PresupuestoDato res = BD.SELECTPresupuesto(pd);
+                if (res != null)
                 {
-                    valoraciones.Add(PersistenciaVehiculo.VehiculoDatoAVehiculo(kvp.Key), kvp.Value);
+                    Dictionary<MD.Vehiculo, double> valoraciones = new Dictionary<MD.Vehiculo, double>();
+                    foreach (KeyValuePair<VehiculoDato, double> kvp in res.Valoraciones)
+                    {
+                        valoraciones.Add(PersistenciaVehiculo.VehiculoDatoAVehiculo(kvp.Key), kvp.Value);
+                    }
+                    return (new MD.Presupuesto(res.FechaRealizacion, Persistencia.PersistenciaCliente.Buscar(res.Cliente), valoraciones));
                 }
-                return (new MD.Presupuesto(res.FechaRealizacion, Persistencia.PersistenciaCliente.Buscar(res.Cliente), valoraciones));
+                else
+                {
+                    return (null);
+                }
             }
             else
             {
@@ -41,28 +49,32 @@ namespace Persistencia
         // POS: devuelve una lista de MD.Presupuesto con todos los presupuestos almacenados en la BD.
         public static List<MD.Presupuesto> GetTodos()
         {
+            if (BD.Presupuestos == null)
+                return null;
+
             List<MD.Presupuesto> presupuestos = new List<MD.Presupuesto>();
             KeyedCollection<string, PresupuestoDato> tabla = BD.GetPresupuestos();
-            foreach (PresupuestoDato pDato in tabla)
+            foreach (PresupuestoDato presupuestoDato in tabla)
             {
-                presupuestos.Add(presupuestoDatoAPresupuesto(pDato));
+                presupuestos.Add(presupuestoDatoAPresupuesto(presupuestoDato));
             }
-
-            return (presupuestos);
+            return presupuestos;
         }
 
         // PRE: p != null.
         // POS: elimina de la BD el objeto p si éste existe en ella.
         public static void Eliminar(MD.Presupuesto p)
         {
-            BD.DELETEPresupuesto(presupuestoAPresupuestoDato(p));
+            if (BD.Presupuestos != null)
+                BD.DELETEPresupuesto(presupuestoAPresupuestoDato(p));
         }
 
         // PRE: p != null.
         // POS: actualiza en la BD el objeto p.
         public static void Modificar(MD.Presupuesto p)
         {
-            BD.UPDATEPresupuesto(presupuestoAPresupuestoDato(p));
+            if (BD.Presupuestos != null)
+                BD.UPDATEPresupuesto(presupuestoAPresupuestoDato(p));
         }
 
         // PRE: p != null.
@@ -74,7 +86,7 @@ namespace Persistencia
             {
                 valoraciones.Add(PersistenciaVehiculo.VehiculoAVehiculoDato(kvp.Key), kvp.Value);
             }
-            return (new PresupuestoDato(p.FechaRealizacion, p.Cliente.DNI, (EstadoDato) p.Estado, valoraciones));
+            return (new PresupuestoDato(p.FechaRealizacion, p.Cliente.DNI, (EstadoDato)p.Estado, valoraciones));
         }
 
         // PRE: p != null.

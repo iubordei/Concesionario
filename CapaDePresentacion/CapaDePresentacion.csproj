@@ -204,6 +204,9 @@
     <EmbeddedResource Include="VehiculoAltaBaja.resx">
       <DependentUpon>VehiculoAltaBaja.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VehiculoUnoAUno.resx">
+      <DependentUpon>VehiculoUnoAUno.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\DataSources\MD.Cliente.datasource" />
     <None Include="Properties\DataSources\MD.Comercial.datasource" />
     <None Include="Properties\DataSources\MD.Extra.datasource" />

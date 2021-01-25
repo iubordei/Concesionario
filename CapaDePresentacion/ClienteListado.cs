@@ -18,14 +18,15 @@ namespace CapaDePresentacion
         private Dictionary<MD.Cliente, string> dnis;
         private Dictionary<MD.Cliente, string> nombres;
         private Dictionary<MD.Cliente, string> categorias;
-        private List<MD.Cliente> clientes = LNCliente.Cliente.VerClientes();
+        private List<MD.Cliente> clientes;
 
         // PRE:
         // POS: crea un formulario de tipo ClienteListado, que se puede utilizar para ver información relativa a los clientes
         // POS: ordenada según un criterio de ordenación (DNI, nombre, categoría).
-        public ClienteListado()
+        public ClienteListado(List<MD.Cliente> clientes)
         {
             InitializeComponent();
+            this.clientes = clientes;
         }
 
         // PRE:

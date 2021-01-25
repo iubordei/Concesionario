@@ -93,41 +93,47 @@ namespace CapaDePresentacion
             listBoxParametros.DataSource = bsParametros;
             listBoxParametros.Refresh();
 
-            listBoxParametros.SelectedIndex = 0;
+            listBoxParametros.SelectedIndex = 1;
         }
 
         // PRE: las tablas de clientes y vehículos contienen datos.
         // POS: muestra el resultado de los presupuestos pedidos en función del parametro seleccionado.
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            PresupuestoRecorrido recorrido;
             if (rdBtnCliente.Checked)
             {
                 MD.Cliente parametro = clavesCliente[(string)listBoxParametros.SelectedItem];
-                recorrido = new PresupuestoRecorrido(LNPresupuesto.Presupuesto.GetPresupuestosPorCliente(parametro));
-                recorrido.ShowDialog();
+                mostrarResultado(LNPresupuesto.Presupuesto.GetPresupuestosPorCliente(parametro));
+
             }
 
             if (rdBtnVehiculo.Checked)
             {
                 MD.Vehiculo parametro = clavesVehiculo[(string)listBoxParametros.SelectedItem];
-                recorrido = new PresupuestoRecorrido(LNPresupuesto.Presupuesto.GetPresupuestosPorVehiculo(parametro));
-                recorrido.ShowDialog();
+               mostrarResultado(LNPresupuesto.Presupuesto.GetPresupuestosPorVehiculo(parametro));
             }
 
             if (rdBtnEstado.Checked)
             {
                 MD.Estado parametro = clavesEstado[(string)listBoxParametros.SelectedItem];
-                recorrido = new PresupuestoRecorrido(LNPresupuesto.Presupuesto.GetPresupuestosPorEstado(parametro));
-                recorrido.ShowDialog();
+                mostrarResultado(LNPresupuesto.Presupuesto.GetPresupuestosPorEstado(parametro));
             }
         }
 
         // PRE:
-        // POS: muestra por pantalla un error.
-        private void mostarError()
+        // POS: inicializa un formulario de recorrido, donde muestra los presupuestos de la lista "presupuestos",
+        // POS: siempre y cuando que la lista no esté vacía (en tal caso muestra un mensaje de aviso).
+        private void mostrarResultado(List<MD.Presupuesto> presupuestos)
         {
-            MessageBox.Show("Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (presupuestos.Count > 0)
+            {
+                PresupuestoRecorrido recorrido = new PresupuestoRecorrido(presupuestos);
+                recorrido.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No hay presupuestos que coincidan con el criterio de búsqueda", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

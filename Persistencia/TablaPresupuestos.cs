@@ -13,7 +13,7 @@ namespace Persistencia
         // POS: devuelve una cadena que representa al objeto PresupuestoDato item.
         protected override string GetKeyForItem(PresupuestoDato item)
         {
-            return (item.FechaRealizacion + " " + item.Cliente + " " + item.Vehiculo);
+            return (item.FechaRealizacion.ToString("yyyyMMdd_hhmmss") + " " + item.Cliente + " " + item.Vehiculo);
         }
     }
 }

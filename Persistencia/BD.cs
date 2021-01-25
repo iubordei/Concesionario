@@ -33,7 +33,10 @@ namespace Persistencia
         // POS: inserta p en la "tabla" presupuestos.
         public static void INSERTPresupuesto(PresupuestoDato p)
         {
-            BD.Presupuestos.Add(p);
+            if (!BD.Presupuestos.Contains(p))
+            {
+                BD.Presupuestos.Add(p);
+            }
         }
 
         // PRE: p != null.
@@ -109,15 +112,19 @@ namespace Persistencia
         // POS: elimina de la "tabla" vehiculos vehiculo, si vehiculo se encuentra en ella.
         public static void DELETEVehiculo(VehiculoDato vehiculo)
         {
-            BD.Vehiculos.Remove(vehiculo);
+            if (BD.Vehiculos.Count != 0)
+                BD.Vehiculos.Remove(vehiculo.NumeroDeBastidor);
         }
 
         // PRE: p != null;
         // POS: actualiza el objeto vehiculo en la "tabla" vehiculos.
         public static void UPDATEVehiculo(VehiculoDato vehiculo)
         {
-            BD.DELETEVehiculo(vehiculo);
-            BD.INSERTVehiculo(vehiculo);
+            if (BD.Vehiculos.Count != 0)
+            {
+                BD.DELETEVehiculo(vehiculo);
+                BD.INSERTVehiculo(vehiculo);
+            }
         }
 
         // PRE: num != null.

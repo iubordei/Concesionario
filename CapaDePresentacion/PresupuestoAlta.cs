@@ -74,7 +74,7 @@ namespace CapaDePresentacion
                 if (valoraciones.Count > 0)
                 {
                     MD.Cliente cliente = clientes[listBoxClientes.SelectedItem.ToString()];
-                    LNPresupuesto.Presupuesto.CrearPresupuesto(DateTime.Today, cliente, valoraciones);
+                    LNPresupuesto.Presupuesto.CrearPresupuesto(DateTime.Now, cliente, valoraciones);
 
                     DialogResult res = new DialogResult();
                     res = MessageBox.Show("Presupuesto creado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -133,6 +133,7 @@ namespace CapaDePresentacion
                         else
                         {
                             valoraciones.Add(vehiculo, precio);
+                            MessageBox.Show("Se ha añadido el vehículo a la valoración", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             txtValoracion.Clear();
                         }
                     }

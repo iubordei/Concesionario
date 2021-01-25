@@ -70,7 +70,7 @@ namespace CapaDePresentacion
         // POS: y así continuar con el proceso de eliminado de un vehículo del sistema.
         private void tsBajaVehiculo_Click(object sender, EventArgs e)
         {
-            Form VehiculoAgregarClave = new VehiculoAgregarClave(tsAltaVehiculo.Text);
+            Form VehiculoAgregarClave = new VehiculoAgregarClave(tsBajaVehiculo.Text);
             VehiculoAgregarClave.ShowDialog();
         }
 
@@ -78,8 +78,16 @@ namespace CapaDePresentacion
         // POS: genera un formulario de tipo PresupuestoRecorrido, para mostrar todos los presupuestos almacenados en el sistema.
         private void tsMostrarTodosPresupuesto_Click(object sender, EventArgs e)
         {
-            Form mostrarTodos = new PresupuestoRecorrido(LNPresupuesto.Presupuesto.GetTodosPresupuestos());
-            mostrarTodos.ShowDialog();
+            List<MD.Presupuesto> presupuestos = LNPresupuesto.Presupuesto.GetTodosPresupuestos();
+            if (presupuestos.Count > 0)
+            {
+                Form mostrarTodos = new PresupuestoRecorrido(presupuestos);
+                mostrarTodos.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No hay presupuestos para mostrar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         // PRE:
@@ -174,22 +182,46 @@ namespace CapaDePresentacion
         // POS: búsqueda de clientes mediante la elección de su DNI.
         private void búsquedaPorDNIToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ClienteBusquedaDNI busqueda = new ClienteBusquedaDNI();
-            busqueda.ShowDialog();
+            List<MD.Cliente> clientes = LNCliente.Cliente.VerClientes();
+            if (clientes.Count > 0)
+            {
+                ClienteBusquedaDNI recorrido = new ClienteBusquedaDNI(clientes);
+                recorrido.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No hay clientes para mostrar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         // PRE:
         // POS: recorre uno a uno todos los clientes almacenados en la BD.
         private void recorridoUnoAUnoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ClienteRecorrido recorrido = new ClienteRecorrido();
-            recorrido.ShowDialog();
+            List<MD.Cliente> clientes = LNCliente.Cliente.VerClientes();
+            if (clientes.Count > 0)
+            {
+                ClienteRecorrido recorrido = new ClienteRecorrido(clientes);
+                recorrido.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No hay clientes para mostrar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void listadoOrdenadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ClienteListado listado = new ClienteListado();
-            listado.ShowDialog();
+            List<MD.Cliente> clientes = LNCliente.Cliente.VerClientes();
+            if (clientes.Count > 0)
+            {
+                ClienteListado listado = new ClienteListado(clientes);
+                listado.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No hay clientes para mostrar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
