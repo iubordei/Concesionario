@@ -212,6 +212,8 @@ namespace CapaDePresentacion
             }
         }
 
+        // PRE:
+        // POS: muestra un formulario que lista los clientes almacenados en la BD, y permite ordenarlos por varios criterios diferentes.
         private void listadoOrdenadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             List<MD.Cliente> clientes = LNCliente.Cliente.VerClientes();

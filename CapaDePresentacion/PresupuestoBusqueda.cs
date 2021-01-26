@@ -17,7 +17,6 @@ namespace CapaDePresentacion
         private Dictionary<string, MD.Vehiculo> clavesVehiculo;
         private Dictionary<string, MD.Estado> clavesEstado;
         private BindingSource bsParametros;
-        private BindingSource bsResultados;
 
         // PRE:
         // POS: crea un formulario del tipo PresupuestoBusqueda.
@@ -32,13 +31,12 @@ namespace CapaDePresentacion
         private void PresupuestoBusqueda_Load(object sender, EventArgs e)
         {
             bsParametros = new BindingSource();
-            bsResultados = new BindingSource();
 
             // Claves Cliente
             clavesCliente = new Dictionary<string, Cliente>();
             foreach (MD.Cliente cliente in LNCliente.Cliente.VerClientes())
             {
-                clavesCliente.Add(cliente.Nombre, cliente);
+                clavesCliente.Add(cliente.DNI + ", " + cliente.Nombre, cliente);
             }
 
             // Claves Vehiculo
@@ -93,7 +91,7 @@ namespace CapaDePresentacion
             listBoxParametros.DataSource = bsParametros;
             listBoxParametros.Refresh();
 
-            listBoxParametros.SelectedIndex = 1;
+            listBoxParametros.SelectedIndex = 0;
         }
 
         // PRE: las tablas de clientes y vehículos contienen datos.

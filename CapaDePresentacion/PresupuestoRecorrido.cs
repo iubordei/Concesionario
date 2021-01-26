@@ -86,11 +86,12 @@ namespace CapaDePresentacion
                 if (presupuesto.Vehiculo != null)
                 {
                     txtVehiculo.Text = presupuesto.Vehiculo.Marca + " " + presupuesto.Vehiculo.Modelo + " " + presupuesto.Vehiculo.Año;
-                }
-
-                if (presupuesto.Vehiculo != null)
-                {
                     btnComprar.Visible = false;
+                }
+                else
+                {
+                    txtVehiculo.Clear();
+                    btnComprar.Visible = true;
                 }
             }
         }
@@ -118,8 +119,7 @@ namespace CapaDePresentacion
                     if (LNPresupuesto.Presupuesto.ComprarVehiculo(presupuesto, vehiculo))
                     {
                         MessageBox.Show("La compra se ha realizado con éxito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        MessageBox.Show("Para visualizar los cambios recarga el listado de presupuestos");
-                        btnComprar.Visible = false;
+                        actualizar();
                     }
                     else
                     {

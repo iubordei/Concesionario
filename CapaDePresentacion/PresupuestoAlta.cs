@@ -52,7 +52,7 @@ namespace CapaDePresentacion
             vehiculos = new Dictionary<string, MD.Vehiculo>();
             foreach (MD.Vehiculo vehiculo in LNVehiculo.Vehiculo.GetAllVehiculos())
             {
-                vehiculos.Add(vehiculo.NumeroDeBastidor + ", " + vehiculo.Marca + " " + vehiculo.Modelo, vehiculo);
+                vehiculos.Add(vehiculo.Marca + " " + vehiculo.Modelo + ", " + vehiculo.NumeroDeBastidor, vehiculo);
             }
 
             sourceVehiculos.DataSource = vehiculos.Keys;
