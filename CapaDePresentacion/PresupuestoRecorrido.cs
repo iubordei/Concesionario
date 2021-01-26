@@ -68,6 +68,7 @@ namespace CapaDePresentacion
 
         // PRE:
         // POS: introduce en la lista de valoraciones, las valoraciones asignadas al presupuesto mostrado.
+        // POS: si el estado del presupuesto es Aceptado, el botón de compra está deshabilitado.
         private void actualizar()
         {
             MD.Presupuesto presupuesto = (MD.Presupuesto)bindingNavigator.BindingSource.Current;
@@ -79,11 +80,56 @@ namespace CapaDePresentacion
                     lboxValoraciones.Items.Add(kvp.Key.Marca + " " + kvp.Key.Modelo + " " + kvp.Key.Año + ", " + kvp.Value + "€");
                 }
 
+                lboxValoraciones.SelectedIndex = 0;
+
                 txtCliente.Text = presupuesto.Cliente.Nombre + ", " + presupuesto.Cliente.DNI;
                 if (presupuesto.Vehiculo != null)
                 {
                     txtVehiculo.Text = presupuesto.Vehiculo.Marca + " " + presupuesto.Vehiculo.Modelo + " " + presupuesto.Vehiculo.Año;
                 }
+
+                if (presupuesto.Vehiculo != null)
+                {
+                    btnComprar.Visible = false;
+                }
+            }
+        }
+
+        // PRE:
+        // POS: realiza la compra del vehículo seleccionado de la sección de valoraciones en caso de que el presupuesto
+        // POS: cumpla los requisitos (estar en Estado "Pendiente") y desactiva el botón de compra.
+        private void btnComprar_Click(object sender, EventArgs e)
+        {
+            DialogResult res = new DialogResult();
+            res = MessageBox.Show("¿Quieres confirmar la compra?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            switch (res)
+            {
+                case DialogResult.Yes:
+                    MD.Presupuesto presupuesto = (MD.Presupuesto)bindingNavigator.BindingSource.Current;
+                    MD.Vehiculo vehiculo = null;
+                    foreach (KeyValuePair<MD.Vehiculo, double> kvp in presupuesto.Valoracion)
+                    {
+                        if ((kvp.Key.Marca + " " + kvp.Key.Modelo + " " + kvp.Key.Año + ", " + kvp.Value + "€").Equals((string)lboxValoraciones.SelectedItem))
+                        {
+                            vehiculo = kvp.Key;
+                        }
+                    }
+                    if (LNPresupuesto.Presupuesto.ComprarVehiculo(presupuesto, vehiculo))
+                    {
+                        MessageBox.Show("La compra se ha realizado con éxito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Para visualizar los cambios recarga el listado de presupuestos");
+                        btnComprar.Visible = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("La compra no se puede llevar a cabo, el presupuesto seleccionado no es válido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                    break;
+                case DialogResult.No:
+                    MessageBox.Show("La compra se ha cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
             }
         }
     }

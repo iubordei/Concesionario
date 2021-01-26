@@ -10,19 +10,19 @@ namespace Persistencia
     {
         private DateTime fechaRealizacion;
         private string cliente;
-        private string vehiculo;
+        private VehiculoDato vehiculo;
         private EstadoDato estado;
         private Dictionary<VehiculoDato, double> valoraciones;
 
         // PRE: fecha != null, cliente != null, valoraciones != null
         // POS: crea un nuevo objeto de tipo PresupuestoDato con los parámetros pertinentes.
-        public PresupuestoDato(DateTime fecha, string cliente, EstadoDato estado, Dictionary<VehiculoDato, double> valoraciones)
+        public PresupuestoDato(DateTime fecha, string cliente, VehiculoDato vehiculo, EstadoDato estado, Dictionary<VehiculoDato, double> valoraciones)
         {
             this.fechaRealizacion = fecha;
             this.cliente = cliente;
             this.estado = estado;
             this.valoraciones = valoraciones;
-            this.vehiculo = null;
+            this.vehiculo = vehiculo;
         }
 
         // PRE:
@@ -47,7 +47,7 @@ namespace Persistencia
 
         // PRE:
         // POS: get: devuelve el vehiculo del presupuesto.
-        public string Vehiculo
+        public VehiculoDato Vehiculo
         {
             get
             {
@@ -62,6 +62,16 @@ namespace Persistencia
             get
             {
                 return (this.valoraciones);
+            }
+        }
+
+        // PRE:
+        // POS: get: devuelve el estado en el que se encuentra el presupuesto (Aceptado, Pendiente o Desestimado).
+        public EstadoDato Estado
+        {
+            get
+            {
+                return (this.estado);
             }
         }
     }

@@ -43,14 +43,14 @@ namespace Persistencia
         // POS: devuelve un objeto de tipo PresupuestoDato obtenido de la "tabla" presupuestos a partir del parámetro p.
         public static PresupuestoDato SELECTPresupuesto(PresupuestoDato p)
         {
-            return BD.Presupuestos[p.FechaRealizacion + " " + p.Cliente + " " + p.Vehiculo];
+            return BD.Presupuestos[p.FechaRealizacion + " " + p.Cliente];
         }
 
         // PRE: p != null.
         // POS: elimina de la "tabla" presupuestos p, si p se encuentra en ella.
         public static void DELETEPresupuesto(PresupuestoDato p)
         {
-            BD.Presupuestos.Remove(p);
+            BD.Presupuestos.Remove(p.FechaRealizacion.ToString("yyyyMMdd_hhmmss") + " " + p.Cliente);
         }
 
         // PRE: p != null;

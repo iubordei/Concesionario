@@ -122,5 +122,41 @@ namespace LNPresupuesto
         {
             return (Persistencia.PersistenciaPresupuesto.GetTodos() != null ? Persistencia.PersistenciaPresupuesto.GetTodos() : new List<MD.Presupuesto>());
         }
+
+        // PRE:
+        // POS: actualiza el estado de los presupuestos en el caso de que hayan pasado más de 15 días si actualmente
+        // POS: se encuentran en Estado "Pendiente".
+        public static void ActualizarEstadoPresupuestos(List<MD.Presupuesto> presupuestos)
+        {
+            if (presupuestos != null)
+            {
+                foreach (MD.Presupuesto presupuesto in presupuestos)
+                {
+                    if (DateTime.Now > presupuesto.FechaRealizacion.AddDays(15) && presupuesto.Estado == MD.Estado.Pendiente)
+                    {
+                        presupuesto.Estado = MD.Estado.Desestimado;
+                        Persistencia.PersistenciaPresupuesto.Modificar(presupuesto);
+                    }
+                }
+            }
+        }
+
+        // PRE:
+        // POS: devuelve verdad si presupuesto está en Estado "Pendiente" y se le asigna el vehículo pasado como
+        // POS: parámetro como vehículo comprado, además de actualizar el Estado a "Aceptado", falso en caso contrario.
+        public static bool ComprarVehiculo(MD.Presupuesto presupuesto, MD.Vehiculo vehiculo)
+        {
+            if (presupuesto != null && vehiculo != null)
+            {
+                if (presupuesto.Estado == MD.Estado.Pendiente)
+                {
+                    presupuesto.Vehiculo = vehiculo;
+                    presupuesto.Estado = MD.Estado.Aceptado;
+                    Persistencia.PersistenciaPresupuesto.Modificar(presupuesto);
+                    return (true);
+                }
+            }
+            return (false);
+        }
     }
 }

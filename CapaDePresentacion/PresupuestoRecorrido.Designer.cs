@@ -33,6 +33,7 @@ namespace CapaDePresentacion
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PresupuestoRecorrido));
             this.bindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.sourcePresupuestos = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -49,9 +50,10 @@ namespace CapaDePresentacion
             this.lblVehiculo = new System.Windows.Forms.Label();
             this.lblValoraciones = new System.Windows.Forms.Label();
             this.lboxValoraciones = new System.Windows.Forms.ListBox();
-            this.sourcePresupuestos = new System.Windows.Forms.BindingSource(this.components);
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.txtVehiculo = new System.Windows.Forms.TextBox();
+            this.btnComprar = new System.Windows.Forms.Button();
+            this.toolTipComprar = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator)).BeginInit();
             this.bindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sourcePresupuestos)).BeginInit();
@@ -94,6 +96,10 @@ namespace CapaDePresentacion
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
+            // 
+            // sourcePresupuestos
+            // 
+            this.sourcePresupuestos.DataSource = typeof(MD.Presupuesto);
             // 
             // bindingNavigatorCountItem
             // 
@@ -230,10 +236,6 @@ namespace CapaDePresentacion
             this.lboxValoraciones.Size = new System.Drawing.Size(248, 108);
             this.lboxValoraciones.TabIndex = 9;
             // 
-            // sourcePresupuestos
-            // 
-            this.sourcePresupuestos.DataSource = typeof(MD.Presupuesto);
-            // 
             // txtCliente
             // 
             this.txtCliente.Location = new System.Drawing.Point(115, 53);
@@ -250,11 +252,26 @@ namespace CapaDePresentacion
             this.txtVehiculo.Size = new System.Drawing.Size(248, 20);
             this.txtVehiculo.TabIndex = 11;
             // 
+            // btnComprar
+            // 
+            this.btnComprar.Location = new System.Drawing.Point(115, 223);
+            this.btnComprar.Name = "btnComprar";
+            this.btnComprar.Size = new System.Drawing.Size(248, 23);
+            this.btnComprar.TabIndex = 12;
+            this.btnComprar.Text = "Comprar vehículo seleccionado";
+            this.btnComprar.UseVisualStyleBackColor = true;
+            this.btnComprar.Click += new System.EventHandler(this.btnComprar_Click);
+            // 
+            // toolTipComprar
+            // 
+            this.toolTipComprar.ToolTipTitle = "Proceder a la compra del vehículo de la valoración seleccionada";
+            // 
             // PresupuestoRecorrido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(375, 226);
+            this.ClientSize = new System.Drawing.Size(375, 254);
+            this.Controls.Add(this.btnComprar);
             this.Controls.Add(this.txtVehiculo);
             this.Controls.Add(this.txtCliente);
             this.Controls.Add(this.lboxValoraciones);
@@ -299,5 +316,7 @@ namespace CapaDePresentacion
         private System.Windows.Forms.ListBox lboxValoraciones;
         private System.Windows.Forms.TextBox txtCliente;
         private System.Windows.Forms.TextBox txtVehiculo;
+        private System.Windows.Forms.Button btnComprar;
+        private System.Windows.Forms.ToolTip toolTipComprar;
     }
 }

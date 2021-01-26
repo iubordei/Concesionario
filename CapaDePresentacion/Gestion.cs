@@ -30,6 +30,8 @@ namespace CapaDePresentacion
             this.nombreUsuario = nombre;
             this.Text = nombre + ": Gestión de concesionario";
             this.login = login;
+
+            LNPresupuesto.Presupuesto.ActualizarEstadoPresupuestos(LNPresupuesto.Presupuesto.GetTodosPresupuestos());
         }
 
         // PRE:

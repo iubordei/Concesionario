@@ -194,6 +194,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SegundaMano.resx">
       <DependentUpon>SegundaMano.cs</DependentUpon>
@@ -244,6 +245,9 @@
       <Project>{61276b46-226c-4f45-b2e6-86b353dc997f}</Project>
       <Name>MD</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
