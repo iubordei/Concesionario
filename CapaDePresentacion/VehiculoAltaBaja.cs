@@ -25,10 +25,10 @@ namespace CapaDePresentacion
         public VehiculoAltaBaja(String numeroBastidor, String accion)
         {
             this.accion = accion;
-            
+
             this.numeroBastidor = numeroBastidor;
             this.Text = accion + "de un vehiculo";
-   
+
             InitializeComponent();
             setControlsEnebled(true);
             if (accion.Equals("Búsqueda"))
@@ -40,7 +40,7 @@ namespace CapaDePresentacion
                 tbModelo.Text = vehiculo.Modelo;
                 tbPotencia.Text = vehiculo.Potencia.ToString();
                 tbPrecioRecomendado.Text = vehiculo.PrecioRecomendado.ToString();
-                if(vehiculo.GetType() == typeof(MD.SegundaMano))
+                if (vehiculo.GetType() == typeof(MD.SegundaMano))
                 {
                     rbSegundaMano.Checked = true;
                     segundaMano = new SegundaMano(((MD.SegundaMano)vehiculo).Matricula, ((MD.SegundaMano)vehiculo).FechaMatriculacion);
@@ -83,7 +83,7 @@ namespace CapaDePresentacion
                 nuevo.Show();
                 Controls.Add(nuevo);
             }
-            
+
         }
 
         private void rbSegundaMano_CheckedChanged(object sender, EventArgs e)
@@ -98,11 +98,6 @@ namespace CapaDePresentacion
             }
         }
 
-        private void btCancelar_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void btAceptar_Click(object sender, EventArgs e)
         {
             if (tbNumeroBastidor.Text.Equals("") || tbMarca.Text.Equals("") || tbModelo.Text.Equals("") || tbPotencia.Text.Equals("") || tbPrecioRecomendado.Text.Equals("") ||
@@ -112,6 +107,10 @@ namespace CapaDePresentacion
                 return;
             }
 
+            if (!(verificarCampo(tbPotencia) && verificarCampo(tbPrecioRecomendado) && verificarCampo(tbAño)))
+            {
+                return;
+            }
 
             if (rbNuevo.Checked && nuevo.isValido())
             {
@@ -124,9 +123,28 @@ namespace CapaDePresentacion
 
             DialogResult dialogResultInformacion;
             if (LNVehiculo.Vehiculo.AltaVehiculo(vehiculo))
-                 dialogResultInformacion = MessageBox.Show("Vehiculo añadido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dialogResultInformacion = MessageBox.Show("Vehiculo añadido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
 
+        }
+
+        private bool verificarCampo(TextBox tb)
+        {
+            int prueba;
+            if (!(int.TryParse(tb.Text, out prueba)))
+            {
+                tb.SelectAll();
+                tb.Focus();
+                DialogResult dialogResult = MessageBox.Show("Datos no válidos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return (false);
+            }
+
+            return (true);
+        }
+
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
