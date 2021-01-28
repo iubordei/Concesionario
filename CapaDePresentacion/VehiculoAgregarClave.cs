@@ -12,13 +12,19 @@ namespace CapaDePresentacion
 {
     public partial class VehiculoAgregarClave : Form
     {
-        String accion;
+        private string accion;
+
+        // PRE:
+        // POS: crea un formulario de tipo "VehiculoAgregarClave".
         public VehiculoAgregarClave(String accion)
         {
             this.accion = accion;
             InitializeComponent();
         }
 
+        // PRE:
+        // POS: según la acción asignada al formulario, se abrirá el correspondiente formulario para continuar con la alta,
+        // POS: baja o búsqueda, sobre el numero de bastidor del vehiculo introducido.
         private void btAceptar_Click(object sender, EventArgs e)
         {
             MD.Vehiculo vehiculo = LNVehiculo.Vehiculo.GetVehiculo(tbNumeroBastidor.Text);
@@ -62,6 +68,8 @@ namespace CapaDePresentacion
             
         }
 
+        // PRE:
+        // POS: se cierra el formulario.
         private void btCancelar_Click(object sender, EventArgs e)
         {
             Close();

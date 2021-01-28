@@ -13,8 +13,11 @@ namespace CapaDePresentacion
     public partial class VehiculoUnoAUno : Form
     {
         private List<MD.Vehiculo> vehiculos = LNVehiculo.Vehiculo.GetAllVehiculos();
-        Nuevo nuevo = new Nuevo();
-        SegundaMano segundaMano = new SegundaMano();
+        private Nuevo nuevo = new Nuevo();
+        private SegundaMano segundaMano = new SegundaMano();
+
+        // PRE:
+        // POS: crea un formulario de tipo "VehiculoUnoAUno".
         public VehiculoUnoAUno()
         {
             InitializeComponent();
@@ -26,7 +29,9 @@ namespace CapaDePresentacion
             rellenarDatos(int.Parse(bindingNavigatorPositionItem.Text) - 1, vehiculos);
             
         }
-        
+
+        // PRE: una lista de vehiculos inicializada y != null y una posicion de la lista
+        // POS: se rellenan todos los controles del formulario con los datos de vehiculo que ocupa dicha posicion de la lista
         public void rellenarDatos(int posicion, List<MD.Vehiculo> vehiculos)
         {
             tbNumeroBastidor.Text = vehiculos[posicion].NumeroDeBastidor;
@@ -61,20 +66,24 @@ namespace CapaDePresentacion
             tbPrecioRecomendado.Enabled = false;
         }
 
-
-        
+        // PRE:
+        // POS: se añade un nuevo vehiculo
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
             Form VehiculoAgregarClave = new VehiculoAgregarClave("Alta");
             VehiculoAgregarClave.ShowDialog();
         }
 
+        // PRE:
+        // POS: se elimina el vehiculo
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
             Form VehiculoAgregarClave = new VehiculoAgregarClave("Baja");
             VehiculoAgregarClave.ShowDialog();
         }
 
+        // PRE:
+        // POS: se rellenan los controles con los datos del vehiculo que ocupe la siguiente posicion
         private void bindingNavigatorMoveNextItem_Click(object sender, EventArgs e)
         {
             segundaMano.Hide();
@@ -82,6 +91,8 @@ namespace CapaDePresentacion
             rellenarDatos(int.Parse(bindingNavigatorPositionItem.Text) - 1, vehiculos);
         }
 
+        // PRE:
+        // POS: se rellenan los controles con los datos del vehiculo que ocupe la anterior posicion
         private void bindingNavigatorMovePreviousItem_Click(object sender, EventArgs e)
         {
             nuevo.Hide();
@@ -89,6 +100,8 @@ namespace CapaDePresentacion
             rellenarDatos(int.Parse(bindingNavigatorPositionItem.Text) - 1, vehiculos);
         }
 
+        // PRE:
+        // POS: se rellenan los controles con los datos del vehiculo que ocupe la ultima posicion
         private void bindingNavigatorMoveLastItem_Click(object sender, EventArgs e)
         {
             segundaMano.Hide();
@@ -97,6 +110,8 @@ namespace CapaDePresentacion
 
         }
 
+        // PRE:
+        // POS: se rellenan los controles con los datos del vehiculo que ocupe la primera posicion
         private void bindingNavigatorMoveFirstItem_Click(object sender, EventArgs e)
         {
             segundaMano.Hide();

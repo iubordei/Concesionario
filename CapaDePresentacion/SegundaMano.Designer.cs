@@ -65,7 +65,6 @@
             this.tbFechaMatriculacion.Name = "tbFechaMatriculacion";
             this.tbFechaMatriculacion.Size = new System.Drawing.Size(100, 20);
             this.tbFechaMatriculacion.TabIndex = 2;
-            this.tbFechaMatriculacion.Text = "24/01/21";
             // 
             // SegundaMano
             // 

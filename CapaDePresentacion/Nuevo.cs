@@ -12,12 +12,16 @@ namespace CapaDePresentacion
 {
     public partial class Nuevo : UserControl
     {
+        // PRE: 
+        // POS: crea un control de usuario de tipo "Nuevo".
         public Nuevo()
         {
             InitializeComponent();
             lbExtras.Enabled = true;
         }
 
+        // PRE: extras tiene que ser != null
+        // POS: crea un control de usuario de tipo "Nuevo".
         public Nuevo(List<MD.Extra> extras)
         {
             InitializeComponent();
@@ -35,12 +39,16 @@ namespace CapaDePresentacion
             lbExtras.Enabled = false;
         }
 
+        // PRE: 
+        // POS: return true si todos los controles del control son validos (estan rellenados)
         public bool isValido()
         {
             ListBox.SelectedObjectCollection selectedItems = lbExtras.SelectedItems;
             return selectedItems != null;
-        } 
+        }
 
+        // PRE:
+        // POS: devuelve en una lista los extras seleccionados.
         public List<MD.Extra> getExtras()
         {
             ListBox.SelectedObjectCollection selectedItems = lbExtras.SelectedItems;

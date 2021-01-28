@@ -16,6 +16,17 @@ namespace LNPresupuesto
             Persistencia.PersistenciaPresupuesto.Añadir(new MD.Presupuesto(fecha, cliente, valoraciones));
         }
 
+        // PRE:
+        // POS: marca el estado de un presupuesto como Desestimado.
+        public static void DesestimarPresupuesto(MD.Presupuesto presupuesto)
+        {
+            if (presupuesto != null)
+            {
+                presupuesto.Estado = MD.Estado.Desestimado;
+                Persistencia.PersistenciaPresupuesto.Modificar(presupuesto);
+            }
+        }
+
         // PRE: presupuesto != null.
         // POS: devuelve el Estado en el que se encuentra un objeto de tipo Presupuesto.
         public static MD.Estado GetEstado(MD.Presupuesto presupuesto)

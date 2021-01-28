@@ -12,6 +12,8 @@ namespace CapaDePresentacion
 {
     public partial class ListadoVehiculos : Form
     {
+        // PRE:
+        // POS: crea un formulario de tipo "ListadoVehiculos".
         public ListadoVehiculos()
         {
             InitializeComponent();
@@ -28,6 +30,8 @@ namespace CapaDePresentacion
 
         }
 
+        // PRE: la fila debe de estar inicializada y != null y el vehiculo debe de estar inicializado y != null
+        // POS: rellena los datos de la fila con los datos del vehiculo
         public void rellenarCelda(DataGridViewRow row, MD.Vehiculo vehiculo)
         {
             row.Cells[0].Value = vehiculo.NumeroDeBastidor;

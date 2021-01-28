@@ -12,16 +12,21 @@ namespace CapaDePresentacion
 {
     public partial class VehiculoAltaBaja : Form
     {
-        String accion;
-        String numeroBastidor;
-        Nuevo nuevo = new Nuevo();
-        SegundaMano segundaMano = new SegundaMano();
-        MD.Vehiculo vehiculo;
+        private string accion;
+        private string numeroBastidor;
+        private Nuevo nuevo = new Nuevo();
+        private SegundaMano segundaMano = new SegundaMano();
+        private MD.Vehiculo vehiculo;
+
+        // PRE:
+        // POS: crea un formulario de tipo "VehiculoAltaBaja".
         public VehiculoAltaBaja()
         {
             InitializeComponent();
         }
 
+        // PRE:
+        // POS: crea un formulario de tipo "VehiculoAltaBaja".
         public VehiculoAltaBaja(String numeroBastidor, String accion)
         {
             this.accion = accion;
@@ -30,7 +35,7 @@ namespace CapaDePresentacion
             this.Text = accion + "de un vehiculo";
 
             InitializeComponent();
-            setControlsEnebled(true);
+            setControlsEnabled(true);
             if (accion.Equals("Búsqueda"))
             {
                 vehiculo = LNVehiculo.Vehiculo.GetVehiculo(numeroBastidor);
@@ -56,12 +61,14 @@ namespace CapaDePresentacion
                     nuevo.Show();
                     Controls.Add(nuevo);
                 }
-                setControlsEnebled(false);
+                setControlsEnabled(false);
             }
             tbNumeroBastidor.Text = numeroBastidor;
         }
 
-        public void setControlsEnebled(bool estado)
+        // PRE: variable booleana con valor true o false.
+        // POS: Todos los controles estan activados o desactivados si el parametro es true o false.
+        public void setControlsEnabled(bool estado)
         {
             tbNumeroBastidor.Enabled = estado;
             tbModelo.Enabled = estado;
@@ -73,6 +80,8 @@ namespace CapaDePresentacion
             rbNuevo.Enabled = estado;
         }
 
+        // PRE:
+        // POS: muestra en el formulario un control de usuario de tipo "Nuevo"
         private void rbNuevo_CheckedChanged(object sender, EventArgs e)
         {
             if (rbNuevo.Checked && !accion.Equals("Búsqueda"))
@@ -86,6 +95,8 @@ namespace CapaDePresentacion
 
         }
 
+        // PRE:
+        // POS: muestra en el formulario un control de usuario de tipo "SegundaMano"
         private void rbSegundaMano_CheckedChanged(object sender, EventArgs e)
         {
             if (rbSegundaMano.Checked && !accion.Equals("Búsqueda"))
@@ -98,6 +109,9 @@ namespace CapaDePresentacion
             }
         }
 
+        // PRE:
+        // POS: añade al sistema un nuevo vehiculo con los valores seleccionados en los distintos controles
+        // POS: del formulario.
         private void btAceptar_Click(object sender, EventArgs e)
         {
             if (tbNumeroBastidor.Text.Equals("") || tbMarca.Text.Equals("") || tbModelo.Text.Equals("") || tbPotencia.Text.Equals("") || tbPrecioRecomendado.Text.Equals("") ||
@@ -128,6 +142,9 @@ namespace CapaDePresentacion
 
         }
 
+        // PRE:
+        // POS: copmrueba si un cuadro de texto que debería contener un valor númerico contiene
+        // POS: datos válidos. Si son válidos devuelve true, en caso contrario false y selecciona el texto incorrecto.
         private bool verificarCampo(TextBox tb)
         {
             int prueba;
@@ -142,6 +159,8 @@ namespace CapaDePresentacion
             return (true);
         }
 
+        // PRE:
+        // POS: Se cierra el formulario.
         private void btCancelar_Click(object sender, EventArgs e)
         {
             Close();

@@ -54,6 +54,9 @@ namespace CapaDePresentacion
             this.txtVehiculo = new System.Windows.Forms.TextBox();
             this.btnComprar = new System.Windows.Forms.Button();
             this.toolTipComprar = new System.Windows.Forms.ToolTip(this.components);
+            this.btnRevocar = new System.Windows.Forms.Button();
+            this.lblEstado = new System.Windows.Forms.Label();
+            this.txtEstado = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator)).BeginInit();
             this.bindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sourcePresupuestos)).BeginInit();
@@ -223,7 +226,7 @@ namespace CapaDePresentacion
             // lblValoraciones
             // 
             this.lblValoraciones.AutoSize = true;
-            this.lblValoraciones.Location = new System.Drawing.Point(18, 110);
+            this.lblValoraciones.Location = new System.Drawing.Point(18, 132);
             this.lblValoraciones.Name = "lblValoraciones";
             this.lblValoraciones.Size = new System.Drawing.Size(71, 13);
             this.lblValoraciones.TabIndex = 8;
@@ -232,7 +235,7 @@ namespace CapaDePresentacion
             // lboxValoraciones
             // 
             this.lboxValoraciones.FormattingEnabled = true;
-            this.lboxValoraciones.Location = new System.Drawing.Point(115, 109);
+            this.lboxValoraciones.Location = new System.Drawing.Point(115, 132);
             this.lboxValoraciones.Name = "lboxValoraciones";
             this.lboxValoraciones.Size = new System.Drawing.Size(248, 108);
             this.lboxValoraciones.TabIndex = 9;
@@ -255,9 +258,9 @@ namespace CapaDePresentacion
             // 
             // btnComprar
             // 
-            this.btnComprar.Location = new System.Drawing.Point(115, 223);
+            this.btnComprar.Location = new System.Drawing.Point(241, 246);
             this.btnComprar.Name = "btnComprar";
-            this.btnComprar.Size = new System.Drawing.Size(248, 23);
+            this.btnComprar.Size = new System.Drawing.Size(122, 23);
             this.btnComprar.TabIndex = 12;
             this.btnComprar.Text = "Comprar vehículo seleccionado";
             this.btnComprar.UseVisualStyleBackColor = true;
@@ -267,11 +270,42 @@ namespace CapaDePresentacion
             // 
             this.toolTipComprar.ToolTipTitle = "Proceder a la compra del vehículo de la valoración seleccionada";
             // 
+            // btnRevocar
+            // 
+            this.btnRevocar.Location = new System.Drawing.Point(115, 246);
+            this.btnRevocar.Name = "btnRevocar";
+            this.btnRevocar.Size = new System.Drawing.Size(122, 23);
+            this.btnRevocar.TabIndex = 13;
+            this.btnRevocar.Text = "Revocar presupuesto";
+            this.btnRevocar.UseVisualStyleBackColor = true;
+            this.btnRevocar.Click += new System.EventHandler(this.btnRevocar_Click);
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.Location = new System.Drawing.Point(18, 109);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(43, 13);
+            this.lblEstado.TabIndex = 14;
+            this.lblEstado.Text = "Estado:";
+            // 
+            // txtEstado
+            // 
+            this.txtEstado.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.sourcePresupuestos, "Estado", true));
+            this.txtEstado.Location = new System.Drawing.Point(115, 106);
+            this.txtEstado.Name = "txtEstado";
+            this.txtEstado.ReadOnly = true;
+            this.txtEstado.Size = new System.Drawing.Size(248, 20);
+            this.txtEstado.TabIndex = 15;
+            // 
             // PresupuestoRecorrido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(375, 254);
+            this.ClientSize = new System.Drawing.Size(375, 277);
+            this.Controls.Add(this.txtEstado);
+            this.Controls.Add(this.lblEstado);
+            this.Controls.Add(this.btnRevocar);
             this.Controls.Add(this.btnComprar);
             this.Controls.Add(this.txtVehiculo);
             this.Controls.Add(this.txtCliente);
@@ -319,5 +353,8 @@ namespace CapaDePresentacion
         private System.Windows.Forms.TextBox txtVehiculo;
         private System.Windows.Forms.Button btnComprar;
         private System.Windows.Forms.ToolTip toolTipComprar;
+        private System.Windows.Forms.Button btnRevocar;
+        private System.Windows.Forms.Label lblEstado;
+        private System.Windows.Forms.TextBox txtEstado;
     }
 }

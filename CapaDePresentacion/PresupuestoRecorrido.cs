@@ -75,6 +75,7 @@ namespace CapaDePresentacion
             if (presupuesto != null)
             {
                 lboxValoraciones.Items.Clear();
+
                 foreach (KeyValuePair<MD.Vehiculo, double> kvp in presupuesto.Valoracion)
                 {
                     lboxValoraciones.Items.Add(kvp.Key.Marca + " " + kvp.Key.Modelo + " " + kvp.Key.Año + ", " + kvp.Value + "€");
@@ -83,16 +84,10 @@ namespace CapaDePresentacion
                 lboxValoraciones.SelectedIndex = 0;
 
                 txtCliente.Text = presupuesto.Cliente.Nombre + ", " + presupuesto.Cliente.DNI;
-                if (presupuesto.Vehiculo != null)
-                {
-                    txtVehiculo.Text = presupuesto.Vehiculo.Marca + " " + presupuesto.Vehiculo.Modelo + " " + presupuesto.Vehiculo.Año;
-                    btnComprar.Visible = false;
-                }
-                else
-                {
-                    txtVehiculo.Clear();
-                    btnComprar.Visible = true;
-                }
+                btnComprar.Visible = (presupuesto.Estado == MD.Estado.Aceptado  || presupuesto.Estado == MD.Estado.Desestimado ? false : true);
+                txtVehiculo.Text = (presupuesto.Estado == MD.Estado.Aceptado ? (txtVehiculo.Text = presupuesto.Vehiculo.Marca + " " + presupuesto.Vehiculo.Modelo + " " + presupuesto.Vehiculo.Año) : "");
+                btnRevocar.Visible = (presupuesto.Estado == MD.Estado.Aceptado || presupuesto.Estado == MD.Estado.Desestimado ? false : true);
+                txtEstado.Text = presupuesto.Estado.ToString();
             }
         }
 
@@ -130,6 +125,24 @@ namespace CapaDePresentacion
                 case DialogResult.No:
                     MessageBox.Show("La compra se ha cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
+            }
+        }
+
+        // PRE:
+        // POS: cambia el estado del presupuesto actual a Desestimado (si este está en el estado Pendiente) en el caso
+        // POS: de que se haya detectado un error y se quiera revocar su validez.
+        private void btnRevocar_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("¿Quieres confirmar la operación?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (res == DialogResult.Yes)
+            {
+                MD.Presupuesto presupuesto = (MD.Presupuesto)bindingNavigator.BindingSource.Current;
+                if (presupuesto.Estado == MD.Estado.Pendiente)
+                {
+                    LNPresupuesto.Presupuesto.DesestimarPresupuesto(presupuesto);
+                    MessageBox.Show("El presupuesto ha sido desestimado");
+                    actualizar();
+                }
             }
         }
     }
