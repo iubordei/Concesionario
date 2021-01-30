@@ -14,7 +14,7 @@ namespace Persistencia
         public static void Añadir(Cliente c)
         {
             if (BD.Clientes != null)
-                BD.INSERTCliente(cambioAClienteDato(c));
+                BD.INSERTCliente(CambioAClienteDato(c));
         }
 
         // PRE: dni != null.
@@ -23,7 +23,7 @@ namespace Persistencia
         {
             if (BD.Clientes == null)
                 return null;
-            return cambioACliente(BD.SELECTCliente(dni));
+            return CambioACliente(BD.SELECTCliente(dni));
         }
 
         // PRE: c != null.
@@ -31,7 +31,7 @@ namespace Persistencia
         public static void Eliminar(Cliente c)
         {
             if (BD.Clientes != null)
-                BD.DELETECliente(cambioAClienteDato(c));
+                BD.DELETECliente(CambioAClienteDato(c));
         }
 
         // PRE: c != null.
@@ -39,7 +39,7 @@ namespace Persistencia
         public static void Modificar(Cliente c)
         {
             if (BD.Clientes != null)
-                BD.UPDATECliente(cambioAClienteDato(c));
+                BD.UPDATECliente(CambioAClienteDato(c));
         }
 
         // PRE: dni != null.
@@ -58,7 +58,7 @@ namespace Persistencia
 
             foreach (ClienteDato cd in clientesDato)
             {
-                clientes.Add(cambioACliente(cd));
+                clientes.Add(CambioACliente(cd));
             }
 
             return clientes;
@@ -67,7 +67,7 @@ namespace Persistencia
 
         // PRE: c != null.
         // POS: devuelve un objeto de tipo ClienteDato a partir del objeto Cliente c.
-        private static ClienteDato cambioAClienteDato(Cliente c)
+        public static ClienteDato CambioAClienteDato(Cliente c)
         {
             if (c == null)
             {
@@ -81,7 +81,7 @@ namespace Persistencia
 
         // PRE: c != null.
         // POS: devuelve un objeto de tipo Cliente a partir del objeto ClienteDato c.
-        private static Cliente cambioACliente(ClienteDato c)
+        public static Cliente CambioACliente(ClienteDato c)
         {
             if (c == null)
             {

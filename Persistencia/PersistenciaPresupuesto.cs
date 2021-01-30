@@ -32,7 +32,7 @@ namespace Persistencia
                     {
                         valoraciones.Add(PersistenciaVehiculo.VehiculoDatoAVehiculo(kvp.Key), kvp.Value);
                     }
-                    return (new MD.Presupuesto(res.FechaRealizacion, Persistencia.PersistenciaCliente.Buscar(res.Cliente), valoraciones));
+                    return (new MD.Presupuesto(res.FechaRealizacion, Persistencia.PersistenciaCliente.CambioACliente(res.Cliente), valoraciones));
                 }
                 else
                 {
@@ -98,7 +98,7 @@ namespace Persistencia
                     break;
             }
 
-            return (new PresupuestoDato(p.FechaRealizacion, p.Cliente.DNI, Persistencia.PersistenciaVehiculo.VehiculoAVehiculoDato(p.Vehiculo), estado, valoraciones));
+            return (new PresupuestoDato(p.FechaRealizacion, Persistencia.PersistenciaCliente.CambioAClienteDato(p.Cliente), Persistencia.PersistenciaVehiculo.VehiculoAVehiculoDato(p.Vehiculo), estado, valoraciones));
         }
 
         // PRE: p != null.
@@ -123,7 +123,7 @@ namespace Persistencia
                     break;
             }
 
-            MD.Presupuesto presupuesto = new MD.Presupuesto(pDato.FechaRealizacion, Persistencia.PersistenciaCliente.Buscar(pDato.Cliente), valoraciones);
+            MD.Presupuesto presupuesto = new MD.Presupuesto(pDato.FechaRealizacion, Persistencia.PersistenciaCliente.CambioACliente(pDato.Cliente), valoraciones);
             presupuesto.Vehiculo = Persistencia.PersistenciaVehiculo.VehiculoDatoAVehiculo(pDato.Vehiculo);
             presupuesto.Estado = estado;
             return (presupuesto);

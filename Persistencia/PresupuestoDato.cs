@@ -9,14 +9,14 @@ namespace Persistencia
     class PresupuestoDato
     {
         private DateTime fechaRealizacion;
-        private string cliente;
+        private ClienteDato cliente;
         private VehiculoDato vehiculo;
         private EstadoDato estado;
         private Dictionary<VehiculoDato, double> valoraciones;
 
         // PRE: fecha != null, cliente != null, valoraciones != null
         // POS: crea un nuevo objeto de tipo PresupuestoDato con los parámetros pertinentes.
-        public PresupuestoDato(DateTime fecha, string cliente, VehiculoDato vehiculo, EstadoDato estado, Dictionary<VehiculoDato, double> valoraciones)
+        public PresupuestoDato(DateTime fecha, ClienteDato cliente, VehiculoDato vehiculo, EstadoDato estado, Dictionary<VehiculoDato, double> valoraciones)
         {
             this.fechaRealizacion = fecha;
             this.cliente = cliente;
@@ -37,7 +37,7 @@ namespace Persistencia
 
         // PRE:
         // POS: get: devuelve el cliente del presupuesto.
-        public string Cliente
+        public ClienteDato Cliente
         {
             get
             {

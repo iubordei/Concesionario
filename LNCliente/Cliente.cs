@@ -41,7 +41,7 @@ namespace LNCliente
 
         // PRE: 
         // POS: crea un nuevo cliente.
-        public static MD.Cliente crearCliente(String DNI, String nombre, String telef, Categoria cat)
+        public static MD.Cliente CrearCliente(String DNI, String nombre, String telef, Categoria cat)
         {
             return (new MD.Cliente(DNI, nombre, telef, cat));
         }
