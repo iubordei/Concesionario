@@ -78,7 +78,7 @@ namespace CapaDePresentacion
 
         // PRE:
         // POS: genera un formulario de tipo PresupuestoRecorrido, para mostrar todos los presupuestos almacenados en el sistema.
-        private void tsMostrarTodosPresupuesto_Click(object sender, EventArgs e)
+        private void tsRecorridoPresupuesto_Click(object sender, EventArgs e)
         {
             List<MD.Presupuesto> presupuestos = LNPresupuesto.Presupuesto.GetTodosPresupuestos();
             if (presupuestos.Count > 0)
@@ -225,6 +225,22 @@ namespace CapaDePresentacion
             else
             {
                 MessageBox.Show("No hay clientes para mostrar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        // PRE:
+        // POS: muestra en un nuevo formulario los formularios en forma de tabla.
+        private void listadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<MD.Presupuesto> presupuestos = LNPresupuesto.Presupuesto.GetTodosPresupuestos();
+            if (presupuestos.Count > 0)
+            {
+                PresupuestoListado listado = new PresupuestoListado(presupuestos);
+                listado.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No hay presupuestos para mostrar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

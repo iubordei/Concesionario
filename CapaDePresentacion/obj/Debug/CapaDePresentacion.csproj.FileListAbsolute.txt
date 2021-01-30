@@ -62,3 +62,4 @@ C:\Users\Iura\Documents\GitHub\Concesionario\CapaDePresentacion\obj\Debug\CapaDe
 C:\Users\Iura\Documents\GitHub\Concesionario\CapaDePresentacion\obj\Debug\CapaDePresentacion.ClienteClave.resources
 C:\Users\Iura\Documents\GitHub\Concesionario\CapaDePresentacion\obj\Debug\CapaDePresentacion.ClienteRecorrido.resources
 C:\Users\Iura\Documents\GitHub\Concesionario\CapaDePresentacion\obj\Debug\CapaDePresentacion.VehiculoUnoAUno.resources
+C:\Users\Iura\Documents\GitHub\Concesionario\CapaDePresentacion\obj\Debug\CapaDePresentacion.PresupuestoListado.resources

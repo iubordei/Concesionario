@@ -118,6 +118,12 @@
     <Compile Include="PresupuestoBusqueda.Designer.cs">
       <DependentUpon>PresupuestoBusqueda.cs</DependentUpon>
     </Compile>
+    <Compile Include="PresupuestoListado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresupuestoListado.Designer.cs">
+      <DependentUpon>PresupuestoListado.cs</DependentUpon>
+    </Compile>
     <Compile Include="PresupuestoRecorrido.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PresupuestoBusqueda.resx">
       <DependentUpon>PresupuestoBusqueda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresupuestoListado.resx">
+      <DependentUpon>PresupuestoListado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresupuestoRecorrido.resx">
       <DependentUpon>PresupuestoRecorrido.cs</DependentUpon>

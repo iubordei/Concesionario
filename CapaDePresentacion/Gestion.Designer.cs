@@ -45,7 +45,8 @@
             this.presupuestosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsAltaPresupuesto = new System.Windows.Forms.ToolStripMenuItem();
             this.tsBusquedaPresupuesto = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsMostrarTodosPresupuesto = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsRecorridoPresupuesto = new System.Windows.Forms.ToolStripMenuItem();
+            this.listadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsDesconectar = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -172,7 +173,8 @@
             this.presupuestosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsAltaPresupuesto,
             this.tsBusquedaPresupuesto,
-            this.tsMostrarTodosPresupuesto});
+            this.tsRecorridoPresupuesto,
+            this.listadoToolStripMenuItem});
             this.presupuestosToolStripMenuItem.Name = "presupuestosToolStripMenuItem";
             this.presupuestosToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
             this.presupuestosToolStripMenuItem.Text = "Presupuestos";
@@ -180,23 +182,30 @@
             // tsAltaPresupuesto
             // 
             this.tsAltaPresupuesto.Name = "tsAltaPresupuesto";
-            this.tsAltaPresupuesto.Size = new System.Drawing.Size(149, 22);
+            this.tsAltaPresupuesto.Size = new System.Drawing.Size(182, 22);
             this.tsAltaPresupuesto.Text = "Alta";
             this.tsAltaPresupuesto.Click += new System.EventHandler(this.tsAltaPresupuesto_Click);
             // 
             // tsBusquedaPresupuesto
             // 
             this.tsBusquedaPresupuesto.Name = "tsBusquedaPresupuesto";
-            this.tsBusquedaPresupuesto.Size = new System.Drawing.Size(149, 22);
+            this.tsBusquedaPresupuesto.Size = new System.Drawing.Size(182, 22);
             this.tsBusquedaPresupuesto.Text = "Búsqueda";
             this.tsBusquedaPresupuesto.Click += new System.EventHandler(this.tsBusquedaPresupuesto_Click);
             // 
-            // tsMostrarTodosPresupuesto
+            // tsRecorridoPresupuesto
             // 
-            this.tsMostrarTodosPresupuesto.Name = "tsMostrarTodosPresupuesto";
-            this.tsMostrarTodosPresupuesto.Size = new System.Drawing.Size(149, 22);
-            this.tsMostrarTodosPresupuesto.Text = "Mostrar Todos";
-            this.tsMostrarTodosPresupuesto.Click += new System.EventHandler(this.tsMostrarTodosPresupuesto_Click);
+            this.tsRecorridoPresupuesto.Name = "tsRecorridoPresupuesto";
+            this.tsRecorridoPresupuesto.Size = new System.Drawing.Size(182, 22);
+            this.tsRecorridoPresupuesto.Text = "Recorrido uno a uno";
+            this.tsRecorridoPresupuesto.Click += new System.EventHandler(this.tsRecorridoPresupuesto_Click);
+            // 
+            // listadoToolStripMenuItem
+            // 
+            this.listadoToolStripMenuItem.Name = "listadoToolStripMenuItem";
+            this.listadoToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.listadoToolStripMenuItem.Text = "Listado";
+            this.listadoToolStripMenuItem.Click += new System.EventHandler(this.listadoToolStripMenuItem_Click);
             // 
             // configuraciónToolStripMenuItem
             // 
@@ -255,12 +264,13 @@
         private System.Windows.Forms.ToolStripMenuItem tsAltaCliente;
         private System.Windows.Forms.ToolStripMenuItem tsBajaCliente;
         private System.Windows.Forms.ToolStripMenuItem tsBusquedaCliente;
-        private System.Windows.Forms.ToolStripMenuItem tsMostrarTodosPresupuesto;
+        private System.Windows.Forms.ToolStripMenuItem tsRecorridoPresupuesto;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsBusquedaDNI;
         private System.Windows.Forms.ToolStripMenuItem listadoOrdenadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem recorridoUnoAUnoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem tsListadoVehiculo;
         private System.Windows.Forms.ToolStripMenuItem txRecorridoVehiculo;
+        private System.Windows.Forms.ToolStripMenuItem listadoToolStripMenuItem;
     }
 }
