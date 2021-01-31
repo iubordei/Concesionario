@@ -108,7 +108,7 @@ namespace CapaDePresentacion
             if (rdBtnVehiculo.Checked)
             {
                 MD.Vehiculo parametro = clavesVehiculo[(string)listBoxParametros.SelectedItem];
-               mostrarResultado(LNPresupuesto.Presupuesto.GetPresupuestosPorVehiculo(parametro));
+                mostrarResultado(LNPresupuesto.Presupuesto.GetPresupuestosPorVehiculo(parametro));
             }
 
             if (rdBtnEstado.Checked)

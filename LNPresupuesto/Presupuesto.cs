@@ -97,9 +97,9 @@ namespace LNPresupuesto
 
             foreach (MD.Presupuesto presupuesto in presupuestos)
             {
-                if (presupuesto.Vehiculo != null)
+                foreach (KeyValuePair<MD.Vehiculo, double> kvp in presupuesto.Valoracion)
                 {
-                    if (presupuesto.Vehiculo.Equals(vehiculo))
+                    if (vehiculo.Equals(kvp.Key))
                     {
                         solucion.Add(presupuesto);
                     }

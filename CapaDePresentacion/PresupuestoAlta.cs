@@ -144,7 +144,7 @@ namespace CapaDePresentacion
                 }
                 else
                 {
-                    MessageBox.Show("El valor introducida no es correcta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("El valor introducida no es correcto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
